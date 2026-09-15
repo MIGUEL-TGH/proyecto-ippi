@@ -1,0 +1,6 @@
+COCODI "Comité de Control y Desempeño Institucional"
+
+1.1 Diseño de protocolos de administración de la seguridad informática
+1.2 Diseño del Plan de recuperación ante desastres
+1.3 Diseño del plan de mejora en el diseño de la infraestructura de las TIC
+   
