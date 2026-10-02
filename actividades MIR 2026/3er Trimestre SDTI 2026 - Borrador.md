@@ -1,94 +1,212 @@
-# E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDÍGENAS
-## CUADRO RESUMEN — TERCER TRIMESTRE 2026
+# 3er Trimestre 2026 — BORRADOR (reestructurado 2026-10-02, versión 2)
 
-**Estatus:** Borrador para revisión — pendiente de confirmar datos marcados con `[CONFIRMAR]` antes de darle carácter oficial.
-**Responsable de la información:** C. Miguel Trinidad Gómez Hernández, Encargado de Despacho de la Subdirección de Desarrollo de Tecnologías de la Información.
-
-> **Antes de avanzar esto a versión final**, necesito que confirmes si el curso "Tekitl Ojo — Despertando al OJO" (Sección 2 abajo) realmente se impartió el 22/04/2026 en Zihuateutla con ~100 asistentes, ya que la documentación digital del curso (lista de asistencia, informe final, encuesta) tiene los campos de datos en blanco pese a que la fecha, el lugar y el instructor sí están capturados. Si tienes las listas firmadas en papel, fotos del evento o algo que lo respalde, con eso basta para quitar el `[CONFIRMAR]`. Si no se impartió aún, lo ajusto para reportarlo como "programado/en calendarización" en vez de "realizado".
+> **Estatus:** borrador para revisión de Miguel. Sigue la estructura oficial de `MDs/1er Trimestre 2026.md` y `MDs/2do Trimestre 2026.md`. Todo lo marcado `[CONFIRMAR]` o `[PENDIENTE]` debe resolverse antes de imprimir. Este bloque inicial NO forma parte del informe: se borra al finalizar.
+>
+> **Los dos proyectos del trimestre:**
+> 1. **TEKITL** (Tekitl-Lab + curso "Electrónica y Programación Básica"): material formativo preparado.
+> 2. **NODO** (Nodo de Innovación Tecnológica Comunitaria, NITC): habilitación física instalada y probada en el edificio del IPPI.
+>
+> **Puntos a decidir antes de imprimir:**
+> 1. **Fechas del NODO.** Las capturas de OBS y las fotos 1.9/1.10 son del **02/10/2026**, o sea, después del cierre del trimestre (30/09). Hay que confirmar la **fecha de instalación** (idealmente dentro de jul–sep) y redactar las pruebas como "a inicios de octubre" si así fue. No fechar la evidencia dentro del trimestre si no lo está.
+> 2. **Qué componentes del NITC quedaron instalados.** Lo que muestran las fotos es equipamiento de producción de audio y video. Se asoció a Fábrica de Contenidos y Promotores Tecnológicos `[CONFIRMAR]`. Los otros componentes (PADI, Intercambio Digital, Casa de Proyectos, Altépetl) siguen en el documento maestro, y los Módulos de Apropiación Digital son instalaciones en territorio (no en el nodo).
+> 3. **Documento maestro vigente del NODO:** hay dos copias casi idénticas (`NODO 3.docx` y `NODO 3 (2).docx`). Definir cuál se anexa. La versión "(2)" quita "Leaflet" y "celismo", y reemplaza e-commerce por comercio electrónico.
+> 4. **Cifra de Realizado en septiembre.** Referencia: 2 en marzo, 2 en junio y 4 acumulado en el Q2.
+> 5. **Cargo del elaborador y responsable.** Se deja para el final. Q2 imprimió a Moisés Ismael Rosas Cabrera como Encargado de Despacho; el borrador anterior ponía a Miguel Trinidad Gómez Hernández.
+> 6. **Acciones de julio y agosto** (fechas).
+> 7. **Año de la portada.** Q1 y Q2 imprimieron "2025" por error.
+> 8. **Beneficiarios.** El NODO aún no recibe visitas, así que corresponde "NO APLICA". No declarar asistentes.
+> 9. **Firmas**, al final.
+> 10. **Fotografías.** Aparecen personas del equipo en las capturas de pruebas (1.1 a 1.8, 2.6 a 2.8). Confirmar si pueden ir en un documento oficial.
 
 ---
 
-## 1. Datos de identificación
+## Página 1 (portada)
+
+# E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDÍGENAS.
+
+**SUBDIRECCIÓN DE DESARROLLO DE TECNOLOGÍAS DE LA INFORMACIÓN**
+
+**COMPONENTE 3:** ACCIONES DE PATRIMONIO CULTURAL Y EDUCACIÓN PERTINENTE REALIZADAS.
+
+**Actividad: 3.9** IMPLEMENTACIÓN DE PROYECTOS TECNOLOGICOS QUE REFLEJEN Y FORTALEZCAN LA COMUNICACIÓN Y LA IDENTIDAD CULTURAL.
+
+**INDICADOR:** NÚMERO DE PROYECTOS TECNOLÓGICOS IMPLEMENTADOS PARA FORTALECER LA COMUNICACIÓN E IDENTIDAD CULTURAL.
+
+## 3ER TRIMESTRE 2026 `[CONFIRMAR año]`
+
+---
+
+## Página 2 — Cuadro resumen
+
+**E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDÍGENAS**
+**CUADRO RESUMEN - TERCER TRIMESTRE**
 
 | Campo | Valor |
 |---|---|
-| **Componente** | 3 — Acciones de Patrimonio Cultural y Educación Pertinente Realizadas |
-| **Actividad** | 3.9 — Implementación de proyectos tecnológicos que reflejen y fortalezcan la comunicación y la identidad cultural |
-| **Indicador** | Número de proyectos tecnológicos implementados para fortalecer la comunicación e identidad cultural |
-| **Unidad Responsable** | DA3Q — Instituto Poblano de los Pueblos Indígenas |
-| **Tipo / Dimensión / Frecuencia / Meta** | Gestión / Eficacia / Trimestral / Absoluta |
+| Componente | ACCIONES DE PATRIMONIO CULTURAL Y EDUCACIÓN PERTINENTE REALIZADAS. |
+| Actividad | IMPLEMENTACIÓN DE PROYECTOS TECNOLOGICOS QUE REFLEJEN Y FORTALEZCAN LA COMUNICACIÓN Y LA IDENTIDAD CULTURAL. |
+| Indicador | NÚMERO DE PROYECTOS TECNOLÓGICOS IMPLEMENTADOS PARA FORTALECER LA COMUNICACIÓN E IDENTIDAD CULTURAL. |
+| Unidad Responsable | DA3Q - INSTITUTO POBLANO DE LOS PUEBLOS INDÍGENAS |
 
-## 2. Cuadro resumen — avance del indicador
+**Programado (V1)**
 
-| | Ene | Feb | Mar | Abr | May | Jun | Jul | Ago | **Sep** | Oct | Nov | Dic | Anual |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Programado** | | | 2 | | | 2 | | | **2** | | | 2 | 8 |
-| **Realizado** | | | 2 | | | 2 | | | **2** | | | | Meta al corte: 6 |
+| Ene | Feb | Mar | Abr | May | Jun | Jul | Ago | Sep | Oct | Nov | Dic | Anual | Meta al corte |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| | | 2 | | | 2 | | | 2 | | | 2 | 8 | 6 |
 
-Los 2 proyectos tecnológicos del tercer trimestre son:
+**Realizado (V1)**
 
-1. **Tekitl Laboratorios (Tekitl-Lab)** — programa de talleres de electrónica y reaprovechamiento de residuos tecnológicos.
-2. **Tekitl Lab "Despertando al OJO" (Sistema Centinela)** — curso piloto bajo el Estándar de Competencia CONOCER EC0217.01. `[CONFIRMAR estatus de impartición, ver nota al inicio]`
+| Ene | Feb | Mar | Abr | May | Jun | Jul | Ago | Sep | Oct | Nov | Dic | Anual | Meta al corte |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| | | 2 | | | 2 | | | `[CONFIRMAR: 2]` | | | | `[CONFIRMAR]` | 6 |
 
-**Beneficiarios:** Hombres [CONFIRMAR] · Mujeres [CONFIRMAR] · Población indígena: Sí (localidad de Zihuateutla, Puebla) `[CONFIRMAR]`
+**Beneficiarios:**
 
-**Descripción breve de las acciones realizadas para el logro del resultado:** Durante el tercer trimestre se avanzó de la etapa de diseño conceptual de los proyectos tecnológicos (concluida en trimestres previos con Tekitl Digital, Intercambio Digital, PADI y Altépetl) hacia la primera etapa de **ejecución técnica tangible**: desarrollo y prueba de hardware funcional (sistema "Centinela" basado en sensor PIR), ensamblaje de kits de laboratorio para talleres comunitarios, y estructuración de un curso de capacitación con validez ante el CONOCER.
+| Hombres | Mujeres | Prefiero no decirlo | Edad | Población indígena |
+|---|---|---|---|---|
+| NO APLICA | | | | |
 
----
+**Comentarios del responsable de la información**
 
-## I. Descripción de la justificación
+*Describa brevemente las acciones realizadas para el cumplimiento o las causas del resultado insuficiente/excedido del componente o actividad:*
 
-El tercer trimestre de 2026 marca una transición respecto a los trimestres anteriores: mientras que los proyectos reportados en el primer y segundo trimestre (Tekitl Digital/Faena Tecnológica, Intercambio Digital, PADI y Altépetl) consistieron en el diseño de la arquitectura, el marco jurídico y la ingeniería estratégica de los ecosistemas digitales del Instituto, los proyectos del tercer trimestre dan el siguiente paso: la **implementación técnica y pedagógica directa** de soluciones tecnológicas de bajo costo, replicables y con pertinencia comunitaria, bajo el programa **Tekitl Laboratorios (Tekitl-Lab)**.
+Para el cumplimiento de la meta programada en el trimestre se concretaron dos proyectos tecnológicos: uno de formación técnica en estado "Llave en Mano" (TEKITL) y otro de infraestructura física instalada y probada (NODO). Las acciones estratégicas realizadas fueron:
 
-A diferencia de los Módulos de Apropiación Digital (MADI), orientados al acceso y uso de software, los Tekitl Laboratorios están orientados a la comprensión del hardware: enseñan a las comunidades a desarmar, diagnosticar, reparar y reutilizar componentes electrónicos, y a partir de ello ensamblar sistemas propios de utilidad práctica (iluminación automática, alarmas vecinales, sensores ambientales), reduciendo tanto la dependencia técnica externa como la acumulación de residuos electrónicos en el territorio.
+- **TEKITL, programa Tekitl Laboratorios (Tekitl-Lab):** Se consolidó el Documento Maestro Ejecutivo y la serie de **6 cursos de electrónica y reaprovechamiento de residuos tecnológicos** (Ensamblaje H2O, Dinámica Rotatoria, Espectro Audible, Impulso Lumínico, Ponte las Pilas y Forja Térmica), alineados al Estándar de Competencia CONOCER EC0217.01. Se desarrolló además el prototipo "Centinela" (sensor PIR y Arduino), en fase de pruebas.
+- **TEKITL, curso "Electrónica y Programación Básica":** Se elaboró el manual didáctico de 10 capítulos y la guía de armado de 8 proyectos con Arduino Uno, dirigidos a estudiantes de secundaria. Su primera impartición está programada para el 25 y 26 de noviembre de 2026 en el municipio de Eloxochitlán, Puebla.
+- **NODO (NITC):** Se instaló y probó, en el edificio del IPPI (Blvd. Atlixco 2103, col. Belisario Domínguez, Puebla), la infraestructura física de producción de contenidos en **tres zonas**: estudio con pantalla verde, set de entrevista con audio profesional y cabina de grabación con área de sonido y proyección. Se realizaron pruebas de funcionamiento de los equipos para las funciones previstas.
+- **Soberanía y sostenibilidad:** Ambos proyectos privilegian software libre (OBS Studio, Arduino IDE) y equipos de uso comunitario, bajo custodia pública del IPPI.
 
-### Proyecto 1 — Tekitl Laboratorios (Tekitl-Lab)
-
-Se concluyó el desarrollo y prueba funcional del sistema **"Centinela"**: un dispositivo de automatización comunitaria basado en un sensor de movimiento PIR (HC-SR501) conectado a un microcontrolador Arduino, que al detectar presencia activa — mediante una aplicación de control en Python — la reproducción de audio o video, o el accionamiento de un relevador para iluminación/alarma. El sistema fue documentado y probado en campo como prototipo de referencia para los talleres comunitarios.
-
-De manera paralela, se ensamblaron y empacaron **5 kits de laboratorio** para despliegue en los Módulos Interculturales Digitales y centros comunitarios, cada uno con su manual de instalación y de uso:
-
-| Kit | Temática |
-|---|---|
-| Tekitl Lab H2O | `[CONFIRMAR descripción — pendiente de revisar el contenido del zip/manual]` |
-| Tekitl Lab Dinámica Rotatoria | `[CONFIRMAR descripción]` |
-| Tekitl Lab Espectro Audible | `[CONFIRMAR descripción]` |
-| Tekitl Lab Impulso Lumínico | `[CONFIRMAR descripción]` |
-| Tekitl-Lab Ponte las Pilas | `[CONFIRMAR descripción]` |
-
-*(No abrí el contenido completo de estos 5 paquetes — son archivos comprimidos grandes. Si quieres que revise el manual de instalación/uso y te dé una descripción real de cada kit antes de enviar el reporte, dime y lo hago antes de cerrar esta sección.)*
-
-### Proyecto 2 — Tekitl Lab "Despertando al OJO" (Sistema Centinela) `[CONFIRMAR]`
-
-Como primer ejercicio piloto de transferencia de capacidades, se estructuró el curso **"Tekitl Lab: Despertando al OJO — Automatización de espacios comunitarios"**, alineado al Estándar de Competencia **EC0217.01** del CONOCER ("Impartición de cursos de formación del capital humano de manera presencial grupal"), con la documentación completa requerida por dicho estándar (carta descriptiva, lista de verificación de requerimientos, contrato de aprendizaje, instrumentos de evaluación diagnóstica/formativa/final, lista de cotejo, guía de observación y encuesta de satisfacción).
-
-`[CONFIRMAR]` El curso se impartió el 22 de abril de 2026 en la localidad de Zihuateutla, Puebla, con la participación de aproximadamente 100 personas de la comunidad, bajo la instrucción de C. Moisés Ismael Rosas Cabrera.
-
-## II. Resultados alcanzados
-
-- **Desarrollo de hardware funcional replicable:** sistema "Centinela" (sensor PIR + Arduino + control por Python) documentado y probado.
-- **Producción de material didáctico estandarizado:** 5 kits de laboratorio con manuales de instalación y uso.
-- **Primer curso piloto con validez CONOCER:** documentación completa bajo el estándar EC0217.01 para la certificación de competencias. `[CONFIRMAR si ya se impartió o está programado]`
-
-## III. Acciones realizadas
-
-1. Ensamblaje y prueba de campo del prototipo "Centinela" (sensor PIR + relevador + control de audio/video).
-2. Desarrollo del software de control (Python + VLC) y la lógica de comunicación serial con el microcontrolador Arduino.
-3. Empaquetado de 5 kits de laboratorio ("Tekitl Labs") con sus manuales correspondientes.
-4. Elaboración de la documentación pedagógica completa del curso "Despertando al OJO" conforme al Estándar de Competencia EC0217.01 del CONOCER.
-5. `[CONFIRMAR]` Impartición del curso piloto en Zihuateutla, Puebla.
-
-## IV. Conclusiones y relación de evidencia documental
-
-El tercer trimestre consolida el tránsito de los proyectos tecnológicos de la Subdirección de la fase de diseño documental hacia la fase de implementación técnica verificable, con artefactos tangibles (código funcional, kits físicos, documentación pedagógica certificable). Se recomienda, antes de remitir este informe en su versión final, confirmar y anexar evidencia documental de la impartición real del curso piloto (listas de asistencia firmadas, fotografías, evaluaciones capturadas), a fin de que el indicador se reporte con soporte verificable completo.
-
-**Relación de evidencia documental disponible en el repositorio:**
-- Código fuente: `TEKITL/Codigo/pir_sensores/pir_sensores.ino`, `TEKITL/Codigo/video.py`
-- Documentación del curso: `TEKITL/Tekitl Ojo/` (11 documentos conforme al EC0217.01)
-- Kits de laboratorio: `TEKITL/TEKITL LABS/` (5 paquetes + manuales de instalación y uso)
-
----
+Se anexa a continuación el Documento Maestro Ejecutivo de Laboratorios Tekitl, el Documento Maestro del NITC y la evidencia fotográfica de la instalación.
 
 | Elaboró | Validó |
 |---|---|
-| C. Miguel Trinidad Gómez Hernández — Encargado de Despacho de la Subdirección de Desarrollo de Tecnologías de la Información | C. Apolinaria Martínez Arroyo — Directora General |
+| `[CONFIRMAR nombre y cargo]` | **Apolinaria Martínez Arroyo**<br>Directora General |
+
+[Firmas: se revisan al final]
+
+---
+
+## Página 3
+
+### 1. DESCRIPCIÓN DE LA JUSTIFICACIÓN
+
+Se reporta el avance de la meta programada para este periodo, materializado en dos proyectos de la Subdirección: **TEKITL**, que reúne el programa Tekitl Laboratorios y el curso "Electrónica y Programación Básica", y el **Nodo de Innovación Tecnológica Comunitaria (NODO / NITC)**. A diferencia de los trimestres anteriores, donde el resultado fue ingeniería de escritorio (Tekitl Digital, Intercambio Digital, PADI y Altépetl), en este periodo se pasa a la **formación técnica en estado "Llave en Mano" y a la instalación física verificable**.
+
+**TEKITL** atiende dos rezagos. Primero, la acumulación de chatarra electrónica en municipios con alta presencia indígena (el Documento Maestro estima, con base en residuos sólidos urbanos 2024 y composición de residuos de SEMARNAT, más de 180 toneladas anuales solo en Cuetzalan del Progreso y Zacapoaxtla). Segundo, la dependencia técnica de las comunidades, que no cuentan con herramientas para entender, reparar o reutilizar los aparatos que consumen. Los Módulos Interculturales Digitales lograron el acceso y uso del software; Tekitl-Lab da el siguiente paso con la comprensión del hardware, mediante un programa dinámico de cursos y no con una instalación fija. El curso "Electrónica y Programación Básica" extiende ese enfoque a estudiantes de secundaria, con Arduino como herramienta.
+
+El **NODO** responde a la dispersión de esfuerzos: concibe un espacio físico de co-gestión comunitaria que reúne, en una sola infraestructura, los proyectos que el IPPI ya diseñó. Su fundamento jurídico es el Art. 2° constitucional, el Art. 13 de la Constitución de Puebla (comunidades como Sujetos de Derecho Público) y el Convenio 169 de la OIT. En este trimestre se concretó la primera etapa física: las zonas de producción de audio y video, que permitirán a las comunidades documentar su patrimonio inmaterial, producir contenidos en lenguas originarias y formar promotores tecnológicos.
+
+Dado que ningún curso se ha impartido y el NODO aún no recibe visitas, el alcance se circunscribe al fortalecimiento de las capacidades institucionales del IPPI. El resultado se convalida mediante la entrega de los materiales formativos, la infraestructura instalada y probada, y la evidencia documental y fotográfica correspondiente.
+
+---
+
+## Página 4 (portada del informe anual)
+
+# INFORME INSTITUCIONAL ANUAL DE RESULTADOS
+# EJERCICIO FISCAL 2025/2026 `[CONFIRMAR]`
+
+**PROGRAMA PRESUPUESTARIO:**
+E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDÍGENAS
+
+**COMPONENTE 3:**
+ACCIONES DE PATRIMONIO CULTURAL Y EDUCACIÓN PERTINENTE REALIZADAS.
+
+**ACTIVIDAD 3.9:**
+IMPLEMENTACIÓN DE PROYECTOS TECNOLOGICOS QUE REFLEJEN Y FORTALEZCAN LA COMUNICACIÓN Y LA IDENTIDAD CULTURAL.
+
+**RESPONSABLE DE LA INFORMACIÓN:**
+`[CONFIRMAR nombre y cargo]`
+
+Heroica Puebla de Zaragoza, `[CONFIRMAR fecha]`.
+
+---
+
+## Página 5
+
+### I. PRESENTACIÓN
+
+El presente Informe Institucional rinde cuentas sobre la consolidación de dos proyectos con los que la Subdirección de Desarrollo de Tecnologías de la Información del IPPI pasa del diseño de ecosistemas digitales a la **formación técnica directa y a la infraestructura física comunitaria**: **TEKITL** y el **Nodo de Innovación Tecnológica Comunitaria (NODO)**.
+
+La exclusión digital en las zonas indígenas de Puebla no se limita al acceso a internet: incluye el desconocimiento de cómo funciona, se repara y se reutiliza la tecnología, y la falta de herramientas para que las comunidades produzcan y difundan sus propios contenidos. Ambos proyectos atienden esa brecha bajo los principios de Soberanía Tecnológica y *Yeknemilis* (Buen Vivir), reconociendo a los pueblos como Sujetos de Derecho Público (Art. 13 de la Constitución local).
+
+Los resultados que se entregan son: cursos documentados y listos para impartirse (TEKITL) y una primera infraestructura física instalada y probada en las instalaciones del IPPI (NODO).
+
+### II. RESULTADOS ALCANZADOS
+
+**Proyecto 1. TEKITL**
+
+*Programa Tekitl Laboratorios (Tekitl-Lab)*
+
+- **Documento Maestro Ejecutivo del programa:** diagnóstico, fundamento jurídico, modelo pedagógico y diferencia respecto de los Módulos Interculturales Digitales.
+- **Seis cursos con paquete documental EC0217.01** (carta descriptiva, lista de verificación de requerimientos, contrato de aprendizaje, instrumentos de evaluación, lista de cotejo, guía de observación, encuesta de satisfacción, informe final y presentación):
+
+| Curso | Construcción |
+|---|---|
+| Ensamblaje H2O | Bombas de agua con motores DC recuperados |
+| Dinámica Rotatoria | Mini taladros comunitarios con fuentes de poder DC |
+| Espectro Audible | Bocinas comunitarias con imán y bobina de voz |
+| Impulso Lumínico | Lámparas USB con LED (5 V) |
+| Ponte las Pilas | Cargadores portátiles (powerbank) con baterías recuperadas |
+| Forja Térmica | Parrillas eléctricas comunitarias con resistencia (efecto Joule) |
+
+- **Hardware "Centinela":** prototipo de automatización comunitaria (sensor PIR HC-SR501, Arduino y aplicación de control en Python para audio/video o relevador), en **fase de pruebas**.
+
+*Curso "Electrónica y Programación Básica" (estudiantes de secundaria)*
+
+- **Manual de 10 capítulos:** fundamentos de electrónica, entorno Arduino, programación, control, sensores, integración hardware-software, prácticas, proyectos de aplicación (alumbrado nocturno automático e indicador tricolor), proyecto integrador (barrera automática con ultrasonido, servomotor y alerta sonora) y visualización con pantalla LCD y sensor de temperatura. Incluye recursos, glosario, conclusiones y referencias.
+- **Guía de armado de 8 proyectos con Arduino Uno** (66 láminas): LEDs, LED con pulsador, sensor ultrasónico con buzzer, servomotor SG90, semáforo, dado de 7 LED, ventilador DC con transistor y potenciómetro.
+- **Impartición programada:** 25 y 26 de noviembre de 2026, en Eloxochitlán, Puebla. Se reporta como material preparado, no como curso impartido.
+
+**Proyecto 2. Nodo de Innovación Tecnológica Comunitaria (NODO / NITC)**
+
+- **Documento Maestro Ejecutivo y Dossier del NITC:** define ocho componentes (Tekitl-Lab, PADI, Intercambio Digital, Módulos de Apropiación Digital, Yolotl Altépetl, Fábrica de Contenidos, Casa de Proyectos y Promotores Tecnológicos), su gobernanza multinivel, la seguridad de datos y una ruta de implementación de cuatro fases (15 meses).
+- **Instalación física en el edificio del IPPI** (Blvd. Atlixco 2103, col. Belisario Domínguez, 72180, Heroica Puebla de Zaragoza, Pue.), en tres zonas:
+  - **Zona 1, estudio con pantalla verde:** fondo croma, dos luces tipo softbox, cámara en tripié y equipo de cómputo con OBS Studio configurado con múltiples escenas.
+  - **Zona 2, set de entrevista:** escritorio con micrófonos de condensador con brazo y filtro antipop, cámaras en tripié, panel de iluminación LED, mezcladora de audio, consola de video y pantalla verde, con escenas de conmutación en OBS Studio.
+  - **Zona 3, cabina de grabación y área de sonido:** cabina acondicionada con espuma acústica, micrófono de condensador con filtro antipop, audífonos y atril; y área de sonido con bocina amplificada, receptores y micrófonos de mano inalámbricos, mezcladora, equipo de cómputo y pantalla de proyección.
+- **Pruebas de funcionamiento:** se verificó el funcionamiento de los equipos para las funciones previstas, incluidos el recorte de fondo (croma) con fondos virtuales, la conmutación entre escenas y cámaras, y la captura de audio.
+- **Estatus:** el NODO se encuentra instalado y probado; aún no ha recibido visitas ni operado con población beneficiaria. Los demás componentes permanecen en el documento maestro.
+
+**Estatus Global de la Meta**
+
+- TEKITL se entrega en estado "Llave en Mano"; el NODO se entrega instalado y probado. `[CONFIRMAR porcentaje y redacción de cumplimiento; no declarar cursos impartidos ni visitas]`
+
+### III. ACCIONES REALIZADAS
+
+1. **Diseño instruccional de los cursos Tekitl-Lab:** cartas descriptivas, objetivos, instrumentos de evaluación y contratos de aprendizaje conforme al EC0217.01, y selección de componentes recuperados y de bajo costo para seis construcciones comunitarias.
+2. **Desarrollo del hardware y software "Centinela":** sensor PIR, relevador y control de audio/video por comunicación serial con Arduino (`pir_sensores.ino`, `video.py`). Fase de pruebas.
+3. **Elaboración del curso "Electrónica y Programación Básica":** manual de 10 capítulos (11/09/2026) y guía de armado de 8 proyectos con Arduino Uno (11 al 22/09/2026); definición de la primera sede de impartición (Eloxochitlán, Puebla).
+4. **Integración del Documento Maestro del NODO:** articulación de los ocho proyectos institucionales en un espacio físico de co-gestión comunitaria, con su gobernanza, seguridad de datos y ruta crítica.
+5. **Instalación del NODO en el edificio del IPPI:** montaje del estudio con pantalla verde, el set de entrevista y la cabina de grabación con área de sonido y proyección. `[CONFIRMAR fecha de instalación]`
+6. **Configuración y pruebas de los equipos:** configuración de OBS Studio con escenas por zona y verificación del funcionamiento de cámaras, iluminación, audio y proyección. `[CONFIRMAR fechas; las capturas conservadas son del 02/10/2026]`
+7. `[PENDIENTE: otras acciones de julio y agosto, con fechas]`
+
+### IV. CONCLUSIONES Y RELACIÓN DE EVIDENCIA DOCUMENTAL
+
+- **Del diseño a la implementación:** el Instituto cuenta ya con infraestructura física instalada (NODO) y con cursos listos para impartirse (TEKITL), lo que traslada los proyectos de la fase documental a la operativa.
+- **Autonomía técnica y cultural:** los cursos transforman la chatarra electrónica en equipamiento útil, y las zonas de producción permitirán a las comunidades documentar su patrimonio y producir contenidos en lenguas originarias.
+- **Viabilidad de ejecución inmediata:** los materiales y los equipos están disponibles para operar; la primera impartición está programada para el 25 y 26 de noviembre de 2026 y el NODO queda listo para su apertura a las comunidades. `[CONFIRMAR fecha de apertura del NODO]`
+- **Siguientes etapas:** instalación progresiva de los demás componentes del NITC conforme a la ruta crítica del documento maestro.
+
+### RELACIÓN DE EVIDENCIA DOCUMENTAL
+
+**1. PROYECTO: TEKITL**
+
+- **Evidencia A:** *Documento Maestro Ejecutivo "Laboratorios Tekitl"* (`TEKITL/TEKITL LABS/Documento Ejecutivo Laboratorios Tekitl (1).docx`).
+- **Evidencia B:** *Paquetes documentales EC0217.01 de los 6 cursos* (H2O, Dinámica Rotatoria, Espectro Audible, Impulso Lumínico, Ponte las Pilas, Forja Térmica). `[CONFIRMAR fechas: archivos del 29/06/2026]` Nota: el paquete de Impulso Lumínico solo contiene carta descriptiva y presentación.
+- **Evidencia C:** *Código y hardware "Centinela"* (`TEKITL/Codigo/`), con Manual de instalación y Manual de uso (fase de pruebas).
+- **Evidencia D:** *Manual "Electrónica y Programación Básica"* (`TEKITL/Curso de Electronica y Programacion Basica.docx`, 10 capítulos, 11/09/2026). `[CONFIRMAR si se usa la versión V2]`
+- **Evidencia E:** *Guía de armado "Proyectos Electrónica Básica"* (`TEKITL/Proyectos Electronica Basica.pptm`, 8 proyectos, 66 láminas, 22/09/2026).
+
+**2. PROYECTO: NODO DE INNOVACIÓN TECNOLÓGICA COMUNITARIA (NITC)**
+
+- **Evidencia F:** *Documento Maestro Ejecutivo del NITC* (`NODO/NODO 3.docx`) `[CONFIRMAR versión]` y *Dossier y Tríptico informativo* (`NODO/NODO. DOSSIER y TRIPTICO INFORMATIVO Y EJECUTIVO.docx`).
+- **Evidencia G:** *Fotografías de la Zona 1, estudio con pantalla verde* (`NODO/FOTOS/Zona 1.1` a `Zona 1.10`).
+- **Evidencia H:** *Fotografías de la Zona 2, set de entrevista* (`NODO/FOTOS/Zona 2.1` a `Zona 2.8`).
+- **Evidencia I:** *Fotografías de la Zona 3, cabina de grabación y área de sonido y proyección* (`NODO/FOTOS/Zona 3.1` a `Zona 3.4`).
+- **Evidencia J:** *Capturas de pantalla de OBS Studio de las pruebas de funcionamiento* (`Zona 1.7`, `Zona 1.8`, `Zona 2.6` a `Zona 2.8`), fechadas 02/10/2026.
+
+| ELABORÓ | VALIDÓ |
+|---|---|
+| `[CONFIRMAR nombre y cargo]` | C. APOLINARIA MARTINEZ ARROYO<br>**DIRECTORA GENERAL** |

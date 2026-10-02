@@ -26,3 +26,18 @@ Fecha: 2026-10-02. Para retomar en otra computadora (Claude Code no comparte mem
 
 ## Enfoque propuesto para Q3
 Reportar como diseño y preparación de cursos de electrónica básica (Tekitl-Lab) + hardware desarrollado (Centinela, kits, Forja Térmica), redactado como material "listo para impartirse" (no cursos realizados), con la misma lógica "Llave en Mano" de Q1/Q2 y evidencia honesta con fechas reales.
+
+## Actualización 2026-10-02 (tarde)
+- Curso oficial: **"Electrónica y Programación Básica"**, dirigido a alumnos de secundaria. Material: `TEKITL/Curso de Electronica y Programacion Basica.docx` (manual de 10 capítulos, 11/09/2026) y `TEKITL/Proyectos Electronica Basica.pptm` (8 proyectos, 22/09/2026).
+- Se reporta como **material preparado**. Primera impartición programada: 25 y 26 de noviembre de 2026 en Eloxochitlán, Puebla.
+- Los metadatos de ambos archivos dicen autor "David Gutiérrez Gutiérrez" (prestador de servicio social en 2024, sin participación en el curso). Es un resto del perfil de Office; no se acredita.
+- Problemas del material: manual con respuestas en blanco y restos de LaTeX; lista de materiales sin ultrasónico, servo, LCD, TMP36 ni transistor; el pptm y el manual no coinciden en proyectos; falta paquete EC0217.01.
+- Borrador del informe actualizado con estos datos. Pendientes: fecha exacta, acciones de jul–ago, cargo y firmas.
+- Proyecto NODO (carpeta `NODO/`): documentado (NITC, 8 componentes) pero no aparece en ningún informe; posible cierre de año.
+
+## Actualización 2026-10-02 (noche): estructura final del Q3
+- **Proyecto 1 = TEKITL** (Tekitl-Lab + curso "Electrónica y Programación Básica"). **Proyecto 2 = NODO** (NITC).
+- NODO **ya instalado** en el edificio del IPPI (Blvd. Atlixco 2103, Belisario Domínguez, Puebla). Fotos en `NODO/FOTOS/` (Zona 1 estudio croma, Zona 2 set de entrevista, Zona 3 cabina de audio + sonido/proyección). Aún sin visitas; solo pruebas de equipos (OBS, 02/10/2026).
+- Los Módulos de Apropiación Digital son instalaciones en territorio, no en el nodo. Los demás componentes del NITC siguen solo en el documento maestro.
+- Riesgo: las capturas de pruebas son del 02/10/2026 (después del cierre del Q3). Confirmar fecha de instalación y no fechar evidencia dentro del trimestre si no lo está.
+- Borrador v2 reescrito. Pendientes: fecha de instalación, acciones jul–ago, cifra de Realizado, cargo/firmas, versión del documento NODO (3 vs 3 (2)), versión V2 del curso, permiso de uso de imágenes de personas.
