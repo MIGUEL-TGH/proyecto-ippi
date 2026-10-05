@@ -16,6 +16,7 @@
 > 7. **Año de la portada.** Q1 y Q2 imprimieron "2025" por error.
 > 8. **Beneficiarios.** El NODO aún no recibe visitas, así que corresponde "NO APLICA". No declarar asistentes.
 > 9. **Firmas**, al final.
+> 11. **Zona 4.** Las fotos son del **04/10/2026** (posteriores al corte). Muestran el portal PADI en las dos pantallas de pared; se redactó como "despliegue del portal", no como operación formal. Eliminar las 3 fotos duplicadas (4.4, 4.5, 4.6) del repositorio o dejarlas fuera de la evidencia.
 > 10. **Fotografías.** Aparecen personas del equipo en las capturas de pruebas (1.1 a 1.8, 2.6 a 2.8). Confirmar si pueden ir en un documento oficial.
 
 ---
@@ -74,7 +75,7 @@ Para el cumplimiento de la meta programada en el trimestre se concretaron dos pr
 
 - **TEKITL, programa Tekitl Laboratorios (Tekitl-Lab):** Se consolidó el Documento Maestro Ejecutivo y la serie de **6 cursos de electrónica y reaprovechamiento de residuos tecnológicos** (Ensamblaje H2O, Dinámica Rotatoria, Espectro Audible, Impulso Lumínico, Ponte las Pilas y Forja Térmica), alineados al Estándar de Competencia CONOCER EC0217.01. Se desarrolló además el prototipo "Centinela" (sensor PIR y Arduino), en fase de pruebas.
 - **TEKITL, curso "Electrónica y Programación Básica":** Se elaboró el manual didáctico de 10 capítulos y la guía de armado de 8 proyectos con Arduino Uno, dirigidos a estudiantes de secundaria. Su primera impartición está programada para el 25 y 26 de noviembre de 2026 en el municipio de Eloxochitlán, Puebla.
-- **NODO (NITC):** Se instaló y probó, en el edificio del IPPI (Blvd. Atlixco 2103, col. Belisario Domínguez, Puebla), la infraestructura física de producción de contenidos en **tres zonas**: estudio con pantalla verde, set de entrevista con audio profesional y cabina de grabación con área de sonido y proyección. Se realizaron pruebas de funcionamiento de los equipos para las funciones previstas.
+- **NODO (NITC):** Se instaló y probó, en el edificio del IPPI (Blvd. Atlixco 2103, col. Belisario Domínguez, Puebla), la infraestructura física de producción de contenidos en **cuatro zonas**: estudio con pantalla verde, set de entrevista con audio profesional, cabina de grabación con área de sonido y proyección, y sala de capacitación y presentaciones. Se realizaron pruebas de funcionamiento de los equipos para las funciones previstas.
 - **Soberanía y sostenibilidad:** Ambos proyectos privilegian software libre (OBS Studio, Arduino IDE) y equipos de uso comunitario, bajo custodia pública del IPPI.
 
 Se anexa a continuación el Documento Maestro Ejecutivo de Laboratorios Tekitl, el Documento Maestro del NITC y la evidencia fotográfica de la instalación.
@@ -161,10 +162,11 @@ Los resultados que se entregan son: cursos documentados y listos para impartirse
 **Proyecto 2. Nodo de Innovación Tecnológica Comunitaria (NODO / NITC)**
 
 - **Documento Maestro Ejecutivo y Dossier del NITC:** define ocho componentes (Tekitl-Lab, PADI, Intercambio Digital, Módulos de Apropiación Digital, Yolotl Altépetl, Fábrica de Contenidos, Casa de Proyectos y Promotores Tecnológicos), su gobernanza multinivel, la seguridad de datos y una ruta de implementación de cuatro fases (15 meses).
-- **Instalación física en el edificio del IPPI** (Blvd. Atlixco 2103, col. Belisario Domínguez, 72180, Heroica Puebla de Zaragoza, Pue.), en tres zonas:
+- **Instalación física en el edificio del IPPI** (Blvd. Atlixco 2103, col. Belisario Domínguez, 72180, Heroica Puebla de Zaragoza, Pue.), en cuatro zonas:
   - **Zona 1, estudio con pantalla verde:** fondo croma, dos luces tipo softbox, cámara en tripié y equipo de cómputo con OBS Studio configurado con múltiples escenas.
   - **Zona 2, set de entrevista:** escritorio con micrófonos de condensador con brazo y filtro antipop, cámaras en tripié, panel de iluminación LED, mezcladora de audio, consola de video y pantalla verde, con escenas de conmutación en OBS Studio.
   - **Zona 3, cabina de grabación y área de sonido:** cabina acondicionada con espuma acústica, micrófono de condensador con filtro antipop, audífonos y atril; y área de sonido con bocina amplificada, receptores y micrófonos de mano inalámbricos, mezcladora, equipo de cómputo y pantalla de proyección.
+  - **Zona 4, sala de capacitación y presentaciones:** sala equipada con mesas y sillas para grupos, dos pantallas de pared en las que se despliega el portal de la Plataforma de Autonomía Digital (PADI), bocina en tripié y aro de luz. Está dispuesta para sesiones de capacitación, presentaciones y transmisión.
 - **Pruebas de funcionamiento:** se verificó el funcionamiento de los equipos para las funciones previstas, incluidos el recorte de fondo (croma) con fondos virtuales, la conmutación entre escenas y cámaras, y la captura de audio.
 - **Estatus:** el NODO se encuentra instalado y probado; aún no ha recibido visitas ni operado con población beneficiaria. Los demás componentes permanecen en el documento maestro.
 
@@ -178,8 +180,8 @@ Los resultados que se entregan son: cursos documentados y listos para impartirse
 2. **Desarrollo del hardware y software "Centinela":** sensor PIR, relevador y control de audio/video por comunicación serial con Arduino (`pir_sensores.ino`, `video.py`). Fase de pruebas.
 3. **Elaboración del curso "Electrónica y Programación Básica":** manual de 10 capítulos (11/09/2026) y guía de armado de 8 proyectos con Arduino Uno (11 al 22/09/2026); definición de la primera sede de impartición (Eloxochitlán, Puebla).
 4. **Integración del Documento Maestro del NODO:** articulación de los ocho proyectos institucionales en un espacio físico de co-gestión comunitaria, con su gobernanza, seguridad de datos y ruta crítica.
-5. **Instalación del NODO en el edificio del IPPI:** montaje del estudio con pantalla verde, el set de entrevista y la cabina de grabación con área de sonido y proyección. `[CONFIRMAR fecha de instalación]`
-6. **Configuración y pruebas de los equipos:** configuración de OBS Studio con escenas por zona y verificación del funcionamiento de cámaras, iluminación, audio y proyección. `[CONFIRMAR fechas; las capturas conservadas son del 02/10/2026]`
+5. **Instalación del NODO en el edificio del IPPI:** montaje del estudio con pantalla verde, el set de entrevista, la cabina de grabación con área de sonido y proyección, y la sala de capacitación y presentaciones. `[CONFIRMAR fecha de instalación]`
+6. **Configuración y pruebas de los equipos:** configuración de OBS Studio con escenas por zona y verificación del funcionamiento de cámaras, iluminación, audio, proyección y despliegue del portal PADI en las pantallas de la sala. `[CONFIRMAR fechas; las capturas conservadas son del 02/10/2026]`
 7. `[PENDIENTE: otras acciones de julio y agosto, con fechas]`
 
 ### IV. CONCLUSIONES Y RELACIÓN DE EVIDENCIA DOCUMENTAL
@@ -205,7 +207,8 @@ Los resultados que se entregan son: cursos documentados y listos para impartirse
 - **Evidencia G:** *Fotografías de la Zona 1, estudio con pantalla verde* (`NODO/FOTOS/Zona 1.1` a `Zona 1.10`).
 - **Evidencia H:** *Fotografías de la Zona 2, set de entrevista* (`NODO/FOTOS/Zona 2.1` a `Zona 2.8`).
 - **Evidencia I:** *Fotografías de la Zona 3, cabina de grabación y área de sonido y proyección* (`NODO/FOTOS/Zona 3.1` a `Zona 3.4`).
-- **Evidencia J:** *Capturas de pantalla de OBS Studio de las pruebas de funcionamiento* (`Zona 1.7`, `Zona 1.8`, `Zona 2.6` a `Zona 2.8`), fechadas 02/10/2026.
+- **Evidencia J:** *Fotografías de la Zona 4, sala de capacitación y presentaciones* (`NODO/FOTOS/Zona 4.1` a `Zona 4.9`; 4.4, 4.5 y 4.6 duplican a 4.1, 4.2 y 4.3, por lo que son 6 distintas), fechadas 04/10/2026.
+- **Evidencia K:** *Capturas de pantalla de OBS Studio de las pruebas de funcionamiento* (`Zona 1.7`, `Zona 1.8`, `Zona 2.6` a `Zona 2.8`), fechadas 02/10/2026.
 
 | ELABORÓ | VALIDÓ |
 |---|---|
