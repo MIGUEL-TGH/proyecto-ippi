@@ -41,3 +41,7 @@ Reportar como diseño y preparación de cursos de electrónica básica (Tekitl-L
 - Los Módulos de Apropiación Digital son instalaciones en territorio, no en el nodo. Los demás componentes del NITC siguen solo en el documento maestro.
 - Riesgo: las capturas de pruebas son del 02/10/2026 (después del cierre del Q3). Confirmar fecha de instalación y no fechar evidencia dentro del trimestre si no lo está.
 - Borrador v2 reescrito. Pendientes: fecha de instalación, acciones jul–ago, cifra de Realizado, cargo/firmas, versión del documento NODO (3 vs 3 (2)), versión V2 del curso, permiso de uso de imágenes de personas.
+
+## Actualización 2026-10-05: estructura de entrega
+- El **cuadro resumen NO va en el Word**: es el Excel `Formato Cuadro resumen_Variable 1.xlsx` (hoja "3er Trim E088"), que se imprime y se anexa como hoja 2. El Word (`3er Trim E088 ... .docx`) lleva: portada (hecha) y, a partir de la hoja 3: justificación, portada del informe anual, I. Presentación a IV. Conclusiones y relación de evidencia.
+- El Excel ya tiene el texto de comentarios, Programado/Realizado (Sep 2, Dic 0, Anual 6) y beneficiarios "NO APLICA". Firmas en el Excel: Elaboró Luis Antonio Molina Saldaña (Analista de la SDTI); Validó Miguel Trinidad Gómez Hernández (Encargado de despacho de la SDTI). Pendiente: BR12 (meta al corte programada) está vacía y debería ser 6.

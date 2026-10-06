@@ -180,7 +180,7 @@ Los resultados que se entregan son: cursos documentados y listos para impartirse
 2. **Desarrollo del hardware y software "Centinela":** sensor PIR, relevador y control de audio/video por comunicación serial con Arduino (`pir_sensores.ino`, `video.py`). Fase de pruebas.
 3. **Elaboración del curso "Electrónica y Programación Básica":** manual de 10 capítulos (11/09/2026) y guía de armado de 8 proyectos con Arduino Uno (11 al 22/09/2026); definición de la primera sede de impartición (Eloxochitlán, Puebla).
 4. **Integración del Documento Maestro del NODO:** articulación de los ocho proyectos institucionales en un espacio físico de co-gestión comunitaria, con su gobernanza, seguridad de datos y ruta crítica.
-5. **Instalación del NODO en el edificio del IPPI:** montaje del estudio con pantalla verde, el set de entrevista, la cabina de grabación con área de sonido y proyección, y la sala de capacitación y presentaciones. `[CONFIRMAR fecha de instalación]`
+5. **Instalación del NODO en el edificio del IPPI:** montaje del estudio con pantalla verde, el set de entrevista, la cabina de grabación con área de sonido y proyección, y la sala de capacitación y presentaciones. (14 de septiembre de 2026)
 6. **Configuración y pruebas de los equipos:** configuración de OBS Studio con escenas por zona y verificación del funcionamiento de cámaras, iluminación, audio, proyección y despliegue del portal PADI en las pantallas de la sala. `[CONFIRMAR fechas; las capturas conservadas son del 02/10/2026]`
 7. `[PENDIENTE: otras acciones de julio y agosto, con fechas]`
 
