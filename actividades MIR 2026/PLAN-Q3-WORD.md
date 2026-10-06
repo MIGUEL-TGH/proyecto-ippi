@@ -102,6 +102,7 @@ No bloquean la Presentación, pero se necesitarán después:
 | 2026-10-06 | (ver también «Ronda 2026-10-06 (noche)» en §8.3) Insertada **II. RESULTADOS ALCANZADOS** (hoja nueva, págs. 5–6): Proyecto 1 TEKITL (Tekitl-Lab con fechas reales, tabla de 6 kits, Centinela, curso de secundaria), Proyecto 2 NODO (documento maestro, instalación 14/09 en 4 zonas, pruebas inicios de octubre) y Estatus Global (2 de 2; acumulado 6 de 8). Recortada la cifra de 180 t (ya está en la Justificación) | `3er Trim E088 ... .docx` | Word: 6 páginas |
 | 2026-10-06 | Insertada **III. ACCIONES REALIZADAS** (7 acciones con fechas, pág. 7) con datos de Miguel: curso y sede en jul–ago; solicitudes de suficiencia presupuestal del 11/05/2026, folios IPPI/SDTI/003 y 004/2026 | `3er Trim E088 ... .docx` | Word + Gilroy: 7 páginas |
 | 2026-10-06 | Corregida III acción 2 (solicitudes de **suficiencia presupuestal**). Insertada **IV. CONCLUSIONES Y RELACIÓN DE EVIDENCIA** (4 conclusiones, evidencias A–L, tabla de firmas) | `3er Trim E088 ... .docx` | Word + Gilroy: 9 páginas (IV en págs. 8–9) |
+| 2026-10-06 | Revisión del Excel: corregidos I7 (guion), D27 (texto cortado al imprimir) y Z22 (alineado con el Word: fechas de kits y de instalación) | `Formato Cuadro resumen_Variable 1.xlsx` | 1 página; respaldo en `_respaldos/` |
 
 ### Notas de verificación (2026-10-06)
 - Verificado con Word (exportación y conteo de páginas). **Gilroy no está instalada en este equipo**, así que Word sustituyó la fuente; revisar la paginación en el equipo donde se imprima.
@@ -213,9 +214,32 @@ No bloquean la Presentación, pero se necesitarán después:
 | IV-D | Verificar con Word + Gilroy; revisión de integridad (sin marcadores pendientes) | Hecho |
 | IV-E | Commit (Miguel) | Pendiente |
 
-## 11. Pendientes para cerrar el reporte
+## 11. Revisión del Excel `Formato Cuadro resumen_Variable 1.xlsx` (2026-10-06)
+
+Hoja que se imprime: **"3er Trim E088"** (Instructivo y Ejemplo no se tocan). Respaldo previo: `_respaldos/Formato Cuadro resumen - antes de revision - 20261006.xlsx`.
+
+**Verificado y correcto (sin cambios):**
+- Programado: Mar 2, Jun 2, Sep 2, Dic 2; Anual 8; **Meta al corte 6** (BR12 ya estaba en 6).
+- Realizado: Mar 2, Jun 2, Sep 2, Dic 0; **Anual 6; Meta al corte 6**. Sigue la convención del cuadro de Q2 (ceros en meses futuros; "Anual" = acumulado: Q2 imprimió 4 y 4). Coincide con el Word (100 % del trimestre, 6 de 8).
+- Componente, Actividad, Indicador y título idénticos a Q1/Q2. Beneficiarios "NO APLICA". Elaboró/Validó coinciden con la tabla de firmas del Word (Luis Antonio Molina Saldaña / Miguel Trinidad Gómez Hernández). Una hoja horizontal, 76 %, área A1:CE32.
+- Observación sobre Q1: el cuadro oficial de Q1 muestra Realizado Mar = 1 y Anual = 8 (aparente error de captura); Q2 ya lo corrigió a 2 y 4. El Q3 continúa la serie de Q2.
+
+**Corregido (3 cambios):**
+| Celda | Antes | Después | Motivo |
+|---|---|---|---|
+| I7 Unidad Responsable | `DA3Q INSTITUTO POBLANO…` | `DA3Q - INSTITUTO POBLANO…` | Como en Q1 y Q2 |
+| D27 (línea de anexos) | texto en una línea, **cortado** al imprimir ("…y la evidencia") | mismo texto, con ajuste de línea y fila a 32 pt | Se perdía "fotográfica de la instalación" |
+| Z22 (comentarios) | "Se consolidó… serie de 6 cursos"; "instaló y probó… área de sonido y proyección"; sin fecha de instalación | "Se integró… elaborados de marzo a mayo de 2026 con documentación en formato EC0217.01"; "Se instaló el 14 de septiembre de 2026… Los equipos se probaron a inicios de octubre"; "área de sonido" | Alinear con el Word (II, III) y no atribuir al trimestre trabajo de marzo–mayo |
+
+Verificación: solo cambiaron I7 y Z22 (valores) y el formato de D27; logos, hojas, 87 celdas combinadas y la impresión en una página se conservan. Texto de comentarios 1,625 caracteres (antes 1,641), cabe en su celda.
+
+**Pendiente en el Excel (decisión de Miguel):** si D27 debe mencionar también la relación de evidencia (A–L) y las solicitudes de suficiencia presupuestal. Se dejó el texto original.
+
+## 12. Pendientes para cerrar el reporte
+*(Lista de impresión con casillas: `LISTA-IMPRESION-Q3.md`; PDFs de fotos listos para imprimir en `_impresion/`.)*
+
 1. **Escanear folios IPPI/SDTI/003/2026 y 004/2026** (Evidencia G) al llegar a la oficina.
-2. Excel `Formato Cuadro resumen_Variable 1.xlsx`: celda BR12 (meta al corte) = 6; verificar que Programado/Realizado coincida con el Word (Sep = 2; acumulado 6 de 8).
+2. (Hecho 2026-10-06, ver §11) Excel revisado: BR12 = 6 ya estaba; coincide con el Word; se corrigieron I7, D27 y Z22.
 3. Confirmar firmas (Elaboró/Validó) en el Word y el Excel.
 4. Decidir qué versión se imprime/anexa del curso (raíz "Formato" vs `TEKITL/`) y del documento NODO (recomendada: `NODO 3 (2).docx`).
 5. Persona que aparece en las capturas de OBS (Evidencias K y L): confirmar permiso o excluir esas capturas.
