@@ -4,7 +4,7 @@ Creada: 2026-10-06. Marca cada casilla al imprimir. Orden = **orden de entrega**
 
 **Leyenda:** ✅ imprimir ya · ❓ decide antes de imprimir · ⏳ pendiente (se hace en el instituto) · ⛔ no imprimir
 
-> Antes de empezar: en este equipo Gilroy ya está instalada. Si imprimes desde otra computadora, instala las tipografías de `Downloads\TIPOGRAFÍAS` o la paginación cambia (el Word debe salir en **9 páginas**).
+> Antes de empezar: Gilroy y Cora Montserra quedaron instaladas en este equipo el 06/10 (antes solo estaba Gilroy Light). Si imprimes desde otra computadora, instala las tipografías de `TIPOGRAFÍAS/` (raíz del repo) o la paginación cambia (el Word debe salir en **9 páginas**, con III. ACCIONES en la pág. 7). Ojo: dentro del archivo la fuente se llama "Cora Montserra", con una sola "r".
 
 ---
 
@@ -12,9 +12,10 @@ Creada: 2026-10-06. Marca cada casilla al imprimir. Orden = **orden de entrega**
 
 | ☐ | # | Qué | Cómo imprimir | Hojas |
 |---|---|---|---|---|
-| ☐ | 1 ✅ | **Portada** — `3er Trim E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDIGENAS.docx` | Word → Imprimir → Páginas: **1** · a color | 1 |
-| ☐ | 2 ✅ | **Cuadro resumen** — `Formato Cuadro resumen_Variable 1.xlsx`, hoja **"3er Trim E088"** | Excel → "Imprimir hoja activa" (ya está horizontal, 76 %, 1 página). No imprimir "Instructivo" ni "Ejemplo" | 1 |
-| ☐ | 3 ✅ | **Justificación a Conclusiones** — mismo Word | Word → Páginas: **2-9** (2 justificación · 3 portada del informe anual · 4 Presentación · 5-6 II Resultados · 7 III Acciones · 8-9 IV y relación de evidencia con firmas) | 8 |
+| ☑ | 1 ✅ | **Portada** — `3er Trim E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDIGENAS.docx` | Word → Imprimir → Páginas: **1** · a color | 1 |
+| ☑ | 2 ✅ | **Cuadro resumen** — `Formato Cuadro resumen_Variable 1.xlsx`, hoja **"3er Trim E088"** | Excel → "Imprimir hoja activa" (ya está horizontal, 76 %, 1 página). No imprimir "Instructivo" ni "Ejemplo" | 1 |
+| ☑ | 3 ✅ | **Justificación a Conclusiones** — mismo Word | Word → Páginas: **2-9** (2 justificación · 3 portada del informe anual · 4 Presentación · 5-6 II Resultados · 7 III Acciones · 8-9 IV y relación de evidencia con firmas) | 8 |
+| ☑ | 3b ✅ | **Reimprimir todo el Word (págs. 1-9)**: lo impreso salió sin Gilroy (solo estaba instalada Gilroy Light) y con la fuente correcta cambian los cortes de las págs. 5-7; además se corrigieron la fecha y los folios de la evidencia G | Word → Imprimir todo (portada a color). Sustituir las 9 hojas viejas y volver a firmar la 9 | 9 |
 
 **Firmas** (a mano, al final): Word pág. 9 (ELABORÓ: Luis Antonio Molina Saldaña · VALIDÓ: Miguel Trinidad Gómez Hernández) y Excel (mismas dos personas).
 ❓ Si cambia quién elabora o valida, solo se reimprime **Word pág. 9** y el **Excel** (hay que avisarme para ajustar el texto).
@@ -26,12 +27,12 @@ Creada: 2026-10-06. Marca cada casilla al imprimir. Orden = **orden de entrega**
 | ☐ | Evidencia | Archivo | Hojas | Nota |
 |---|---|---|---|---|
 | ☑ | **A** ✅ | `TEKITL/TEKITL LABS/Documento Ejecutivo Laboratorios Tekitl (1).docx` | 13 | Idéntico al de `TEKITL/Documentos/` |
-| ☐ | **B** ❓ | Cartas descriptivas EC0217.01 de los 6 cursos Tekitl-Lab (H2O 13 · Dinámica Rotatoria 12 · Espectro Audible 13 · Impulso Lumínico 12 · Ponte las Pilas 12 · Forja Térmica 11) | **73** | Ver decisión 1. Para Forja usa la versión `(1)` (la más reciente, 07/05) |
+| ☑ | **B** ✅ | Cartas descriptivas EC0217.01 de los 6 cursos Tekitl-Lab (H2O 13 · Dinámica Rotatoria 12 · Espectro Audible 13 · Impulso Lumínico 12 · Ponte las Pilas 12 · Forja Térmica 11) | **73** | **Ya impresa (06/10).** Forja en versión `(1)` |
 | ☑ | **C** ✅ | `TEKITL/TEKITL LABS/Manual_de_instalacion (1).pdf` (8) y `Manual_de_uso (1).pdf` (4); código `TEKITL/Codigo/pir_sensores/pir_sensores.ino` y `video.py` | 12 + ~6 | El código es opcional si quieres ahorrar hojas |
-| ☐ | **D** ❓ | Manual "Electrónica y Programación Básica" | 76 | Ver decisión 2 |
+| ☑ | **D** ✅ | Manual "Electrónica y Programación Básica" | 76 | **Ya impresa (06/10)** en versión "- Formato", con títulos en RGB 134,30,52 |
 | ☑ | **E** ✅ | `TEKITL/Proyectos Electronica Basica.pptm` (65 diapositivas) | ~11 | PowerPoint → Imprimir → Documentos: **6 diapositivas por página** |
-| ☐ | **F** ❓ | `NODO/NODO 3 (2).docx` (6) + `NODO/NODO. DOSSIER y TRIPTICO INFORMATIVO Y EJECUTIVO.docx` (5) | 11 | Ver decisión 3 |
-| ☐ | **G** ⏳ | Solicitudes de suficiencia presupuestal, folios **IPPI/SDTI/003/2026** e **IPPI/SDTI/004/2026** (11/05/2026) | ~2 | **Escanear en la oficina (07/10)**, imprimir la copia y colocarla aquí |
+| ☑ | **F** ✅ | `NODO/NODO 3 (2).docx` (6) + `NODO/NODO. DOSSIER y TRIPTICO INFORMATIVO Y EJECUTIVO.docx` (5) | 11 | Ver decisión 3 |
+| ☑ | **G** ✅ | `Solicitudes/IPPI-SDTI-003 Suficiencia 2141 - 16-04-2026.pdf` y `Solicitudes/IPPI-SDTI-004 Suficiencia 2941 - 16-04-2026.pdf` (memorándums del 16/04/2026, recibidos 06/05/2026, con cotización) | 4 | Escaneados 06/10. El informe cita los folios como están impresos: 003/2025 y 004/2025 |
 | ☑ | **H** ✅ | `_impresion/Evidencia-H-Zona1.pdf` | 2 | Fotos Zona 1 (a color). Hoja 2 lleva solo la foto 1.10, casi igual a la 1.9: si la omites, imprime solo la hoja 1 |
 | ☑ | **I** ✅ | `_impresion/Evidencia-I-Zona2.pdf` | 1 | Fotos Zona 2 |
 | ☑ | **J** ✅ | `_impresion/Evidencia-J-Zona3.pdf` | 1 | Fotos Zona 3 (02/10/2026) |

@@ -5,18 +5,19 @@ Elaborado: 06/10/2026 · Imprimir esta hoja y marcar con ✔ · Detalle completo
 ---
 
 ## 1. Imprimir lo que falte
-*(marca ✔ los que ya salieron; ya impresas: A, C, E, H, I, J, K y L)*
+*(marca ✔ los que ya salieron; ya impreso todo: portada, cuadro resumen, informe y evidencias A a L)*
 
-- ☐ **Portada:** Word `3er Trim E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDIGENAS.docx`, pág. **1**, a color
-- ☐ **Cuadro resumen:** Excel `Formato Cuadro resumen_Variable 1.xlsx`, hoja "3er Trim E088" (1 hoja, horizontal)
-- ☐ **Informe:** mismo Word, págs. **2-9** (deben ser 9 en total; si salen más, falta la fuente Gilroy)
-- ☐ **Evidencia B:** 6 cartas descriptivas EC0217.01 (73 hojas; Forja Térmica, versión "(1)")
-- ☐ **Evidencia D:** manual "Electrónica y Programación Básica", versión "- Formato" (76 hojas)
-- ☐ **Evidencia F:** `NODO 3 (2).docx` (6) + `NODO. DOSSIER y TRIPTICO…docx` (5)
+- ☑ **Portada:** Word `3er Trim E088 DESARROLLO INTEGRAL DE LOS PUEBLOS INDIGENAS.docx`, pág. **1**, a color
+- ☑ **Cuadro resumen:** Excel `Formato Cuadro resumen_Variable 1.xlsx`, hoja "3er Trim E088" (1 hoja, horizontal)
+- ☑ **Informe:** mismo Word, págs. **2-9** (deben ser 9 en total; si salen más, falta la fuente Gilroy)
+- ☑ **Reimprimir el Word completo, págs. 1-9** (portada a color). Lo impreso antes salió sin Gilroy, y con la fuente correcta cambian los saltos de página; además se corrigieron la fecha y los folios de la evidencia G. Volver a firmar la pág. 9
+- ☑ **Evidencia B:** 6 cartas descriptivas EC0217.01 (73 hojas; Forja Térmica, versión "(1)")
+- ☑ **Evidencia D:** manual "Electrónica y Programación Básica", versión "- Formato" (76 hojas)
+- ☑ **Evidencia F:** `NODO 3 (2).docx` (6) + `NODO. DOSSIER y TRIPTICO…docx` (5; es el Dossier y la estructura del tríptico, no un tríptico diseñado)
 
 ## 2. En el instituto
 
-- ☐ **Evidencia G:** buscar los oficios **IPPI/SDTI/003/2026** e **IPPI/SDTI/004/2026** (suficiencia presupuestal, 11/05/2026) → escanear → imprimir copia. Guardar el escaneo en `Solicitudes/`
+- ☑ **Evidencia G:** imprimir `Solicitudes/IPPI-SDTI-003 Suficiencia 2141 - 16-04-2026.pdf` y `Solicitudes/IPPI-SDTI-004 Suficiencia 2941 - 16-04-2026.pdf` (2 + 2 hojas). Ya escaneados (06/10). El informe cita los folios como están impresos: IPPI/SDTI/003/2025 y 004/2025
 - ☐ **Respaldo opcional:** documento que acredite la instalación del NODO el **14/09/2026** o la recepción de los equipos (entrada de almacén, resguardo, factura), por si lo piden. Las fotos son de octubre
 - ☐ **Confirmar firmas:** ELABORÓ **Luis Antonio Molina Saldaña** (Analista) · VALIDÓ **Miguel Trinidad Gómez Hernández** (Encargado de Despacho)
   - Si cambia: avisar a Claude para ajustar el texto → reimprimir **Word pág. 9** y el **Excel**
