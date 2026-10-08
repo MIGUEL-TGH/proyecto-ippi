@@ -1,0 +1,28 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"PUE - TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"PARTICIPACIÓN CIUDADANA",
+  "formato":"Participación ciudadana_Resultado de los mecanismos de participación",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Denominación del mecanismo de participación ciudadana",
+    "Resultados",
+    "Número total de participantes",
+    "Total de participantes mujeres",
+    "Total de participantes hombres",
+    "Respuesta del sujeto obligado a los resultados, descripción sintética de lo que se tomó en cuenta",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de validación",
+    "Fecha de Actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2023","2023-01-01T00:00:00Z","2023-03-31T00:00:00Z","","","","","","","Dirección de Diálogo y Concertación","Rosa Alonso Pérez","2023-04-20T00:00:00Z","2023-03-31T00:00:00Z","Este sujeto obligado no ha generado información en el presente trimestre"],
+    ["2023","2023-04-01T00:00:00Z","2023-06-30T00:00:00Z","Consulta a los 7 Pueblos Indigenas y afromexicano         \"PROCESO DE LA CONSULTA PREVIA, LIBRE, INFORMADA, CULTURALMENTE ADECUADA Y DE BUENA FE, QUE PERMITA LA REFORMA DE LA LEY DE DERECHOS, CULTURA Y DESARROLLO DE LOS PUEBLOS Y COMUNIDADES INDÍGENAS DEL ESTADO DE PUEBLA Y DE LA LEY DE EDUCACIÓN DEL ESTADO DE PUEBLA, EN RELACIÓN CON LAS ACCIONES DE INCONSTITUCIONALIDAD 111/2020, Y 131/2020 Y SU ACUMULADA 186/2020, RESPECTIVAMENTE\"","19 FOROS/TALLER ETAPA: ACUERDOS PREVIOS;     11 FOROS TALLER  ETAPA: INFORMATIVA;              11 FOROS/TALLER ETAPA: CONSULTIVA;","7480","4081","3329","Planear y Desarrollar un proceso de consulta basada en la metodologia de la Planeacion Participativa, donde los sujetos consultados, dieron su consentimiento y validadaron un protocolo con enfoque de género y pertinencia cultural de los 7 pueblos Inidgenas; desarrollado en 6 etapas (Preparatoria, Acuerdos Previos, Informativa, Deliberativa, Consultiva y de Seguimiento y verificacion de Acuerdos), resultando un conjunto de propuestas, peticiones y recomendaciones consensuadas, que permiteron sistematizar e implementar las propuestas de proyectos de ley para que, de manera posterior, que el Congreso del Estado desarrollará en su proceso legislativo.","Secretaría Técnica del IPPI; Departamento de Consulta y Participación; Direcciónn de Oficinas Regionales; Unidad de Desarrollo de  Tecnologías de la Información.","Jose Antonio Aguilar San Sebastián; Ignacio Arturo Álvarez López, Ramón Vergara Sotero y Moisés Ismael Rosas Cabrera.","2023-07-28T00:00:00Z","2023-06-30T00:00:00Z","Sin datos"],
+    ["2023","2023-07-01T00:00:00Z","2023-09-30T00:00:00Z","","","","","","","Dirección de Diálogo y Concertación","Rosa Alonso Pérez","2023-10-10T00:00:00Z","2023-09-30T00:00:00Z","Este sujeto obligado no ha generado información en el presente trimestre."],
+    ["2023","2023-10-01T00:00:00Z","2023-12-31T00:00:00Z","","","","","","","Dirección de Diálogo y Concertación","Celso Pérez Ramos","2024-01-25T00:00:00Z","2023-12-31T00:00:00Z","Respecto a la actualización de la información respecto de las áeas del Instituto Poblano de Pueblos Indígenas, ninguna de éstas tuvo mecanismos de Participación Ciudadana en el periodo en el que se informa."]
+  ]
+}

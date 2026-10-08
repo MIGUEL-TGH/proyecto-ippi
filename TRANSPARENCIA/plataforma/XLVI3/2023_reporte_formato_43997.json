@@ -1,0 +1,24 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"PUE - TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"INFORMACIÓN DE INTERÉS PÚBLICO",
+  "formato":"Más información relacionada_Transparencia proactiva",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Objetivo de la información proactiva (catálogo)",
+    "Hipervínculo la información publicada de manera proactiva (en su caso)",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de validación",
+    "Fecha de actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2023","2023-10-01T00:00:00Z","2023-12-31T00:00:00Z","","https://transparenciacovid19.puebla.gob.mx/","Secretaría Técnica, Unidad Jurídica, Unidad de Desarrollo de Tecnologías de la Información, Dirección de Desarrollo con Identidad Indígena, Direccion de Patrimonio Cultural, Investigación y Educación para la Equidad, Direccion de Dialogo y Concertación,Dirección de la Academia de las Lenguas Indígenas, Dirección de Oficinas Regionales, Dirección de Administración y Finanzas del Instituto, Unidad de Transparencia","José Antonio Aguilar San Sebastián/Nancy Aridai Acuapan Carreon/Moises Ismael Rosas Cabrera/Serafín German Solís Carrera/Viridiana Regino Castillo/Rosa Alonso Pérez/Gloria Martinez Carrera/Ramón Vergara Sotero/Roberto Regino Reyes.","2024-01-02T00:00:00Z","2023-12-31T00:00:00Z",""],
+    ["2023","2023-01-01T00:00:00Z","2023-03-31T00:00:00Z","","https://transparenciacovid19.puebla.gob.mx/","Secretaría Técnica, Unidad Jurídica, Unidad de Desarrollo de Tecnologías de la Información, Dirección de Desarrollo con Identidad Indígena, Direccion de Patrimonio Cultural, Investigación y Educación para la Equidad, Direccion de Dialogo y Concertación, Unidad de Transparencia","José Antonio Aguilar San Sebastián/Nancy Aridai Acuapan Carreon/Moises Ismael Rosas Cabrera/Serafín German Solís Carrera/Viridiana Regino Castillo/Rosa Alonso Pérez","2023-04-10T00:00:00Z","2023-03-31T00:00:00Z",""],
+    ["2023","2023-04-01T00:00:00Z","2023-06-30T00:00:00Z","","https://transparenciacovid19.puebla.gob.mx/","Secretaría Técnica, Unidad Jurídica, Unidad de Desarrollo de Tecnologías de la Información, Dirección de Desarrollo con Identidad Indígena, Direccion de Patrimonio Cultural, Investigación y Educación para la Equidad, Direccion de Dialogo y Concertación,Dirección de la Academia de las Lenguas Indígenas, Dirección de Oficinas Regionales, Dirección de Administración y Finanzas del Instituto, Unidad de Transparencia","José Antonio Aguilar San Sebastián/Nancy Aridai Acuapan Carreon/Moises Ismael Rosas Cabrera/Serafín German Solís Carrera/Viridiana Regino Castillo/Rosa Alonso Pérez/Gloria Martinez Carrera/Ramón Vergara Sotero/Roberto Regino Reyes.","2023-07-03T00:00:00Z","2023-06-30T00:00:00Z",""],
+    ["2023","2023-07-01T00:00:00Z","2023-09-30T00:00:00Z","","https://transparenciacovid19.puebla.gob.mx/","Secretaría Técnica, Unidad Jurídica, Unidad de Desarrollo de Tecnologías de la Información, Dirección de Desarrollo con Identidad Indígena, Direccion de Patrimonio Cultural, Investigación y Educación para la Equidad, Direccion de Dialogo y Concertación,Dirección de la Academia de las Lenguas Indígenas, Dirección de Oficinas Regionales, Dirección de Administración y Finanzas del Instituto, Unidad de Transparencia","José Antonio Aguilar San Sebastián/Nancy Aridai Acuapan Carreon/Moises Ismael Rosas Cabrera/Serafín German Solís Carrera/Viridiana Regino Castillo/Rosa Alonso Pérez/Gloria Martinez Carrera/Ramón Vergara Sotero/Roberto Regino Reyes.","2023-10-02T00:00:00Z","2023-09-30T00:00:00Z",""]
+  ]
+}

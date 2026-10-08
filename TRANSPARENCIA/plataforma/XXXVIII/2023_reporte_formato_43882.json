@@ -1,0 +1,23 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"PUE - TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"PROGRAMAS SOCIALES Y APOYOS",
+  "formato":"Evaluación y encuesta programas financiados_Encuestas sobre programas financiados con recursos públicos",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Tipo de encuesta",
+    "Denominación de la encuesta",
+    "Objetivo de la encuesta",
+    "Hipervínculo a los resultados de las encuestas",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de validación",
+    "Fecha de Actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","","","","","UNIDAD DE DESARROLLO DE TECNOLOGÍAS DE LA INFORMACIÓN","MOISES ISMAEL ROSAS CABRERA","2023-10-11T00:00:00Z","2023-09-30T00:00:00Z","Toda vez que la información es de carácter anual de conformidad con lo establecido en los Lineamientos Técnicos Generales para la publicación, homologación y estandarización de la información de las obligaciones establecidas en el Título Quinto y en la fracción IV del artículo 31 de la Ley General de Transparencia y Acceso a la Información Pública, que deben de difundir los sujetos obligados en los portales de Internet y en la Plataforma Nacional de Transparencia, a la fecha de validación no se han generado evaluaciones y encuestas que fueran financiadas con recursos públicos; en ese sentido, se dejan vacías los criterios relativos a \"tipo de encuesta\", \"denominación de la encuesta\", \"objetivo de la encuesta\", \"hipervínculo a los resultados de las encuestas\""]
+  ]
+}

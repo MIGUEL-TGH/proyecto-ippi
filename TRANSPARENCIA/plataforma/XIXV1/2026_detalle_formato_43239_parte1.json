@@ -1,0 +1,24 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"PROGRAMAS SOCIALES Y APOYOS",
+  "formato":"Padrón de personas beneficiarias",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Ámbito(catálogo): Local/Federal",
+    "Tipo de programa (catálogo)",
+    "Denominación del programa o subprograma",
+    "Denominación del subprograma, vertiente o modalidad a la que pertenece la persona beneficiaria, en su caso.",
+    "Personas beneficiarias",
+    "Hipervínculo a la información estadística, en su caso.La información debe publicarse con perspectiva de género, es decir, desagregando la información por sexo.",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2026","01/01/2026","31/03/2026","","","","","","","Secretaría Técnica","Miguel Ángel Jiménez Vázquez","31/03/2026","El Instituto Poblano de Pueblos Indígenas informa que no cuenta con padrón de beneficiarios de programas sociales, programas de subsidios, estímulos y apoyos, en el que se deba informar respecto de los programas de transferencias, de servicios, de infraestructura social, y de subsidios por lo que no generó información durante el periodo reportado."]
+  ]
+}
