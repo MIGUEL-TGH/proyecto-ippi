@@ -1,0 +1,66 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"PUE - TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"METAS Y OBJETIVOS DE LAS ÁREAS",
+  "formato":"Objetivos y metas institucionales ",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Denominación del área",
+    "Descripción breve y clara de cada objetivo institucional (Redactados con perspectiva de género)",
+    "Indicadores y metas asociados a cada objetivo",
+    "Hipervínculo al documento del o los programas operativos, presupuestarios, sectoriales, entre otros",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de validación",
+    "Fecha de Actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA, DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD, DIRECCIÓN DE DIÁLOGO Y CONCERTACIÓN, DIRECCIÓN DE OFICINAS REGIONALES","GENERACIÓN DE DIAGNÓSTICOS A POLÍTICAS PUBLICAS, PLANES, PROGRAMAS, PROYECTOS Y ACCIONES, EN ASUNTOS RELACIONADOS CON LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","UNIDAD JURÍDICA DEL INSTITUTO POBLANO DE LOS PUEBLOS INDÍGENAS","ELABORACIÓN DE ACUERDOS DE COORDINACIÓN EN BENEFICIO DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA, DIRECCIÓN DE ACADEMIA DE LAS LENGUAS, DIRECCIÓN DE DIÁLOGO Y CONCERTACIÓN","ELABORACIÓN DE RECOMENDACIONES A LAS POLÍTICAS PÚBLICAS, PLANES, PROGRAMAS, PROYECTOS Y ACCIONES QUE PERMITAN HACER EFECTIVOS LOS DERECHOS DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANOS DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD","PROMOCIÓN DE LA PRESERVACIÓN, PROTECCIÓN, FORTALECIMIENTO Y DESARROLLO DEL PATRIMONIO CULTURAL DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD","PROMOCIÓN DEL MANTENIMIENTO, FORTALECIMIENTO Y EJERCICIO DE LA MEDICINA TRADICIONAL DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD","PROMOCIÓN DEL ACCESO A LOS SERVICIOS DE SALUD CON PERTINENCIA CULTURAL, LINGÜÍSTICA Y DE GÉNERO PARA LOS PUEBLOS INDÍGENAS Y AFROMEXICANO.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD","COLABORACIÓN EN LA PROMOCIÓN DE LA EDUCACIÓN INTERCULTURAL.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","FORTALECIMIENTO DE LA ECONOMÍA EN LOS PUEBLOS INDÍGENAS Y AFROMEXICANO.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","PROMOCIÓN DE MEDIDAS PARA EL MEJORAMIENTO DE LA INFRAESTRUCTURA COMUNITARIA DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","PROMOCIÓN DE LA CONSERVACIÓN DEL MEDIO AMBIENTE DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE ACADEMIA DE LAS LENGUAS","APOYO A LA FORMACIÓN Y ACREDITACIÓN PROFESIONAL DE INTÉRPRETES Y TRADUCTORES DE LOS PUEBLOS INDÍGENAS DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE ACADEMIA DE LAS LENGUAS","PROMOCIÓN DE LOS SERVICIOS DE TRADUCCIÓN E INTERPRETACIÓN DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE ACADEMIA DE LAS LENGUAS","COORDINACIÓN DE ACCIONES PARA EL RESCATE, CONSERVACIÓN, FORTALECIMIENTO Y REVITALIZACIÓN DE LAS LENGUAS INDÍGENAS DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA, DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD, DIRECCIÓN DE ACADEMIA DE LAS LENGUAS, DIRECCIÓN DE OFICINAS REGIONALES","","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","UNIDAD DE DESARROLLO DE TECNOLOGÍAS DE LA INFORMACIÓN, DIRECCIÓN DE PATRIMONIO CULTURAL, INVESTIGACIÓN Y EDUCACIÓN PARA LA EQUIDAD, DIRECCIÓN DE DIÁLOGO Y CONCERTACIÓN, DIRECCIÓN DE OFICINAS REGIONALES","PROMOCIÓN DEL RECONOCIMIENTO, RESPETO Y AUTONOMÍA DEL DERECHO DE LIBRE DETERMINACIÓN EN ASUNTOS RELACIONADOS CON LOS PUEBLOS INDÍGENAS Y AFROMEXICANO.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA, DIRECCIÓN DE ACADEMIA DE LAS LENGUAS, DIRECCIÓN DE DIÁLOGO Y CONCERTACIÓN, DIRECCIÓN DE OFICINAS REGIONALES","IMPLEMENTACIÓN DE ACCIONES PARA EL DISEÑO DE LAS POLÍTICAS, PLANES, PROGRAMAS Y PROYECTOS RELACIONADOS CON LOS PUEBLOS INDÍGENAS Y AFROMEXICANO.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"],
+    ["2023","2023-01-01T00:00:00Z","2023-12-31T00:00:00Z","DIRECCIÓN DE DIÁLOGO Y CONCERTACIÓN","FORTALECIMIENTO DE LOS MEDIOS DE COMUNICACIÓN, TELECOMUNICACIÓN E INFORMACIÓN DE LOS PUEBLOS INDÍGENAS Y AFROMEXICANO DEL ESTADO DE PUEBLA.","","http://pbr.puebla.gob.mx/index.php/mm-transparencia/programa-presupuestario/mir-pp#openModal","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA","SERAFÍN GERMÁN SOLÍS CARRERA","2024-01-11T00:00:00Z","2023-12-31T00:00:00Z","Con base en los lineamientos establecidos, la actuazliazcion de la información es anual"]
+  ]
+,
+  "subtablas": {
+    "Indicadores y metas asociados a cada objetivo": {
+      "columnas": [
+        "No. Registro"
+      ],
+      "filas": [
+        [1],
+        [2],
+        [3],
+        [4],
+        [5],
+        [6],
+        [7],
+        [8],
+        [9],
+        [10],
+        [11],
+        [12],
+        [13],
+        [14],
+        [15],
+        [16],
+        [17]
+      ]
+    }
+  }
+}

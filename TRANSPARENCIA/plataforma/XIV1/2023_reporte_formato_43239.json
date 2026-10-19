@@ -1,0 +1,28 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"PUE - TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"PROGRAMAS SOCIALES Y APOYOS",
+  "formato":"Padrón de personas beneficiarias",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Ámbito(catálogo): Local/Federal",
+    "Tipo de programa (catálogo)",
+    "Denominación del programa o subprograma",
+    "Denominación del subprograma, vertiente o modalidad a la que pertenece la persona beneficiaria, en su caso.",
+    "Personas beneficiarias",
+    "Hipervínculo a la información estadística, en su caso.La información debe publicarse con perspectiva de género, es decir, desagregando la información por sexo.",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de validación",
+    "Fecha de actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2023","2023-01-01T00:00:00Z","2023-03-31T00:00:00Z","","","","","","","Secretaría Técnica","José Antonio Aguilar San Sebastián","2023-04-10T00:00:00Z","2023-03-31T00:00:00Z","Este Instituto no cuenta con padrón de beneficiarios de programas sociales, programas de subsidios, estímulos y apoyos,en el que se deba informar respecto de los programas de transferencias,de servicios,de infraestructura social,y de subsidios en el primer trimestre 2023 motivo por el cual existen campos sin información."],
+    ["2023","2023-04-01T00:00:00Z","2023-06-30T00:00:00Z","","","","","","","Secretaría Técnica","José Antonio Aguilar San Sebastián","2023-07-03T00:00:00Z","2023-06-30T00:00:00Z","Este Instituto no cuenta con padrón de beneficiarios de programas sociales, programas de subsidios, estímulos y apoyos,en el que se deba informar respecto de los programas de transferencias,de servicios,de infraestructura social,y de subsidios en el segundo trimestre 2023 motivo por el cual existen campos sin información."],
+    ["2023","2023-07-01T00:00:00Z","2023-09-30T00:00:00Z","","","","","","","Secretaría Técnica","José Antonio Aguilar San Sebastián","2023-10-02T00:00:00Z","2023-09-30T00:00:00Z","Este Instituto no cuenta con padrón de beneficiarios de programas sociales, programas de subsidios, estímulos y apoyos,en el que se deba informar respecto de los programas de transferencias,de servicios,de infraestructura social,y de subsidios en el Tercer trimestre 2023 motivo por el cual existen campos sin información."],
+    ["2023","2023-10-01T00:00:00Z","2023-12-31T00:00:00Z","","","","","","","Secretaría Técnica","José Antonio Aguilar San Sebastián","2024-01-02T00:00:00Z","2023-12-31T00:00:00Z","Este Instituto no cuenta con padrón de beneficiarios de programas sociales, programas de subsidios, estímulos y apoyos,en el que se deba informar respecto de los programas de transferencias,de servicios,de infraestructura social,y de subsidios en el cuarto trimestre 2023 motivo por el cual existen campos sin información."]
+  ]
+}
