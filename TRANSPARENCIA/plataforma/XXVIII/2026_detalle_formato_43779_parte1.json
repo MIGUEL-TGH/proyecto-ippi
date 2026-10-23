@@ -1,0 +1,24 @@
+{
+  "institucion":"PUE - Instituto Poblano de los Pueblos Indígenas ",
+  "organoGarante":"TRANSPARENCIA PARA PUEBLA Y SUS MUNICIPIOS",
+  "obligacion":"ESTADÍSTICAS",
+  "formato":"Estadísticas generadas",
+  "columnas": [
+    "Ejercicio",
+    "Fecha de inicio del periodo que se informa",
+    "Fecha de término del periodo que se informa",
+    "Tema de la estadística",
+    "Periodo de actualización de datos",
+    "Denominación de las estadísticas realizadas",
+    "Hipervínculo al documento en el cual se describan las variables",
+    "Hipervínculo a los documentos técnicos, metodológicos y normativos relacionados con la generación de",
+    "Tipos de archivo de las bases de datos",
+    "Hipervínculo a las bases de datos correspondientes a las estadísticas que se informan",
+    "Hipervínculo a las series o bancos de datos existentes, relacionados con el tema de la estadística",
+    "Área(s) responsable(s) que genera(n), posee(n), publica(n) y actualizan la información",
+    "Nombre del(a) funcionario(a) responsable de generar la información",
+    "Fecha de actualización",
+    "Nota"
+  ],
+  "filas": [
+    ["2026","01/01/2026","01/03/2026","CAPACITACIÓN Y ASISTENCIA TECNICA PARA PROYECTOS PRODUCTIVOS TRADICIONALES","31/03/2026","PERSONAS CAPACITADAS PARA PROYECTOS TRADICIONALES","https://transparencia.puebla.gob.mx/docs2024/adjuntos/43/615_1776448491_fefc3b8fd85059138268128a0b211cd7.pdf","https://transparencia.puebla.gob.mx/docs2024/adjuntos/43/615_1776448568_a9061a1ffde27d87677d6df3effd9568.pdf","PDF","https://transparencia.puebla.gob.mx/docs2024/adjuntos/43/615_1776448491_fefc3b8fd85059138268128a0b211cd7.pdf","https://transparencia.puebla.gob.mx/docs2024/adjuntos/43/615_1776448568_a9061a1ffde27d87677d6df3effd9568.pdf","DIRECCIÓN DE DESARROLLO CON IDENTIDAD INDÍGENA/ DIRECCION DE PATRIMONIO CULTURAL, INVESTIGACION Y EDUCACION PARA LA EQUIDAD","HECTOR ROMUALDO MARTINEZ BAEZ / LUZ TERESA MENDEZ SANTOS","31/03/2026",""]
