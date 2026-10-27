@@ -4,6 +4,7 @@ La Faena Tecnológica: Modelo de Gobernanza de seis nodos y andamiaje normativo 
 
 Intercambio Digital: Arquitectura del "Gran Concentrador" para la interoperabilidad de las 44 dependencias y Poder del Estado, garantizando soberania de datos y operatividad Offline-First.
 
+
 =======================================================
 2do. Trim. 2026
 PADI: Plataforma de automonia Digital
@@ -12,6 +13,8 @@ Altepetl: Sistema Intercultural de Alerta Temprana
 
 =======================================================
 3er. Trim. 2026
+TEKITL: Tekitl-Lab (6 kits) y curso "Electronica y Programacion Basica"
+NODO: Nodo de Innovacion Tecnologica Comunitaria (NITC), primera etapa fisica
 
 
 =======================================================

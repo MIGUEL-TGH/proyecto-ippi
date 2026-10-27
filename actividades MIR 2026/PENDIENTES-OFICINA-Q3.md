@@ -1,6 +1,6 @@
 # Pendientes para la oficina — Reporte 3er Trimestre 2026 (E088, Act. 3.9)
 
-Elaborado: 06/10/2026 · Imprimir esta hoja y marcar con ✔ · Detalle completo en `LISTA-IMPRESION-Q3.md`
+Elaborado: 06/10/2026 · **Cerrado: 26/10/2026 (entrega realizada)** · Imprimir esta hoja y marcar con ✔ · Detalle completo en `LISTA-IMPRESION-Q3.md`
 
 ---
 
@@ -18,14 +18,14 @@ Elaborado: 06/10/2026 · Imprimir esta hoja y marcar con ✔ · Detalle completo
 ## 2. En el instituto
 
 - ☑ **Evidencia G:** imprimir `Solicitudes/IPPI-SDTI-003 Suficiencia 2141 - 16-04-2026.pdf` y `Solicitudes/IPPI-SDTI-004 Suficiencia 2941 - 16-04-2026.pdf` (2 + 2 hojas). Ya escaneados (06/10). El informe cita los folios como están impresos: IPPI/SDTI/003/2025 y 004/2025
-- ☐ **Respaldo opcional:** documento que acredite la instalación del NODO el **14/09/2026** o la recepción de los equipos (entrada de almacén, resguardo, factura), por si lo piden. Las fotos son de octubre
-- ☐ **Confirmar firmas:** ELABORÓ **Luis Antonio Molina Saldaña** (Analista) · VALIDÓ **Miguel Trinidad Gómez Hernández** (Encargado de Despacho)
+- ☑ **Respaldo opcional (no necesario; los enlaces indicaron que bastan las evidencias fotográficas):** documento que acredite la instalación del NODO el **14/09/2026** o la recepción de los equipos (entrada de almacén, resguardo, factura), por si lo piden. Las fotos son de octubre
+- ☑ **Confirmar firmas:** ELABORÓ **Luis Antonio Molina Saldaña** (Analista) · VALIDÓ **Miguel Trinidad Gómez Hernández** (Encargado de Despacho)
   - Si cambia: avisar a Claude para ajustar el texto → reimprimir **Word pág. 9** y el **Excel**
-- ☐ **Permiso de la persona que aparece en las capturas de OBS** (1.6, 1.7, 1.8, 2.7, 2.8)
+- ☑ **Permiso de la persona que aparece en las capturas de OBS** (1.6, 1.7, 1.8, 2.7, 2.8) — es personal del instituto, no se requiere permiso; Evidencia L se mantiene
   - Si no hay permiso: sacar la Evidencia L de la entrega y avisar a Claude (hay que quitarla de la relación, Word págs. 8-9)
-- ☐ **Firmar** a mano: Word pág. 9 y Excel
-- ☐ **Ordenar** (ver abajo), **foliar** y **engargolar**
-- ☐ **Entregar** (y pedir acuse, si aplica)
+- ☑ **Firmar** a mano: Word pág. 9 y Excel
+- ☑ **Ordenar** (ver abajo), **foliar** y **engargolar**
+- ☑ **Entregar** (y pedir acuse, si aplica)
 
 ## 3. Orden de la entrega
 
