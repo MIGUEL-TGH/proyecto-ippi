@@ -1,0 +1,19 @@
+Dear Customer,
+
+Thanks a lot for your support and purchasing REXQualis products.
+
+In that folder you will find:
+
+1. A folder labeled "Tutorial".  Please select the folder with your language, read and follow it, or you may want to get the latest tutorial from our website, www.REXQualis.com
+
+2. A folder labeled "Code" which contains example programs for many of the chapters in the tutorial.  To use these examples, just click on the file named for the code and your Arduino application will launch with the sample program already in it, ready to upload.  Remember you may need to update the Library!
+
+3. A folder labeled "Libraries", that contains additional libraries your Arduino software may need for certain applications. Preface of the tutorial explains how to use these libraries.
+
+4. A folder labeled "Datasheets", that contains the datasheets of all electronic components in the kit.
+
+Should you have any questions or problems please contact us at service@rexqualis.com.
+
+Thank you for using our products!
+
+REXQualis Support Team
