@@ -25,7 +25,7 @@
     Diodo 1N4007       en paralelo con el motor: la raya (cátodo) hacia +5 V y el otro
                        extremo al colector. Protege al transistor de los picos que genera
                        el motor al apagarse.
-    Botón              una pata -> pin 2 ; la pata del lado contrario -> GND
+    Botón              una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
 
   Ideas clave:
     - El transistor es un interruptor controlado por una corriente pequeña (base)

@@ -3,7 +3,7 @@
 **Destino:** alumnos de preparatoria, San Juan Atzingo, San Gabriel Chilac, Puebla
 **Versión:** 1 (propuesta para revisión) · **Fecha:** 2026-11-16
 **Escrito para:** Miguel, como instructor responsable del curso. No es material para los alumnos: de aquí salen la presentación, las fichas y la bitácora.
-**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `curso-arduino/sketches/` (27 sketches compilados)
+**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `curso-arduino/sketches/` (38 sketches compilados)
 
 ## 1. Resumen
 
@@ -12,7 +12,7 @@
 - Se **omiten el sensor TMP36 y el ventilador de PC**. El «ventilador» es el motor 3–6 V con aspa del kit, controlado con transistor; la temperatura se mide con el termistor NTC y el DHT11.
 - Se **incorporan los sensores del kit que no se usaban**: humedad de suelo, nivel de agua, DHT11, PIR y pantalla LCD, con situaciones cercanas a la comunidad (riego, tinaco, alarma, calor).
 - **No hay que instalar librerías ni usar internet:** Servo y LiquidCrystal ya vienen con el Arduino IDE; el sensor de distancia y el DHT11 se leen con código propio.
-- Los **27 sketches** están en `curso-arduino/sketches/`. **Compilan sin errores ni avisos**, pero **ninguno se ha probado en la placa**. Eso es lo que sigue (sección 11).
+- Los **38 sketches** (28 de la secuencia y 10 soluciones de retos) están en `curso-arduino/sketches/`. **Compilan sin errores ni avisos**, pero **ninguno se ha probado en la placa**. Eso es lo que sigue (sección 11).
 - **La primera visita es de dos días de 4 horas (8 h) = las sesiones 1 a 4**, y termina con una alarma de movimiento. Las visitas siguientes están por definir (sección 3b).
 - **Motor:** la medición de Miguel (el motor «3–6 V» funciona a partir de **0.95 A**) deja fuera de especificación el circuito con PN2222 y módulo de fuente. **No se arma hasta resolverlo** (sesión 9 y sección 11, V1).
 - **Confirmado el 16 nov:** hay 6 computadoras (una por kit) y los retos del proyecto final están bien.
@@ -87,7 +87,7 @@ Cuántas visitas habrá y cuándo es lo que **falta definir**. Si las visitas du
 - **Alumnos que faltan o se suman:** cada guía de sesión permite ponerse al corriente solo, y el repaso práctico nivela en parte.
 - **Entre visitas (opcional, sin computadora ni internet):** un reto en papel, por ejemplo dibujar el diagrama de tiempos o el esquema del circuito que se verá después.
 - **Motor:** la visita 3 empieza con el motor. Hay tiempo antes de esa fecha para resolver el consumo (V1, sección 11).
-- **Preparación:** para la visita 1 faltan las guías y los diagramas de las sesiones 3 y 4 (P05 a P08). Las sesiones 1 y 2 ya están (`curso-arduino/guias/S01-*.md` y `S02-*.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender).
+- **Preparación:** para la visita 1 ya están las guías de las sesiones 1 a 4 (`curso-arduino/guias/S01-*.md` a `S04-*.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender). La sesión 3 agrega diagramas de pull-up, rebote y estados; la 4, de zumbadores, frecuencia, `for`, el módulo PIR, su señal en el tiempo y los estados de la alarma. Falta que Miguel las practique y dé retroalimentación (sesión por sesión).
 
 ## 4. Escalera de conceptos
 
@@ -97,8 +97,8 @@ Cada fila solo usa lo de las filas de arriba.
 |---|---|---|---|
 | 1 | Circuito cerrado, polaridad del LED, resistencia limitadora, protoboard | Estructura `setup`/`loop`, subir un programa, comentarios | `pinMode`, `digitalWrite`, `delay`, `HIGH`/`LOW` |
 | 2 | Varias salidas, GND común | Variables, constantes y funciones propias | `int`, `const`, `void luces(...)` |
-| 3 | Entrada digital, resistencia pull-up, lógica invertida | Decisiones, variable de estado, antirrebote | `digitalRead`, `INPUT_PULLUP`, `if/else`, `bool`, `Serial.print` |
-| 4 | Sonido como vibración, sensor digital (PIR) | Repetir con `for`, funciones con parámetros | `tone`, `noTone`, `for` |
+| 3 | Entrada digital, resistencia pull-up, lógica invertida | Decisiones, variable de estado, antirrebote | `digitalRead`, `INPUT_PULLUP`, `if/else`, `==` vs `=`, `bool`, `!`, `&&`, `!=`, `Serial.print`; `%` solo en un reto |
+| 4 | Sonido como vibración, límite de corriente de un pin, sensor digital (PIR) | Repetir con `for`, funciones con parámetros, salir con `break` | `tone`, `noTone`, `for`, `break`; `millis()` solo para poner la hora en el Monitor Serie |
 | 5 | Señal analógica, divisor de voltaje, PWM | Cambiar de escala | `analogRead`, `analogWrite`, `map`, `float` |
 | 6 | Sensor resistivo (LDR), calibración | Umbral y comparaciones | `<`, `>`, combinar dos lecturas |
 | 7 | Servo: se pide un ángulo | `for` con contador, librerías y objetos | `#include <Servo.h>`, `attach`, `write` |
@@ -135,18 +135,21 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Objetivo:** leer una entrada y recordar un estado (tu ejemplo 3: prender y apagar con un botón apoyado en variables).
 - **Prácticas:** `P05_boton_led` (enciende mientras se presiona) · `P06_boton_toggle` (un toque enciende, otro apaga; cuenta pulsaciones en el Monitor Serie).
 - **Teoría:** entrada vs salida; pull-up y lógica «invertida»; `if/else`; variable de estado; rebote de contactos. *Word, cap. 3 («Controlar el LED mediante un botón» y «Probar, observar y corregir»).*
-- **Retos:** quitar el antirrebote y ver qué pasa; parpadear 3 veces cada 5 pulsaciones. **Cierre opcional:** `X02_semaforo_peatonal` (une las sesiones 2 y 3) o `X01_dado_leds`.
-- **Rompe y arregla:** botón girado 90°, siempre «presionado»: las patas del mismo lado están unidas.
-- **Evidencia:** el Monitor Serie mostrando las pulsaciones.
+- **Retos:** LED amarillo opuesto al rojo (`P05_dos_led_opuestos`); quitar el antirrebote y ver qué pasa; parpadear 3 veces cada 5 pulsaciones (`P06_parpadeo_cada_5`). **Reto de cierre:** semáforo con botón para peatones (`P06_semaforo_con_boton`), que une las sesiones 2 y 3 y responde a la pregunta con que cierra la sesión 2. La ampliación `X02_semaforo_peatonal` (con `millis()`, sesión 11) y `X01_dado_leds` quedan para más adelante.
+- **Rompe y arregla:** (a) quitar el cable de GND del botón: el LED nunca enciende; (b) `=` en lugar de `==`: error `lvalue required as left operand of assignment`; (c) `INPUT` en lugar de `INPUT_PULLUP`: pin flotante, LED errático (no probado en placa). **Se cambió el fallo «botón girado 90°, siempre presionado»:** qué patas del botón van unidas por dentro depende de cómo venga el botón (la hoja de datos dice que las de lado a lado del canal; sin comprobar con el botón real), así que ese fallo no es predecible. En su lugar el circuito se arma con los dos cables en patas **opuestas (diagonal)**, que funciona con cualquiera de las dos formas.
+- **Evidencia:** foto o captura del Monitor Serie mostrando las pulsaciones.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S03-botones.md` (protoboard, cableado, patas del botón, pull-up, rebote y estados).
 
 ### Sesión 4 · Sonido y alarma de movimiento
-- **Objetivo:** usar un sensor digital y combinarlo con lo anterior.
-- **Prácticas:** `P07a_zumbador_activo` · `P07b_zumbador_notas` (zumbador pasivo y `tone`) · `P08_alarma_pir` (botón que arma, PIR que detecta, sirena).
+- **Objetivo:** producir sonido, repetir con `for`, usar un sensor digital y combinarlo con lo anterior.
+- **Prácticas:** `P07a_zumbador_activo` (empieza con el paso 0: retirar el LED amarillo y el verde) · `P07b_zumbador_notas` (zumbador pasivo con 220 Ω en serie y `tone`) · `P08a_pir_monitor` (ver al sensor en el Monitor Serie: calentamiento, retardo, bloqueo) · `P08_alarma_pir` (botón que arma, PIR que detecta, sirena).
 - **Teoría:** el sonido es vibración y la frecuencia decide la nota; el PIR se lee como un botón, pero según el fabricante necesita casi un minuto para inicializarse (con falsas detecciones mientras tanto). **PIR** significa *Passive InfraRed* (infrarrojo pasivo): detecta los cambios de calor infrarrojo que emite un cuerpo al moverse frente a él; es «pasivo» porque no emite nada, solo «escucha».
-- **Retos:** tocar una melodía conocida; patrón de timbre; código de desarme con 3 pulsaciones.
-- **Rompe y arregla:** el PIR «no responde» porque no se esperó el calentamiento.
-- **Evidencia:** alarma que se arma, detecta y se desarma.
-- **Cuidado:** sonidos cortos; el zumbador **pasivo** es el que cambia de tono con `tone`.
+- **Retos:** `for` en los pitidos (`P07a_pitidos_con_for`); timbre de puerta y código secreto; sirena con `for` (`P07b_sirena_for`); «Cumpleaños feliz» (`P07b_cumpleanos`); tiempo de salida y desarme con 3 pulsaciones (`P08_alarma_completa`, que además hace que la sirena no bloquee el programa).
+- **Rompe y arregla:** cable del zumbador en el pin 11 (no suena); `i <= 3` (cuatro pitidos, sin mensaje de error); errores del IDE dentro del `for` (`;` que falta, nombre mal escrito, llave que falta, con los mensajes comprobados compilando); P07a con el pasivo conectado (solo clics, seguro por la resistencia); cable OUT del PIR en el pin 6 (la alarma nunca suena); retardo del PIR al tope largo (la sirena se repite). **No se planta ningún fallo que deje el pasivo sin su resistencia.** Se cambió el fallo «el PIR no responde porque no se esperó el calentamiento»: depende del azar. El calentamiento se **observa y se mide** en P08a.
+- **Evidencia:** captura del Monitor Serie con detecciones del PIR y el retardo medido; alarma que se arma, detecta y se desarma.
+- **Cuidado:** sonidos cortos; el zumbador **pasivo** es el que cambia de tono con `tone`. **El pasivo (16 Ω según su hoja de datos) lleva una resistencia de 220 Ω en serie:** sin ella pediría unos 310 mA y un pin aguanta 40 mA. El activo (menos de 25 mA) va directo al pin. El PIR se alimenta con 5 V: se leen las letras de sus patas antes de conectarlo (VCC y GND al revés pueden dañarlo). P16 y P25 usan el mismo zumbador y su encabezado ya pide la resistencia.
+- **Decisión de armado:** al empezar se retiran el LED amarillo y el verde (hace falta el espacio y las piezas se vuelven a usar). El zumbador va en las columnas 5 a 11, dentro de la primera mitad del protoboard: los rieles pueden venir divididos en el centro y así el GND siempre llega.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S04-sonido-y-alarma.md` (zumbadores, frecuencia, `for`, módulo PIR, señal del PIR y estados de la alarma; protoboard y cableado de P07a, P07b y P08). Pendiente de comprobar con el kit: separación de las patas de los zumbadores, corriente y volumen del pasivo, orden de las patas del PIR y sentido de sus perillas (V8, V12 y V13).
 
 ### Sesión 5 · Perilla y brillo
 - **Objetivo:** pasar de HIGH/LOW a una escala de valores.
@@ -296,16 +299,16 @@ Todo sale del kit. Los componentes se cuentan al iniciar cada sesión.
 | 1 | Placa y cable USB, protoboard, 1 LED, 1 resistencia 220 Ω, jumpers |
 | 2 | 3 LED (rojo, amarillo, verde), 3 resistencias 220 Ω |
 | 3 | LED, 220 Ω, botón |
-| 4 | Zumbador activo y pasivo, PIR (3 cables M-F), botón, LED, 220 Ω |
+| 4 | Zumbador activo y pasivo, PIR (3 cables M-F), botón, LED, 2 resistencias de 220 Ω (LED y zumbador pasivo) |
 | 5 | Potenciómetro, LED, 220 Ω |
 | 6 | LDR, resistencia 10 kΩ, potenciómetro, LED, 220 Ω |
 | 7 | Servo SG90, potenciómetro |
-| 8 | HC-SR04 (4 cables M-F), servo, zumbador pasivo, LED, 220 Ω |
+| 8 | HC-SR04 (4 cables M-F), servo, zumbador pasivo, LED, 2 resistencias de 220 Ω (LED y zumbador) |
 | 9 | Motor con aspa, PN2222, 1N4007, resistencia 330 Ω, módulo de fuente y adaptador de 9 V, botón, potenciómetro |
 | 10 | Termistor NTC, resistencia 10 kΩ, DHT11 (3 cables M-F) |
 | 11 | LCD1602, potenciómetro (contraste), DHT11 |
 | 12 | LCD1602, termistor, 10 kΩ, **2 potenciómetros (contraste y límite)**, motor, PN2222, 1N4007, 330 Ω, módulo de fuente |
-| 13 | Sensor de humedad de suelo, sensor de nivel de agua (cables M-F), 3 LED, 3 resistencias 220 Ω, zumbador pasivo; **vasos con agua, tierra y una maceta** (no vienen en el kit) |
+| 13 | Sensor de humedad de suelo, sensor de nivel de agua (cables M-F), 3 LED, 4 resistencias 220 Ω (3 LED y el zumbador pasivo), zumbador pasivo; **vasos con agua, tierra y una maceta** (no vienen en el kit) |
 
 **Compras que valen la pena (opcionales):**
 1. **Potenciómetros de 10 kΩ con perilla** (unos 12; dos por kit). Los del kit son trimmer (F8) y, además, la sesión 12 usa los dos del kit a la vez.
@@ -328,10 +331,12 @@ La mejor preparación es vivir el curso como alumno: hacer P01 a P25 **en este o
 | V5 | Precisión del termistor frente a un termómetro | P19 | Diferencia, para `AJUSTE_C` |
 | V6 | Rango del LDR con 10 kΩ en el salón | P11 | Valores con luz, sombra y oscuridad |
 | V7 | Valores de los sensores de suelo y de agua | P24, P25 | Lecturas para `VALOR_SECO`, `VALOR_MOJADO`, `NIVEL_BAJO`, `NIVEL_ALTO` (los de los sketches son supuestos) |
-| V8 | Tiempo de calentamiento y sensibilidad del PIR | P08 | Segundos reales hasta que se estabiliza |
+| V8 | Tiempo de calentamiento, retardo, bloqueo y sensibilidad del PIR; orden de sus patas y sentido de sus perillas | P08a, P08 | Segundos reales hasta que se estabiliza; retardo en los dos topes y sentido de giro; segundos de bloqueo; metros de alcance; letras de las patas; posición del puente |
 | V9 | Servo desde el 5 V del Arduino por USB | P13, P16 | Si se reinicia o tiembla |
 | V10 | Luz de fondo y contraste del LCD | P21 | Si hay que cambiar algo respecto al diagrama de la lección 19 |
 | V11 | Tiempo real de cada práctica | todas | Para ajustar qué cabe en 2 horas |
+| V12 | Zumbador pasivo con 220 Ω en serie: volumen y corriente real con `tone()` (con multímetro en serie, si hay) | P07b, P08 | Si se oye bien en un salón; mA medidos. Si se oye muy bajito, valorar otra resistencia **solo con la corriente medida** (100 Ω daría hasta unos 43 mA como peor caso sin contar el pin: demasiado cerca de los 40 mA) |
+| V13 | Zumbadores del kit: cuál es el activo y cuál el pasivo, separación de sus patas, si entran en el protoboard y si la etiqueta del activo cambia el volumen | P07a, P07b | Agujeros entre patas; qué se oye con y sin etiqueta |
 
 **Si el motor consume cerca de 1 A de forma sostenida** (a 5 V), el circuito con PN2222 y módulo de fuente no sirve: el PN2222 aguanta 600 mA, el módulo 700 mA y el regulador del módulo (de 9 V a 5 V) se sobrecalentaría. Opciones, de más simple a menos:
 

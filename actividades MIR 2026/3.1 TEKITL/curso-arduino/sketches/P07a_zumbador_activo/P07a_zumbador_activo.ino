@@ -5,16 +5,20 @@
 
   Conexiones:
     Zumbador ACTIVO   pata marcada con + (la larga) -> pin 12 ; la otra pata -> GND
-    (Un zumbador activo trae su propio circuito: suena con solo darle 5 V.
-     El kit trae uno activo y uno pasivo. Para distinguirlos, conecta uno a 5 V y
-     GND: el que suena fijo es el activo; el pasivo solo hace un "clic".)
+    (En el kit es el que trae una etiqueta blanca con el signo +. El pasivo es un disco
+     negro liso con un orificio: ese NO se conecta así, ver P07b.)
+
+  Un zumbador activo trae su propio circuito: suena con solo darle 5 V, siempre con el
+  mismo tono. Su hoja de datos pide menos de 25 mA y un pin del UNO aguanta hasta 40 mA,
+  así que va directo al pin, sin resistencia.
 
   Idea clave: una FUNCIÓN con parámetro. pitido(100) y pitido(600) hacen lo mismo
   pero con distinta duración.
 
-  Cuidado: no dejes el zumbador sonando mucho tiempo; es molesto y calienta.
+  Cuidado: no lo dejes sonando mucho tiempo; es molesto y calienta.
 
-  Retos:  - Escribe el patrón de un timbre de puerta.
+  Retos:  - Las tres líneas pitido(100) se repiten: reemplázalas con un "for".
+          - Escribe el patrón de un timbre de puerta.
           - Haz un código "secreto": 2 cortos, 1 largo, 2 cortos.
 */
 

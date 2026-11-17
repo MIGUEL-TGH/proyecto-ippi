@@ -158,7 +158,7 @@ Cada práctica se hace con los archivos de `kit-arduino/Code/` (código) y el PD
 
 ### Sketches nuevos que hay que preparar
 
-Para A8, A9, A10, A12 y A13 no existe código en el kit. **Ya están escritos y compilados** (16 nov) dentro de la secuencia del curso, en `curso-arduino/sketches/` (27 sketches, 0 errores, 0 avisos). Equivalencias: A8 → `P11`/`P12`, A9 → `P09`/`P10`, A10 → `P17`/`P18`, A12 → `P04` (y `X02`), A13 → `X01` (dado con 6 LED en lugar de display). Para recompilar tras editar: `curso-arduino/compilar-sketches.ps1`. Falta probarlos con la placa y el circuito; ver `plan-curso-arduino.md`, sección 11.
+Para A8, A9, A10, A12 y A13 no existe código en el kit. **Ya están escritos y compilados** (16 nov) dentro de la secuencia del curso, en `curso-arduino/sketches/` (38 sketches, 0 errores, 0 avisos). Equivalencias: A8 → `P11`/`P12`, A9 → `P09`/`P10`, A10 → `P17`/`P18`, A12 → `P04` (y `X02`), A13 → `X01` (dado con 6 LED en lugar de display). Para recompilar tras editar: `curso-arduino/compilar-sketches.ps1`. Falta probarlos con la placa y el circuito; ver `plan-curso-arduino.md`, sección 11.
 
 ## 7. Seguridad (para las prácticas y para el aula)
 
@@ -173,7 +173,7 @@ Para A8, A9, A10, A12 y A13 no existe código en el kit. **Ya están escritos y 
 ## 8. Pendientes
 
 - [x] ~~Instalar Arduino IDE (o arduino-cli) para compilar los sketches~~ → hecho; se usa el `arduino-cli` incluido en el IDE.
-- [x] ~~Compilar los sketches del kit y los nuevos~~ → 33/33 del kit y 27/27 nuevos sin errores.
+- [x] ~~Compilar los sketches del kit y los nuevos~~ → 33/33 del kit y 38/38 nuevos (28 de la secuencia y 10 soluciones de retos) sin errores.
 - [ ] Probar con la placa y anotar tiempos y dudas (ahora en el orden del curso: `plan-curso-arduino.md`, sección 11).
 - [x] ~~Decidir qué práctica de los bloques B y C entran al curso~~ → decidido en el plan (humedad de suelo, nivel de agua, DHT11, LCD y PIR entran; el resto queda como ampliación).
 - [ ] Confirmar si habrá computadoras e internet (H9 en `hallazgos-ajuste-curso.md`). Ya se sabe que son 6 kits con 2–3 alumnos cada uno.

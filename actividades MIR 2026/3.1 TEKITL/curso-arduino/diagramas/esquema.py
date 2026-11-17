@@ -24,7 +24,7 @@ _MONO = {"Mono": "consola.ttf", "MonoBold": "consolab.ttf"}
 NOTA = "#6b5d52"          # notas monoespaciadas (café grisáceo)
 SUB = "#8a8a8a"           # subtítulos de componentes
 CABLE = {"negro": "#262626", "rojo": "#c8202b", "naranja": "#c4690a", "morado": "#7b2cbf",
-         "cafe": "#6a3f12", "verde": "#2a9d4a", "azul": "#1d5fd1", "amarillo": "#c99a00"}
+         "cafe": "#6a3f12", "verde": "#2a9d4a", "azul": "#1d5fd1", "amarillo": "#c99a00", "gris": "#6f7a8d"}
 
 
 class Lienzo(Canvas):
@@ -229,6 +229,24 @@ class Esquema:
                 b = (a[0] + 0.85, a[1] - 0.85)
                 c.line([a, b], TINTA, 0.11, ends=False)
                 c.poly([b, (b[0] - 0.42, b[1] + 0.12), (b[0] - 0.12, b[1] + 0.42)], fill=TINTA)
+        self._post.append(dibujar)
+
+    def boton(self, nombre, x, y, w=6.0):
+        """Pulsador horizontal (símbolo): contacto abierto y émbolo con tapa. Terminales nombre.a (izquierda) y nombre.b (derecha)."""
+        self.terminal(nombre + ".a", x, y)
+        self.terminal(nombre + ".b", x + w, y)
+
+        def dibujar():
+            c = self.c
+            xa, xb = x + 1.5, x + w - 1.5
+            c.line([(x, y), (xa, y)], TINTA, 0.17, ends=False)
+            c.line([(xb, y), (x + w, y)], TINTA, 0.17, ends=False)
+            for px_ in (xa, xb):
+                c.circle(px_, y, 0.28, fill="#ffffff", outline=TINTA, width=0.12)
+            c.line([(xa, y - 0.15), (xb - 0.25, y - 1.25)], TINTA, 0.17, ends=False)      # lámina levantada (abierto)
+            xm = (xa + xb) / 2 - 0.1
+            c.line([(xm, y - 0.7), (xm, y - 2.3)], TINTA, 0.14, ends=False)                # émbolo
+            c.line([(xm - 1.0, y - 2.3), (xm + 1.0, y - 2.3)], TINTA, 0.2, ends=False)     # tapa
         self._post.append(dibujar)
 
     def bloque(self, nombre, x, y, w, h, titulo, sub=None, terminales=()):

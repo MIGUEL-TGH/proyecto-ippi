@@ -7,7 +7,7 @@
   Conexiones (6 LED, cada uno con su resistencia de 220 ohm y la pata corta a GND):
     LED 1 -> pin 8     LED 2 -> pin 9     LED 3 -> pin 10
     LED 4 -> pin 11    LED 5 -> pin 12    LED 6 -> pin 13
-    Botón: una pata -> pin 2 ; la pata del lado contrario -> GND
+    Botón: una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
 
   Ideas clave:
     - Un ARREGLO (LEDS[]) guarda varios valores bajo un mismo nombre: así un for

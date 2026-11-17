@@ -6,7 +6,7 @@
 
   Conexiones: iguales a P05
     LED     pin 8 -> resistencia 220 ohm -> LED (pata larga +) ; pata corta (-) -> GND
-    Botón   una pata -> pin 2 ; la pata del lado contrario -> GND
+    Botón   una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
 
   Ideas clave:
     - Una variable de ESTADO (ledEncendido) recuerda lo que pasó antes.

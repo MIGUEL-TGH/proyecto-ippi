@@ -314,6 +314,30 @@ class Breadboard:
             c.text(hx, y + 10.0, str(col), 0.5, "#8d8671", "SemiBold")
 
 
+# ---------------------------------------------------------------- Sensor PIR HC-SR501 (módulo fuera del protoboard)
+def dibujar_pir(c, x, y):
+    """Módulo visto por el lado de la cúpula, girado 90°: las patas salen por la izquierda.
+    Placa de 9.4 x 12.6 U (24 x 32 mm); arriba GND, en medio OUT, abajo VCC; conectores de cables macho-hembra."""
+    yc = y + 6.3
+    c.rect(x, y, 9.4, 12.6, fill="#2f8f55", outline="#1b5c37", width=0.1, r=0.5)
+    for (hx, hy) in ((x + 0.8, y + 0.8), (x + 8.6, y + 0.8), (x + 0.8, y + 11.8), (x + 8.6, y + 11.8)):
+        c.circle(hx, hy, 0.38, fill="#e9e9e0", outline="#1b5c37", width=0.05)
+    # cúpula (lente de Fresnel)
+    c.circle(x + 5.0, yc, 4.1, fill="#f5f5f2", outline="#cfcfc8", width=0.08)
+    c.circle(x + 5.0, yc, 2.9, outline="#dcdcd5", width=0.05)
+    for k in range(6):
+        a = k * math.pi / 3
+        c.line([(x + 5.0 + math.cos(a) * 1.0, yc + math.sin(a) * 1.0), (x + 5.0 + math.cos(a) * 2.9, yc + math.sin(a) * 2.9)],
+               "#dcdcd5", 0.05, ends=False)
+    c.circle(x + 5.0, yc, 1.0, fill="#ffffff", outline="#dcdcd5", width=0.05)
+    # patas y conectores
+    for nombre, dy in (("GND", -1.0), ("OUT", 0.0), ("VCC", 1.0)):
+        yy = yc + dy
+        c.rect(x - 0.9, yy - 0.12, 1.2, 0.24, fill="#c9a227")
+        c.rect(x - 3.6, yy - 0.46, 2.8, 0.92, fill="#1e1e1e", r=0.15)
+        c.text(x - 2.2, yy + 0.02, nombre, 0.46, "#ffffff", "Bold")
+
+
 # ---------------------------------------------------------------- Circuito
 def fmt_hole(col, row):
     return f"{row}{col}"
@@ -328,6 +352,8 @@ class Circuit:
         self.items = []       # dibujos diferidos
         self.table = []       # filas (paso, texto)
         self.elems = {}       # nombre -> terminales
+        self.mods = {}        # módulos fuera del protoboard: nombre -> {pin: (x, y)}
+        self._unions = []     # uniones de los cables (para rehacer la verificación con otras hipótesis)
         for g in self.ard.gnd_names:
             self.uf.union(("A", "GND"), ("A", g))
 
@@ -340,6 +366,8 @@ class Circuit:
             return self.bb.node(ref[1], ref[2])
         if kind == "rail":
             return self.bb.rail_node(ref[1], ref[2])
+        if kind == "mod":
+            return ("M", ref[1], ref[2])
         raise ValueError(ref)
 
     def _xy(self, ref):
@@ -350,6 +378,8 @@ class Circuit:
             return self.bb.hole(ref[1], ref[2])
         if kind == "rail":
             return self.bb.rail_hole(ref[1], ref[2], ref[3])
+        if kind == "mod":
+            return self.mods[ref[1]][ref[2]]
         raise ValueError(ref)
 
     def _name(self, ref):
@@ -361,6 +391,8 @@ class Circuit:
             return f"agujero {fmt_hole(ref[1], ref[2])}"
         if kind == "rail":
             return "riel \u2212 (azul)" if ref[2] == "-" else "riel + (rojo)"
+        if kind == "mod":
+            return f"pata {ref[2]} del sensor {ref[1]}"
         raise ValueError(ref)
 
     def _occupy(self, ref, quien):
@@ -371,19 +403,24 @@ class Circuit:
             self.used_holes[key] = quien
 
     # ---- cables
-    def wire(self, a, b, color, via=0.5, step=None, nombre=None, badge=None):
+    def wire(self, a, b, color, via=0.5, step=None, nombre=None, badge=None, ruta=None):
+        """Cable de a a b. Por omisión sale en vertical, corre por un canal horizontal y entra en vertical;
+        con 'ruta' (lista de puntos intermedios) se dibuja el camino indicado."""
         a = ("ard", "GND_T") if a == ("ard", "GND") else a
         b = ("ard", "GND_T") if b == ("ard", "GND") else b
         self._occupy(a, f"cable {color}")
         self._occupy(b, f"cable {color}")
         self.uf.union(self._node(a), self._node(b))
+        self._unions.append((self._node(a), self._node(b)))
         for r in (a, b):
             if r[0] == "ard":
                 self.used_pins[r[1]] = COL[color]
         pa, pb = self._xy(a), self._xy(b)
-        # el cable sale de la placa en vertical, corre por un canal horizontal y entra en vertical
-        y_ch = pa[1] - (pa[1] - pb[1]) * via if abs(pa[1] - pb[1]) > 3 else (pa[1] + pb[1]) / 2
-        pts = [pa, (pa[0], y_ch), (pb[0], y_ch), pb] if pa[0] != pb[0] else [pa, pb]
+        if ruta is not None:
+            pts = [pa, *ruta, pb]
+        else:
+            y_ch = pa[1] - (pa[1] - pb[1]) * via if abs(pa[1] - pb[1]) > 3 else (pa[1] + pb[1]) / 2
+            pts = [pa, (pa[0], y_ch), (pb[0], y_ch), pb] if pa[0] != pb[0] else [pa, pb]
         self.items.append(("wire", pts, COL[color], step, badge))
         self.table.append((step, f"Cable {color}", f"{self._name(a)}", f"{self._name(b)}"))
 
@@ -401,6 +438,69 @@ class Circuit:
         self.elems[nombre] = (("bb",) + anodo, ("bb",) + catodo)
         self.items.append(("led", self.bb.hole(*anodo), self.bb.hole(*catodo), LED_COL[color], step))
         self.table.append((step, f"LED {color}", f"pata larga (+): {self._name(('bb',) + anodo)}", f"pata corta (\u2212): {self._name(('bb',) + catodo)}"))
+
+    def boton(self, col, step=None, nombre="B"):
+        """Botón de 4 patas (6 x 6 mm) cruzando el canal central: patas en las columnas col y col+2,
+        filas e (arriba del canal) y f (abajo). Devuelve las cuatro patas [(col,e), (col+2,e), (col,f), (col+2,f)]."""
+        patas = [(col, "e"), (col + 2, "e"), (col, "f"), (col + 2, "f")]
+        for p in patas:
+            self._occupy(("bb",) + p, nombre)
+        self.elems[nombre] = [("bb",) + p for p in patas]
+        self.items.append(("boton", col, step))
+        self.table.append((step, "Botón (4 patas)", f"arriba del canal: {fmt_hole(col, 'e')} y {fmt_hole(col + 2, 'e')}",
+                           f"abajo del canal: {fmt_hole(col, 'f')} y {fmt_hole(col + 2, 'f')}"))
+        return patas
+
+    def zumbador(self, col, tipo, step=None, nombre="BZ"):
+        """Zumbador de dos patas separadas 3 agujeros (7,6 mm), en las columnas col y col+3 de la fila f
+        (abajo del canal). tipo: 'activo' (pata + a la izquierda) o 'pasivo'. Devuelve las dos patas."""
+        a, b = (col, "f"), (col + 3, "f")
+        for p in (a, b):
+            self._occupy(("bb",) + p, nombre)
+        self.elems[nombre] = [("bb",) + a, ("bb",) + b]
+        self.items.append(("zumbador", col, tipo, step))
+        izq = "pata + (la larga, con el signo +)" if tipo == "activo" else "una pata"
+        self.table.append((step, f"Zumbador {tipo}", f"{izq}: {fmt_hole(*a)}", f"la otra pata: {fmt_hole(*b)}"))
+        return [a, b]
+
+    def pir(self, x, y):
+        """Sensor PIR HC-SR501 visto por el lado de la cúpula y girado: sus 3 patas salen por la izquierda
+        (arriba GND, en medio OUT, abajo VCC). (x, y) = esquina superior izquierda de la placa (9.4 x 12.6 U).
+        Los terminales están en el extremo izquierdo de los conectores de los cables macho-hembra."""
+        yc = y + 6.3
+        self.modulo("PIR", {"GND": (x - 3.6, yc - 1.0), "OUT": (x - 3.6, yc), "VCC": (x - 3.6, yc + 1.0)})
+        self.items.append(("pir", x, y))
+
+    def modulo(self, nombre, pines):
+        self.mods[nombre] = pines
+
+    def comprobar_boton(self, nombre, a, b, msg):
+        """Comprueba que el botón NO une a con b cuando está suelto y SÍ los une cuando se presiona,
+        con las dos formas posibles de venir unidas las patas por dentro:
+          A) las dos patas de una misma columna (de lado a lado del canal) están unidas; al presionar se unen las dos columnas;
+          B) las dos patas de un mismo lado del canal están unidas; al presionar se unen los dos lados.
+        Así el circuito funciona sin importar cuál sea la del botón real."""
+        c1e, c2e, c1f, c2f = self.elems[nombre]
+        hipotesis = {
+            "A (patas de lado a lado unidas)": ([(c1e, c1f), (c2e, c2f)], (c1e, c2e)),
+            "B (patas del mismo lado unidas)": ([(c1e, c2e), (c1f, c2f)], (c1e, c1f)),
+        }
+        for etiqueta, (internas, contacto) in hipotesis.items():
+            base = self._unions + [(self._node(p), self._node(q)) for p, q in internas]
+            suelto = self._uf_con(base)
+            if suelto.find(self._node(a)) == suelto.find(self._node(b)):
+                raise AssertionError(f"Con el botón suelto (hipótesis {etiqueta}) ya están unidos: {msg}")
+            pres = self._uf_con(base + [(self._node(contacto[0]), self._node(contacto[1]))])
+            if pres.find(self._node(a)) != pres.find(self._node(b)):
+                raise AssertionError(f"Con el botón presionado (hipótesis {etiqueta}) no se unen: {msg}")
+
+    def _uf_con(self, uniones):
+        uf = _UF()
+        for g in self.ard.gnd_names:
+            uf.union(("A", "GND"), ("A", g))
+        for p, q in uniones:
+            uf.union(p, q)
+        return uf
 
     # ---- verificación
     def conectados(self, a, b):
@@ -426,6 +526,15 @@ class Circuit:
             elif it[0] == "led":
                 _, pa, pb, color, step = it
                 self._draw_led(pa, pb, color, step)
+            elif it[0] == "boton":
+                _, col, step = it
+                self._draw_boton(col, step)
+            elif it[0] == "zumbador":
+                _, col, tipo, step = it
+                self._draw_zumbador(col, tipo, step)
+            elif it[0] == "pir":
+                _, px_, py_ = it
+                dibujar_pir(self.c, px_, py_)
         for it in self.items:
             if it[0] == "wire":
                 _, pts, color, step, badge = it
@@ -455,6 +564,42 @@ class Circuit:
             c.rect(bx - 0.11, cy - 0.55, 0.22, 1.1, fill=col)
         if step:
             c.badge(cx, cy + 1.6, step)
+
+    def _draw_boton(self, col, step):
+        """Botón de 6 x 6 mm visto desde arriba, con sus cuatro patas en los agujeros."""
+        c = self.c
+        x1, ye = self.bb.hole(col, "e")
+        x2, _ = self.bb.hole(col + 2, "e")
+        _, yf = self.bb.hole(col, "f")
+        cx, cy = (x1 + x2) / 2, (ye + yf) / 2
+        for px_, py_ in ((x1, ye), (x2, ye), (x1, yf), (x2, yf)):
+            c.line([(px_, py_), (px_, cy)], "#b8b8b8", 0.26, ends=True)
+        c.rect(cx - 1.35, cy - 1.1, 2.7, 2.2, fill="#2e2e2e", outline="#111111", width=0.08, r=0.35)
+        c.circle(cx, cy, 0.78, fill="#4b4b4b", outline="#111111", width=0.06)
+        c.circle(cx - 0.22, cy - 0.22, 0.25, fill="#808080")
+        if step:
+            c.badge(cx, yf + 1.9, step)
+
+    def _draw_zumbador(self, col, tipo, step):
+        """Zumbador de 12 mm visto desde arriba; sus patas quedan debajo del cuerpo, en los agujeros."""
+        c = self.c
+        x1, yf = self.bb.hole(col, "f")
+        x2, _ = self.bb.hole(col + 3, "f")
+        cx, cy, r = (x1 + x2) / 2, yf, 2.36
+        if tipo == "activo":
+            c.circle(cx, cy, r, fill="#1f2733", outline="#0b0f14", width=0.08)
+            c.circle(cx, cy, r - 0.35, outline="#35435a", width=0.06)
+            c.circle(cx, cy, 1.55, fill="#f4f4f1", outline="#c9c9c2", width=0.05)          # etiqueta blanca
+            c.circle(cx - 0.75, cy, 0.55, outline="#2a4d9b", width=0.07)                     # signo + (lado de la pata +)
+            c.line([(cx - 1.0, cy), (cx - 0.5, cy)], "#2a4d9b", 0.09, ends=False)
+            c.line([(cx - 0.75, cy - 0.25), (cx - 0.75, cy + 0.25)], "#2a4d9b", 0.09, ends=False)
+        else:
+            c.circle(cx, cy, r, fill="#161616", outline="#050505", width=0.08)
+            c.circle(cx, cy, r - 0.3, outline="#2c2c2c", width=0.06)
+            c.circle(cx, cy, 0.5, fill="#5b5b5b", outline="#0a0a0a", width=0.05)             # orificio
+            c.circle(cx - 0.9, cy - 0.9, 0.25, fill="#3a3a3a")
+        if step:
+            c.badge(cx, cy - r - 0.9, step)
 
     @staticmethod
     def _bands(ohms):

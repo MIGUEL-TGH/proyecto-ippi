@@ -12,7 +12,7 @@
     LED rojo      pin 8  -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
     LED amarillo  pin 9  -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
     LED verde     pin 10 -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
-    Zumbador PASIVO   una pata -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo)
+    Zumbador PASIVO   una pata -> resistencia 220 ohm -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo; la resistencia, como en la Sesión 4)
 
   CALIBRACIÓN: pon el sensor en el vaso con poca, media y mucha agua y anota las lecturas
   en el Monitor Serie. Ajusta NIVEL_BAJO y NIVEL_ALTO con tus números. Los valores que

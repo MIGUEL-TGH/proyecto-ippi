@@ -5,8 +5,8 @@
 
   Conexiones:
     LED     pin 8 -> resistencia 220 ohm -> LED (pata larga +) ; pata corta (-) -> GND
-    Botón   una pata -> pin 2 ; la pata del lado contrario -> GND
-            (el botón tiene 4 patas: si no funciona, gíralo 90 grados)
+    Botón   una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
+            (el botón tiene 4 patas: conecta dos OPUESTAS, en diagonal)
 
   Idea clave: INPUT_PULLUP mantiene el pin 2 en HIGH mientras nadie lo toca.
   Al presionar, el botón conecta el pin a GND y se lee LOW.

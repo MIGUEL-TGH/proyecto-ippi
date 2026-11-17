@@ -5,25 +5,30 @@
   detecta movimiento, suena una sirena.
 
   Conexiones:
-    Sensor PIR HC-SR501   VCC -> 5 V ; GND -> GND ; OUT -> pin 7
-    Botón                 una pata -> pin 2 ; la pata del lado contrario -> GND
+    Sensor PIR HC-SR501   VCC -> 5 V ; GND -> GND ; OUT -> pin 7   (3 cables macho-hembra;
+                          lee las letras impresas en TU módulo: el orden cambia entre fabricantes)
+    Botón                 una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
     LED                   pin 8 -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
                           (LED encendido = alarma armada)
-    Zumbador PASIVO       una pata -> pin 12 ; otra pata -> GND
+    Zumbador PASIVO       una pata -> resistencia 220 ohm -> pin 12 ; otra pata -> GND
                           (con tone() solo el pasivo cambia de tono; el activo suena siempre igual)
 
   Ideas clave:
-    - Combina lo aprendido: variable de estado (como el botón con memoria) + sensor digital.
-    - Según el fabricante, el PIR necesita casi un minuto para inicializarse al encender
+    - Combina lo aprendido: variable de estado (como el botón con memoria) + sensor digital
+      + "for" para repetir.
+    - Según el fabricante, el PIR necesita casi un minuto para inicializarse al recibir 5 V
       y en ese tiempo puede dar falsas detecciones. Por eso el programa espera 60 s.
-      No te muevas frente a él. Mientras haces pruebas puedes bajar
-      SEGUNDOS_CALENTAMIENTO, sabiendo que habrá falsas alarmas.
+      No te muevas frente a él. Si el sensor ya lleva más de un minuto conectado (el USB le da
+      5 V todo el tiempo, aunque subas otro programa), puedes bajar SEGUNDOS_CALENTAMIENTO a 5
+      para hacer pruebas más rápido.
     - El módulo trae dos perillas pequeñas (sensibilidad y tiempo de retardo); pruébalas.
       Con retardo largo, la salida del PIR se queda en HIGH y la sirena se repite.
+    - Al armar, aleja la mano del sensor: si lo ve moverse, la alarma suena en seguida.
     - Para desarmar mientras suena, mantén presionado el botón hasta que calle.
 
   Retos:  - Cambia la sirena por otro sonido.
-          - Agrega un código de 3 pulsaciones para desarmar (más difícil de burlar).
+          - Agrega un tiempo de salida y un código de 3 pulsaciones para desarmar
+            (solución del instructor: P08_alarma_completa).
 */
 
 const int PIN_PIR = 7;
@@ -47,9 +52,9 @@ void sirena() {
     if (digitalRead(PIN_BOTON) == LOW) {   // si presionan el botón, deja de sonar
       break;
     }
-    tone(PIN_ZUMBADOR, 1500);
+    tone(PIN_ZUMBADOR, 2400);
     delay(150);
-    tone(PIN_ZUMBADOR, 900);
+    tone(PIN_ZUMBADOR, 1800);
     delay(150);
   }
   noTone(PIN_ZUMBADOR);

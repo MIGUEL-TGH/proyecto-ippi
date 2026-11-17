@@ -7,7 +7,7 @@
   Conexiones:
     HC-SR04   VCC -> 5 V ; TRIG -> pin 6 ; ECHO -> pin 7 ; GND -> GND
     Servo     GND -> GND ; rojo -> 5 V ; señal -> pin 9   (pega un palito de paleta al brazo)
-    Zumbador PASIVO   una pata -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo)
+    Zumbador PASIVO   una pata -> resistencia 220 ohm -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo; la resistencia, como en la Sesión 4)
     LED       pin 8 -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
               (LED encendido = barrera abierta)
 

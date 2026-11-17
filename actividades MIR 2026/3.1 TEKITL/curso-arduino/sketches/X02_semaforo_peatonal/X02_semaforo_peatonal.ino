@@ -7,7 +7,7 @@
 
   Conexiones (cada LED con resistencia de 220 ohm, pata corta a GND):
     LED rojo -> pin 8   LED amarillo -> pin 9   LED verde -> pin 10   LED azul (peatón) -> pin 11
-    Botón: una pata -> pin 2 ; la pata del lado contrario -> GND
+    Botón: una pata -> pin 2 ; la pata OPUESTA (en diagonal) -> GND
     Zumbador PASIVO: una pata -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo)
 
   Ideas clave:
