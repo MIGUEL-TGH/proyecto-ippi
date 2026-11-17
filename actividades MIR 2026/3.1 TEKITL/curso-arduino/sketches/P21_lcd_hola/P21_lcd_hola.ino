@@ -3,22 +3,23 @@
   ------------------------------------------------------------------
   Qué hace: escribe un mensaje en la primera línea y un contador de segundos en la segunda.
 
-  Conexiones del LCD1602 (16 pines, de izquierda a derecha):
+  Conexiones del LCD1602 (16 pines, de izquierda a derecha, enchufado en la fila a del protoboard):
     1  VSS -> GND
     2  VDD -> 5 V
     3  V0  -> centro de un potenciómetro (ajusta el contraste); extremos a 5 V y GND
-    4  RS  -> pin 7
+    4  RS  -> pin 12
     5  RW  -> GND
-    6  E   -> pin 8
-    11 D4  -> pin 9
-    12 D5  -> pin 10
-    13 D6  -> pin 11
-    14 D7  -> pin 12
-    15 A   -> 5 V (luz de fondo)
+    6  E   -> pin 11
+    11 D4  -> pin 10
+    12 D5  -> pin 9
+    13 D6  -> pin 8
+    14 D7  -> pin 7
+    15 A   -> resistencia de 100 ohm -> 5 V (luz de fondo)
     16 K   -> GND
     (Los pines 7 a 10, D0 a D3, no se usan: trabajamos en modo de 4 bits.)
-  Mismo conexionado que la lección 19 del kit; si la pantalla no muestra nada,
-  gira el potenciómetro de contraste.
+  Los pines 12, 11, 10, 9, 8 y 7 siguen el orden de las patas del LCD, así los cables van
+  paralelos y no se cruzan. La lección 19 del kit usa otros pines; este orden es el del curso.
+  Si la pantalla no muestra nada, gira el potenciómetro de contraste.
 
   Ideas clave:
     - #include trae una LIBRERÍA: código ya hecho por otras personas. LiquidCrystal
@@ -33,7 +34,7 @@
 #include <LiquidCrystal.h>
 
 //                RS, E, D4, D5, D6, D7
-LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 
 void setup() {
   lcd.begin(16, 2);               // 16 columnas, 2 filas

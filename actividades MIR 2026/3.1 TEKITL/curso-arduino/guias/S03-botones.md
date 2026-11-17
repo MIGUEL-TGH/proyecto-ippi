@@ -297,6 +297,6 @@ Haz las dos prácticas y el reto de cierre como lo haría un alumno y llena esto
 
 ## Para recompilar o regenerar
 
-- Los sketches se verifican con `curso-arduino/compilar-sketches.ps1` (38 en total).
+- Los sketches se verifican con `curso-arduino/compilar-sketches.ps1` (66 en total).
 - Los diagramas se generan con `python curso-arduino/diagramas/generar_diagramas.py P05 P06`. El script **comprueba las conexiones** al dibujar; en el botón comprueba que el pin 2 solo se une con GND al presionar, **con las dos formas posibles** de venir unidas las patas por dentro.
 - En esta sesión se corrigió un detalle de los diagramas de la Sesión 2: el cable negro del LED amarillo entra ahora al riel por la columna 11, porque en la 12 el riel tiene un hueco. No cambia el armado: sirve cualquier agujero del riel azul (−).

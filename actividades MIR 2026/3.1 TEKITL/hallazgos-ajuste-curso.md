@@ -33,7 +33,7 @@
 | # | Hallazgo | Gravedad | Solución propuesta | Estado |
 |---|---|---|---|---|
 | H1 | Word, PowerPoint y kit no coinciden en materiales | Alta | Rehacer ambos a partir del inventario real del kit. **Se omiten TMP36 y ventilador de PC** (decisión 16 nov). | ◐ decidido; falta rehacer Word y PPT |
-| H2 | El código de las láminas son capturas de Tinkercad en español: no compila en Arduino IDE | Alta | Reemplazar por texto en C++ verificado, tomado de los `.ino` del kit | ◐ 38 sketches nuevos compilados (28 de la secuencia y 10 soluciones de retos) en `curso-arduino/sketches/` (falta probarlos en placa) |
+| H2 | El código de las láminas son capturas de Tinkercad en español: no compila en Arduino IDE | Alta | Reemplazar por texto en C++ verificado, tomado de los `.ino` del kit | ◐ 66 sketches nuevos compilados (30 de la secuencia, 35 soluciones de retos y la plantilla del proyecto final) en `curso-arduino/sketches/` (falta probarlos en placa) |
 | H3 | Proyecto 7 (ventilador) es inconsistente: dice transistor, el circuito lleva un TMP36 y el código tiene errores | Alta | Rediseñar con PN2222 + 1N4007 + motor 3–6 V (todo en el kit) | ◐ rediseñado en sesiones 9 y 12 del plan (sketches P17, P18, P23) pero **bloqueado**: el motor funciona a partir de 0.95 A (medición de Miguel, 16 nov), más de lo que aguanta el PN2222. Ver `plan-curso-arduino.md`, sección 11, V1 |
 | H4 | Capturas recortadas conservan la pantalla completa (correo, WhatsApp, marcadores) | Media | Regenerar capturas limpias antes de compartir | ☐ |
 | H5 | 16 láminas son los Pasos 1 y 2 idénticos en los 8 proyectos | Media | Consolidar en una sola sección «Preparación» | ☐ |

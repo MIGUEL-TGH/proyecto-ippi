@@ -4,7 +4,7 @@
   Qué hace: el ángulo del servo sigue la posición del potenciómetro.
 
   Conexiones:
-    Servo SG90      GND -> GND ; rojo -> 5 V ; señal -> pin 9
+    Servo SG90      café -> GND ; rojo -> 5 V ; naranja (señal) -> pin 9
     Potenciómetro   extremo -> 5 V ; centro -> A0 ; otro extremo -> GND
 
   Idea clave: es la misma conversión de la sesión 5, pero ahora la escala de salida

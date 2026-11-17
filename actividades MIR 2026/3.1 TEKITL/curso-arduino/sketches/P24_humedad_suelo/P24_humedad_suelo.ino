@@ -8,6 +8,7 @@
 
   Conexiones:
     Sensor de humedad de suelo    VCC -> 5 V ; GND -> GND ; AO (salida analógica) -> A0
+                                  (el módulo trae 4 pines: AO, DO, GND y VCC; DO, la salida digital, no se usa)
     LED rojo      pin 8  -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
     LED amarillo  pin 9  -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
     LED verde     pin 10 -> resistencia 220 ohm -> LED (+) ; pata corta -> GND

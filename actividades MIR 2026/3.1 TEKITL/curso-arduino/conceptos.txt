@@ -1,4 +1,8 @@
 ============================================
+https://www.arduino.cc/en/software/
+============================================
+Las palabras reservadas (o keywords) son términos que tienen un significado especial y predefinido dentro de un lenguaje de programación
+============================================
 una función es un bloque de código reutilizable que tiene un nombre asignado y realiza una tarea específica
 ============================================
 

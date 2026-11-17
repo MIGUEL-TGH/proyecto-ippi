@@ -6,7 +6,7 @@
 
   Conexiones:
     HC-SR04   VCC -> 5 V ; TRIG -> pin 6 ; ECHO -> pin 7 ; GND -> GND
-    Servo     GND -> GND ; rojo -> 5 V ; señal -> pin 9   (pega un palito de paleta al brazo)
+    Servo     café -> GND ; rojo -> 5 V ; naranja (señal) -> pin 9   (pega un palito de paleta al brazo)
     Zumbador PASIVO   una pata -> resistencia 220 ohm -> pin 12 ; otra pata -> GND   (tone() necesita el pasivo; la resistencia, como en la Sesión 4)
     LED       pin 8 -> resistencia 220 ohm -> LED (+) ; pata corta -> GND
               (LED encendido = barrera abierta)
@@ -15,9 +15,10 @@
     - Combina tres cosas que ya sabes: sensor + decisión + actuadores.
     - Una función que devuelve un valor: medirDistancia() "entrega" los centímetros.
     - Se organiza el programa en funciones pequeñas con nombre: abrirBarrera(), cerrarBarrera().
+    - El zumbador (tone, que usa el reloj 2 del chip) y el servo (reloj 1) no se estorban.
 
   Si el Arduino se reinicia cuando se mueve el servo, alimenta el servo desde el módulo de
-  fuente de 5 V y une los GND.
+  fuente de 5 V y une los GND (ver Sesión 7, "Plan B").
 
   Retos:  - Cambia la distancia de activación.
           - Si el objeto se queda más de 5 segundos, haz sonar una alarma.

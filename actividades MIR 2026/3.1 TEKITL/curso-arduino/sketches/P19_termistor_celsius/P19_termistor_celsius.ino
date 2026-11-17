@@ -4,12 +4,14 @@
   Qué hace: mide la temperatura con el termistor y la muestra en grados Celsius
   en el Monitor Serie.
 
-  Conexiones (divisor de voltaje, igual que el LDR):
+  Conexiones (divisor de voltaje, igual que el LDR de la Sesión 6):
     5 V -> termistor NTC -> (punto medio) -> resistencia 10 kohm -> GND
     El punto medio va al pin A0.   (el termistor no tiene polaridad)
 
   Ideas clave:
     - El NTC baja su resistencia cuando sube la temperatura (NTC = coeficiente negativo).
+      Según la ecuación de este programa, con 10 kohm fijos: a 25 grados el termistor vale 10 kohm
+      (lectura 512); a 0 grados, unos 33 kohm (lectura 240); a 50 grados, unos 3.6 kohm (lectura 752).
     - Su resistencia NO cambia en línea recta: por eso se usa la ecuación de
       Steinhart-Hart. Aquí la tratamos como una "caja negra": entra la resistencia,
       sale la temperatura. Estas constantes son las del código del kit (termistor de 10 k).
@@ -22,6 +24,7 @@
 
   Retos:  - Anota la temperatura ambiente y la de tu dedo.
           - Haz que un LED se encienda si pasa de 30 grados.
+          - Anota la temperatura cada minuto durante la clase.
 */
 
 const int PIN_TERMISTOR = A0;

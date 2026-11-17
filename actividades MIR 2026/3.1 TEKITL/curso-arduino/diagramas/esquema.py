@@ -24,7 +24,7 @@ _MONO = {"Mono": "consola.ttf", "MonoBold": "consolab.ttf"}
 NOTA = "#6b5d52"          # notas monoespaciadas (café grisáceo)
 SUB = "#8a8a8a"           # subtítulos de componentes
 CABLE = {"negro": "#262626", "rojo": "#c8202b", "naranja": "#c4690a", "morado": "#7b2cbf",
-         "cafe": "#6a3f12", "verde": "#2a9d4a", "azul": "#1d5fd1", "amarillo": "#c99a00", "gris": "#6f7a8d"}
+         "cafe": "#6a3f12", "verde": "#2a9d4a", "azul": "#1d5fd1", "amarillo": "#c99a00", "gris": "#6f7a8d", "rosa": "#c2437a", "celeste": "#1a98c4", "lima": "#7a9a1f"}
 
 
 class Lienzo(Canvas):
@@ -247,6 +247,70 @@ class Esquema:
             xm = (xa + xb) / 2 - 0.1
             c.line([(xm, y - 0.7), (xm, y - 2.3)], TINTA, 0.14, ends=False)                # émbolo
             c.line([(xm - 1.0, y - 2.3), (xm + 1.0, y - 2.3)], TINTA, 0.2, ends=False)     # tapa
+        self._post.append(dibujar)
+
+    def potenciometro(self, nombre, x, y0, y1, largo_cursor=4.0):
+        """Potenciómetro vertical (símbolo de divisor de voltaje): extremo de arriba nombre.a, extremo de abajo nombre.b
+        y cursor (flecha) por la izquierda nombre.w, a media altura."""
+        ym = (y0 + y1) / 2
+        self.terminal(nombre + ".a", x, y0)
+        self.terminal(nombre + ".b", x, y1)
+        self.terminal(nombre + ".w", x - largo_cursor, ym)
+
+        def dibujar():
+            c = self.c
+            n = 8
+            ya, yb = y0 + 1.0, y1 - 1.0
+            seg = (yb - ya) / n
+            pts = [(x, y0), (x, ya)]
+            for i in range(n):
+                pts.append((x + (-0.85 if i % 2 == 0 else 0.85), ya + seg * (i + 0.5)))
+            pts += [(x, yb), (x, y1)]
+            c.line(pts, TINTA, 0.16, ends=False)
+            xp = x - largo_cursor
+            c.line([(xp, ym), (x - 1.35, ym)], TINTA, 0.16, ends=False)                  # cursor
+            c.poly([(x - 0.85, ym), (x - 1.75, ym - 0.5), (x - 1.75, ym + 0.5)], fill=TINTA)
+        self._post.append(dibujar)
+
+    def etiqueta_red(self, terminal, red, texto, color, lado="izq", largo=2.4):
+        """Une un terminal con una red que se reparte por el riel (el pin 5V o el GND de la placa) sin dibujar el cable completo:
+        un trozo corto con el nombre de la red («5 V», «GND»). 'red' es el nombre del terminal del pin de la placa.
+        Cuenta como conexión para exigir() y prohibir()."""
+        x, y = self.T[terminal]
+        dx = -largo if lado == "izq" else largo
+        self.union_interna(terminal, red)
+
+        def dibujar():
+            self.c.line([(x, y), (x + dx, y)], CABLE[color], 0.17, ends=False)
+            self.c.text(x + dx + (-0.3 if dx < 0 else 0.3), y, texto, 0.62, CABLE[color], "MonoBold", anchor="rm" if dx < 0 else "lm")
+        self._post.append(dibujar)
+
+    def resistencia_v(self, nombre, x, y0, y1, marca=None):
+        """Resistencia vertical (zigzag). Terminales nombre.a (arriba) y nombre.b (abajo).
+        marca: None, 'luz' (flechas de luz: fotorresistencia) o 'calor' (signo de temperatura: termistor)."""
+        self.terminal(nombre + ".a", x, y0)
+        self.terminal(nombre + ".b", x, y1)
+
+        def dibujar():
+            c = self.c
+            n = 8
+            ya, yb = y0 + 1.0, y1 - 1.0
+            seg = (yb - ya) / n
+            pts = [(x, y0), (x, ya)]
+            for i in range(n):
+                pts.append((x + (-0.85 if i % 2 == 0 else 0.85), ya + seg * (i + 0.5)))
+            pts += [(x, yb), (x, y1)]
+            c.line(pts, TINTA, 0.16, ends=False)
+            ym = (y0 + y1) / 2
+            if marca == "luz":
+                for dy in (-0.9, 0.5):
+                    a = (x + 3.6, ym + dy - 1.2)
+                    b = (x + 1.5, ym + dy)
+                    c.line([a, b], "#d98200", 0.13, ends=False)
+                    c.poly([b, (b[0] + 0.55, b[1] - 0.2), (b[0] + 0.25, b[1] - 0.6)], fill="#d98200")
+            elif marca == "calor":
+                c.line([(x - 2.2, ym + 1.6), (x - 1.2, ym + 1.6), (x + 1.2, ym - 1.6), (x + 2.2, ym - 1.6)], TINTA, 0.12, ends=False)
+                c.text(x + 3.0, ym - 1.6, "t°", 0.6, TINTA, "Mono", anchor="lm")
         self._post.append(dibujar)
 
     def bloque(self, nombre, x, y, w, h, titulo, sub=None, terminales=()):

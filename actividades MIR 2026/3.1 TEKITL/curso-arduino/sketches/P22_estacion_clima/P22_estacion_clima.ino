@@ -4,14 +4,15 @@
   Qué hace: muestra la temperatura y la humedad del DHT11 en la pantalla LCD.
 
   Conexiones:
-    LCD1602   igual que en P21 (RS 7, E 8, D4 9, D5 10, D6 11, D7 12, contraste con potenciómetro)
-    DHT11     S -> pin A0 ; + -> 5 V ; - -> GND
+    LCD1602   igual que en P21 (RS 12, E 11, D4 10, D5 9, D6 8, D7 7, contraste con potenciómetro,
+              luz de fondo con 100 ohm)
+    DHT11     S -> pin A0 ; + -> 5 V ; - -> GND   (lee las letras de tu módulo)
 
   Ideas clave:
     - Juntamos dos "cajas negras": el sensor (leerDHT11) y la pantalla (LiquidCrystal).
     - Si el sensor falla, el programa avisa en la pantalla en lugar de mostrar datos falsos.
 
-  Retos:  - Muestra también la temperatura que mide el termistor (P19) y compara las dos.
+  Retos:  - Muestra también la temperatura que mide el termistor (P19, en A1) y compara las dos.
           - Alterna cada 3 segundos entre temperatura/humedad y un mensaje de tu equipo.
           - Agrega un LED que se encienda si la humedad pasa de 70 %.
 */
@@ -21,7 +22,7 @@
 #define DHT11_PIN 0                 // pin A0 (bit 0 del puerto C)
 
 //                RS, E, D4, D5, D6, D7
-LiquidCrystal lcd(7, 8, 9, 10, 11, 12);
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 
 bool errorDHT11 = false;                    // se activa si el sensor deja de responder
 

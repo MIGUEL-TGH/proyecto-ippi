@@ -19,7 +19,7 @@ SS = 3  # sobremuestreo
 COL = {
     "negro": "#1d1d1f", "rojo": "#d62828", "naranja": "#f77f00", "amarillo": "#f2b705",
     "verde": "#2a9d4a", "azul": "#277da1", "morado": "#7b2cbf", "blanco": "#e5e5e5",
-    "cafe": "#7b4a12", "gris": "#8d99ae",
+    "cafe": "#7b4a12", "gris": "#8d99ae", "rosa": "#e5739b", "celeste": "#4cc9f0", "lima": "#a7c957",
 }
 LED_COL = {"rojo": "#e63946", "amarillo": "#ffd60a", "verde": "#38b000", "azul": "#1d70f5", "blanco": "#f4f4f4"}
 BAND = ["#111111", "#7b3f00", "#d00000", "#f77f00", "#ffd60a", "#2a9d4a", "#1d70f5", "#7b2cbf", "#8d99ae", "#f1f1f1"]
@@ -253,6 +253,8 @@ class Arduino:
             color = "#ffffff"
             if name in used:
                 col = used[name]
+                if col in ("#f2b705", "#e5e5e5"):          # colores claros: letra oscura para que se lea
+                    color = "#222222"
                 if side == "T":
                     c.rect(px_ - 0.5, py_ + 0.75, 1.0, c.text_len(label, 0.62, "Bold") + 0.9, fill=col, r=0.3)
                 else:
@@ -463,6 +465,30 @@ class Circuit:
         self.table.append((step, f"Zumbador {tipo}", f"{izq}: {fmt_hole(*a)}", f"la otra pata: {fmt_hole(*b)}"))
         return [a, b]
 
+    def potenciometro(self, col, step=None, nombre="POT"):
+        """Potenciómetro de 10 kΩ (trimmer) con sus 3 patas en línea, separadas 2 agujeros (5 mm), en las columnas
+        col, col+2 y col+4 de la fila f. Devuelve [extremo izquierdo, centro (cursor), extremo derecho]."""
+        patas = [(col, "f"), (col + 2, "f"), (col + 4, "f")]
+        for p in patas:
+            self._occupy(("bb",) + p, nombre)
+        self.elems[nombre] = [("bb",) + p for p in patas]
+        self.items.append(("pot", col, step))
+        self.table.append((step, "Potenciómetro (3 patas)", f"extremos: {fmt_hole(*patas[0])} y {fmt_hole(*patas[2])}",
+                           f"centro (cursor): {fmt_hole(*patas[1])}"))
+        return patas
+
+    def sensor2(self, col, tipo, step=None, nombre="SENS"):
+        """Sensor resistivo de dos patas (fotorresistencia 'ldr' o termistor 'ntc') en la fila f, patas en las columnas col y col+2.
+        Devuelve las dos patas. No tiene polaridad."""
+        patas = [(col, "f"), (col + 2, "f")]
+        for p in patas:
+            self._occupy(("bb",) + p, nombre)
+        self.elems[nombre] = [("bb",) + p for p in patas]
+        self.items.append(("sensor2", col, tipo, step))
+        et = "Fotorresistencia (LDR)" if tipo == "ldr" else "Termistor NTC"
+        self.table.append((step, et, f"una pata: {fmt_hole(*patas[0])}", f"la otra pata: {fmt_hole(*patas[1])}"))
+        return patas
+
     def pir(self, x, y):
         """Sensor PIR HC-SR501 visto por el lado de la cúpula y girado: sus 3 patas salen por la izquierda
         (arriba GND, en medio OUT, abajo VCC). (x, y) = esquina superior izquierda de la placa (9.4 x 12.6 U).
@@ -473,6 +499,10 @@ class Circuit:
 
     def modulo(self, nombre, pines):
         self.mods[nombre] = pines
+
+    def dibujo(self, fn):
+        """Dibujo propio (un módulo fuera del protoboard): fn(canvas) se ejecuta antes de dibujar los cables."""
+        self.items.append(("fn", fn))
 
     def comprobar_boton(self, nombre, a, b, msg):
         """Comprueba que el botón NO une a con b cuando está suelto y SÍ los une cuando se presiona,
@@ -532,6 +562,14 @@ class Circuit:
             elif it[0] == "zumbador":
                 _, col, tipo, step = it
                 self._draw_zumbador(col, tipo, step)
+            elif it[0] == "pot":
+                _, col, step = it
+                self._draw_potenciometro(col, step)
+            elif it[0] == "sensor2":
+                _, col, tipo, step = it
+                self._draw_sensor2(col, tipo, step)
+            elif it[0] == "fn":
+                it[1](self.c)
             elif it[0] == "pir":
                 _, px_, py_ = it
                 dibujar_pir(self.c, px_, py_)
@@ -600,6 +638,50 @@ class Circuit:
             c.circle(cx - 0.9, cy - 0.9, 0.25, fill="#3a3a3a")
         if step:
             c.badge(cx, cy - r - 0.9, step)
+
+    def _draw_potenciometro(self, col, step):
+        """Potenciómetro trimmer visto desde arriba: cuerpo negro con la ranura del rotor; las patas quedan debajo, en la fila f."""
+        c = self.c
+        x_c, yf = self.bb.hole(col + 2, "f")
+        w, h = 5.9, 5.5
+        x0, y0 = x_c - w / 2, yf + 0.85 - h
+        c.rect(x0, y0, w, h, fill="#1f1f22", outline="#050505", width=0.08, r=1.4)
+        for sx in (-1, 1):                                                  # topes del cuerpo
+            c.circle(x_c + sx * (w / 2 - 0.55), yf + 0.2, 0.28, fill="#3a3a3f")
+        cy = y0 + 3.0
+        c.circle(x_c, cy, 1.75, fill="#2b2b30", outline="#4d4d55", width=0.07)          # rotor
+        c.circle(x_c, cy, 1.4, outline="#3d3d44", width=0.05)
+        c.line([(x_c - 1.25, cy + 0.55), (x_c + 1.25, cy - 0.55)], "#8e8e96", 0.36, ends=False)   # ranura del desarmador
+        c.rect(x_c - 1.3, y0 + 0.45, 2.6, 0.95, fill="#0f0f12", r=0.15)
+        c.text(x_c, y0 + 0.93, "B103", 0.5, "#d9d9d9", "Bold")
+        if step:
+            c.badge(x_c, y0 - 0.9, step)
+
+    def _draw_sensor2(self, col, tipo, step):
+        """Fotorresistencia (disco con pista en zigzag) o termistor NTC (gota de epoxi), vistos desde arriba; las patas entran en la fila f."""
+        c = self.c
+        x1, yf = self.bb.hole(col, "f")
+        x2, _ = self.bb.hole(col + 2, "f")
+        xm = (x1 + x2) / 2
+        cy = yf - 1.7
+        for px_ in (x1, x2):
+            c.line([(px_, yf), (px_, cy + 0.6)], "#b8b8b8", 0.22, ends=True)
+        if tipo == "ldr":
+            r = 1.55
+            c.circle(xm, cy, r, fill="#d9b779", outline="#6b4a12", width=0.08)
+            zz = [(xm - 0.95, cy - 0.7), (xm + 0.95, cy - 0.7), (xm - 0.95, cy - 0.25), (xm + 0.95, cy - 0.25),
+                  (xm - 0.95, cy + 0.2), (xm + 0.95, cy + 0.2), (xm - 0.95, cy + 0.65), (xm + 0.95, cy + 0.65)]
+            for k in range(0, len(zz), 2):
+                c.line([zz[k], zz[k + 1]], "#7a4a10", 0.1, ends=False)
+            for k in range(1, len(zz) - 1, 2):
+                c.line([zz[k], zz[k + 1]], "#7a4a10", 0.1, ends=False)
+            top = cy - r
+        else:
+            c.circle(xm, cy, 1.2, fill="#2b2b2b", outline="#050505", width=0.07)
+            c.circle(xm - 0.35, cy - 0.35, 0.3, fill="#5a5a5a")
+            top = cy - 1.2
+        if step:
+            c.badge(xm, top - 0.9, step)
 
     @staticmethod
     def _bands(ohms):

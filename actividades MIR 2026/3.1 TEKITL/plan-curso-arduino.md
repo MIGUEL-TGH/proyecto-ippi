@@ -3,7 +3,7 @@
 **Destino:** alumnos de preparatoria, San Juan Atzingo, San Gabriel Chilac, Puebla
 **Versión:** 1 (propuesta para revisión) · **Fecha:** 2026-11-16
 **Escrito para:** Miguel, como instructor responsable del curso. No es material para los alumnos: de aquí salen la presentación, las fichas y la bitácora.
-**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `curso-arduino/sketches/` (38 sketches compilados)
+**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `curso-arduino/sketches/` (66 sketches compilados) · `progreso-practica-miguel.md`
 
 ## 1. Resumen
 
@@ -12,7 +12,7 @@
 - Se **omiten el sensor TMP36 y el ventilador de PC**. El «ventilador» es el motor 3–6 V con aspa del kit, controlado con transistor; la temperatura se mide con el termistor NTC y el DHT11.
 - Se **incorporan los sensores del kit que no se usaban**: humedad de suelo, nivel de agua, DHT11, PIR y pantalla LCD, con situaciones cercanas a la comunidad (riego, tinaco, alarma, calor).
 - **No hay que instalar librerías ni usar internet:** Servo y LiquidCrystal ya vienen con el Arduino IDE; el sensor de distancia y el DHT11 se leen con código propio.
-- Los **38 sketches** (28 de la secuencia y 10 soluciones de retos) están en `curso-arduino/sketches/`. **Compilan sin errores ni avisos**, pero **ninguno se ha probado en la placa**. Eso es lo que sigue (sección 11).
+- Los **66 sketches** (30 de la secuencia, 35 soluciones de retos y la plantilla del proyecto final) están en `curso-arduino/sketches/`. **Compilan sin errores ni avisos**, pero **ninguno se ha probado en la placa**. Eso es lo que sigue (sección 11).
 - **La primera visita es de dos días de 4 horas (8 h) = las sesiones 1 a 4**, y termina con una alarma de movimiento. Las visitas siguientes están por definir (sección 3b).
 - **Motor:** la medición de Miguel (el motor «3–6 V» funciona a partir de **0.95 A**) deja fuera de especificación el circuito con PN2222 y módulo de fuente. **No se arma hasta resolverlo** (sesión 9 y sección 11, V1).
 - **Confirmado el 16 nov:** hay 6 computadoras (una por kit) y los retos del proyecto final están bien.
@@ -87,7 +87,7 @@ Cuántas visitas habrá y cuándo es lo que **falta definir**. Si las visitas du
 - **Alumnos que faltan o se suman:** cada guía de sesión permite ponerse al corriente solo, y el repaso práctico nivela en parte.
 - **Entre visitas (opcional, sin computadora ni internet):** un reto en papel, por ejemplo dibujar el diagrama de tiempos o el esquema del circuito que se verá después.
 - **Motor:** la visita 3 empieza con el motor. Hay tiempo antes de esa fecha para resolver el consumo (V1, sección 11).
-- **Preparación:** para la visita 1 ya están las guías de las sesiones 1 a 4 (`curso-arduino/guias/S01-*.md` a `S04-*.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender). La sesión 3 agrega diagramas de pull-up, rebote y estados; la 4, de zumbadores, frecuencia, `for`, el módulo PIR, su señal en el tiempo y los estados de la alarma. Falta que Miguel las practique y dé retroalimentación (sesión por sesión).
+- **Preparación:** ya están las guías de las **16 sesiones** (`curso-arduino/guias/S01-*.md` a `S13-*.md` y `S14-16-proyecto-final.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender). La sesión 3 agrega diagramas de pull-up, rebote y estados; la 4, de zumbadores, frecuencia, `for`, el módulo PIR, su señal en el tiempo y los estados de la alarma; la 5, del potenciómetro, de volts a números, del Serial Plotter, del PWM y de `map`; la 6, del divisor con la fotorresistencia, el umbral y la retroalimentación; la 7, de los pulsos del servo; la 8, del eco y los estados de la barrera; la 9 (versión con LED), del transistor y la zona muerta; la 10, del termistor y el DHT11; la 11, de la pantalla; la 12, del lazo de control y la histéresis; la 13, de la calibración y los niveles del tinaco. Las **14 a 16** son hojas imprimibles (diseño, pruebas, exhibición con rúbrica, entrega y cierre), un banco de siete retos con mapa de reutilización y de pines, y la plantilla `sketches/Proyecto_plantilla/`. Falta que Miguel las practique y dé retroalimentación (sesión por sesión; el avance está en `progreso-practica-miguel.md`).
 
 ## 4. Escalera de conceptos
 
@@ -99,7 +99,7 @@ Cada fila solo usa lo de las filas de arriba.
 | 2 | Varias salidas, GND común | Variables, constantes y funciones propias | `int`, `const`, `void luces(...)` |
 | 3 | Entrada digital, resistencia pull-up, lógica invertida | Decisiones, variable de estado, antirrebote | `digitalRead`, `INPUT_PULLUP`, `if/else`, `==` vs `=`, `bool`, `!`, `&&`, `!=`, `Serial.print`; `%` solo en un reto |
 | 4 | Sonido como vibración, límite de corriente de un pin, sensor digital (PIR) | Repetir con `for`, funciones con parámetros, salir con `break` | `tone`, `noTone`, `for`, `break`; `millis()` solo para poner la hora en el Monitor Serie |
-| 5 | Señal analógica, divisor de voltaje, PWM | Cambiar de escala | `analogRead`, `analogWrite`, `map`, `float` |
+| 5 | Señal analógica, divisor de voltaje, PWM (el ojo promedia un parpadeo rápido) | Cambiar de escala, leer una señal como gráfica | `analogRead`, `analogWrite`, `map`, `float`; formato `nombre:valor` para el Serial Plotter |
 | 6 | Sensor resistivo (LDR), calibración | Umbral y comparaciones | `<`, `>`, combinar dos lecturas |
 | 7 | Servo: se pide un ángulo | `for` con contador, librerías y objetos | `#include <Servo.h>`, `attach`, `write` |
 | 8 | Ultrasonido: tiempo de vuelo | Funciones que devuelven un valor, `while` | `pulseIn`, funciones con retorno |
@@ -152,13 +152,14 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Guía de práctica con diagramas:** `curso-arduino/guias/S04-sonido-y-alarma.md` (zumbadores, frecuencia, `for`, módulo PIR, señal del PIR y estados de la alarma; protoboard y cableado de P07a, P07b y P08). Pendiente de comprobar con el kit: separación de las patas de los zumbadores, corriente y volumen del pasivo, orden de las patas del PIR y sentido de sus perillas (V8, V12 y V13).
 
 ### Sesión 5 · Perilla y brillo
-- **Objetivo:** pasar de HIGH/LOW a una escala de valores.
-- **Prácticas:** `P09_perilla_serie` (0–1023 y volts en el Monitor Serie) · `P10_perilla_brillo` (`map` y PWM).
+- **Objetivo:** pasar de HIGH/LOW a una escala de valores y, de ahí, a un brillo intermedio.
+- **Prácticas:** **Paso 0** (repaso de la visita 2: el LED de P02 en el **pin 9**, el del `~`) · `P09_perilla_serie` (0–1023 y volts en el Monitor Serie) · `P09a_perilla_plotter` (la misma lectura como gráfica en el Serial Plotter) · `P10a_pwm_a_mano` (PWM con `delay` para ver cómo se logra un brillo intermedio) · `P10_perilla_brillo` (`map` y PWM). **P09a y P10a son ampliaciones:** sin ellas la sesión cabe en unos 95 minutos.
 - **Teoría:** señal analógica vs digital; divisor de voltaje; 1024 niveles; qué hace el PWM (el símbolo `~`). *Word, cap. 4 y 5.*
-- **Retos:** brillo invertido; que el LED solo encienda pasada la mitad; otros rangos con `map`.
-- **Rompe y arregla:** extremos del potenciómetro cambiados (gira al revés): se resuelve conectando distinto o con `map(…, 1023, 0, …)`; dos soluciones, dos aprendizajes.
-- **Evidencia:** gráfica del **Serial Plotter** al girar la perilla.
-- **Nota:** los potenciómetros del kit son de tipo trimmer (F8). Alcanza con un desarmador pequeño, pero conviene comprar perillas (sección 10).
+- **Retos:** brillo invertido (`P10_brillo_invertido`); que el LED solo encienda pasada la mitad (`P10_solo_pasada_la_mitad`: `map` con un rango parcial y un `if`; no es el umbral de la sesión 6); brillo entre 20 y 200 (`P10_rango_20_200`); otro color de LED; desafío: un LED que «respira» con `for`, donde el contador es el brillo (`P10_led_respira`).
+- **Rompe y arregla:** extremos del potenciómetro cambiados (gira al revés): se resuelve conectando distinto o con `map(…, 255, 0)`; dos soluciones, dos aprendizajes · cable del centro suelto o en A1 (la lectura «flota») · `lectura * 5 / 1023` sin los `.0` (el voltaje avanza a saltos de 1 V) · LED en el pin 8, sin `~` (solo enciende o apaga cerca de la mitad del giro, según el código de Arduino; sin probar en la placa) · `map(…, 0, 100)` (el LED nunca llega al máximo). **No se planta** un fallo que una el centro del potenciómetro con 5 V o con GND (cortocircuito al girar) ni quitar `map` (con lecturas mayores que 255 el resultado de `analogWrite` no está definido).
+- **Evidencia:** gráfica del **Serial Plotter** (líneas de lectura y brillo) al girar la perilla.
+- **Nota:** los potenciómetros del kit son de tipo trimmer (F8): se giran con un **desarmador plano pequeño que no viene en el kit** (hay que llevarlo) y la hoja de datos de uno de los modelos posibles declara solo 200 ciclos de giro. Conviene comprar perillas (sección 10). El kit llega desarmado de la visita anterior: el Paso 0 hace de repaso práctico.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S05-perilla-y-brillo.md` (potenciómetro, volts a números, gráfica, PWM y `map`; protoboard y cableado del Paso 0, P09 y P10). Pendiente de comprobar con el kit: separación de las patas del potenciómetro, si es lineal, sentido de giro, ruido, cómo se ve el PWM a mano y `analogWrite` en un pin sin `~` (V14).
 
 ### Sesión 6 · Luz y decisiones
 - **Objetivo:** convertir una lectura en una decisión.
@@ -167,6 +168,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Retos:** encender a medio brillo (LED al pin 9); modo manual con botón; «botón de paro + LDR» (proyecto 3 del Word).
 - **Rompe y arregla:** el LED apuntando al LDR: el sistema parpadea; se separa o se tapa el sensor.
 - **Evidencia:** valores anotados con luz del salón, con la mano encima y con la linterna del celular.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S06-luz-y-decisiones.md` (divisor de voltaje con la fotorresistencia, umbral y retroalimentación; el LED va en el pin 9). Pendiente de comprobar con el kit: rango del LDR en el salón (V6) y resistencias de 2 agujeros (V15).
 
 ### Sesión 7 · Servo
 - **Objetivo:** controlar un ángulo y usar una librería.
@@ -176,6 +178,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Rompe y arregla:** señal en otro pin; GND sin conectar.
 - **Evidencia:** servo siguiendo la perilla.
 - **Cuidado:** si el Arduino se reinicia al moverse el servo, se alimenta desde el módulo de fuente.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S07-servo.md` (pulsos de 1 a 2 ms; los rieles y el servo con tres cables macho-macho). Pendiente de comprobar con el kit: el servo con el 5 V del USB (V9).
 
 ### Sesión 8 · Distancia y barrera automática
 - **Objetivo:** integrar un sensor y dos actuadores en un sistema.
@@ -184,9 +187,10 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Retos:** cambiar la distancia de activación; contador de vehículos; alarma si algo se queda más de 5 s.
 - **Rompe y arregla:** TRIG y ECHO intercambiados: el sensor responde «sin eco».
 - **Evidencia:** comparación con una regla en 10, 20 y 50 cm.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S08-distancia-y-barrera.md` (el eco, la función que devuelve un valor y los estados de la barrera). Pendiente de comprobar con el kit: el orden de las letras del HC-SR04 y el error frente a una regla.
 
 ### Sesión 9 · Motor y transistor
-- **ALTO: no armar todavía.** Miguel midió con una fuente de poder que el motor «3–6 V» **funciona a partir de 0.95 A** (por aclarar: a qué voltaje y si es corriente de arranque o con el aspa girando). Si ese es su consumo, el circuito de esta sesión queda **fuera de especificación**: el PN2222 soporta 600 mA, el módulo de fuente 700 mA y el adaptador de 9 V entrega 1 A en total. Opciones en la sección 11 (V1). Mientras tanto, el «actuador controlado con perilla» se hace con el servo (P13 y P14). Los sketches P17, P18 y P23 ya llevan un aviso en el encabezado.
+- **ALTO: no armar todavía.** Miguel midió con una fuente de poder que el motor «3–6 V» **funciona a partir de 0.95 A** (por aclarar: a qué voltaje y si es corriente de arranque o con el aspa girando). Si ese es su consumo, el circuito de esta sesión queda **fuera de especificación**: el PN2222 soporta 600 mA, el módulo de fuente 700 mA y el adaptador de 9 V entrega 1 A en total. Opciones en la sección 11 (V1). Mientras tanto, la guía de la sesión (`S09-transistor-y-motor.md`) se hace **con un LED** en lugar del motor (con una tabla del circuito del motor para cuando se destrabe); el «actuador controlado con perilla» ya se vio con el servo (P13 y P14). Los sketches P17, P18 y P23 ya llevan un aviso en el encabezado.
 - **Objetivo:** mover una carga de potencia desde un pin que no la aguanta, y controlar su velocidad (tu ejemplo 4).
 - **Prácticas:** `P17_motor_boton` · `P18_motor_perilla`.
 - **Teoría:** un pin entrega ~20 mA y el motor pide cientos; el transistor como interruptor (emisor, base, colector); diodo de protección; fuente externa y GND común. **El Word no cubre este tema: capítulo nuevo.**
@@ -196,6 +200,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Evidencia:** motor con velocidad variable y el dato de arranque anotado.
 - **Cuidado:** no trabar el aspa; el regulador del módulo se calienta si el motor se traba; el adaptador se revisa antes de enchufarse.
 - **Ampliación:** el L293D de la lección 20 del kit (invertir el giro).
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S09-transistor-y-motor.md` (versión con LED; el transistor como interruptor y la zona muerta). Pendiente de comprobar con el kit: el orden de las patas del PN2222 (V2) y, con el motor, V1 y V3.
 
 ### Sesión 10 · Temperatura
 - **Objetivo:** medir una magnitud con dos sensores distintos y compararlos.
@@ -204,6 +209,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Retos:** LED que enciende a 30 °C; tabla de temperatura cada minuto durante la clase; diferencia entre los dos sensores.
 - **Rompe y arregla:** termistor sin resistencia fija: el programa avisa «revisa la conexión».
 - **Evidencia:** temperaturas anotadas y `AJUSTE_C` calculado.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S10-temperatura.md` (el termistor, el DHT11 y su comparación). Pendiente de comprobar con el kit: el DHT11 (V4) y el termistor frente a un termómetro de referencia (V5).
 
 ### Sesión 11 · Pantalla LCD
 - **Objetivo:** mostrar datos al usuario sin computadora.
@@ -212,7 +218,8 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Retos:** nombre del equipo en pantalla; alternar mensajes; LED si la humedad pasa de 70 %.
 - **Rompe y arregla:** contraste en cero (pantalla «vacía»), el fallo más común.
 - **Evidencia:** estación de clima funcionando.
-- **Cuidado:** son unos 12 cables; usar colores y que el instructor revise antes de energizar.
+- **Cuidado:** son unos 17 cables; usar colores y que el instructor revise antes de energizar.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S11-pantalla-lcd.md` (pantalla LCD1602 con los pines reordenados: RS 12, E 11, D4 a D7 en 10, 9, 8 y 7, y resistencia de 100 Ω en la luz de fondo). Pendiente de comprobar con el kit: contraste y luz de fondo (V10).
 
 ### Sesión 12 · Ventilador automático *(integración)*
 - **Objetivo:** construir un sistema completo: medir, comparar, actuar. **Reemplaza al «Proyecto 7: Ventilador» del PowerPoint.**
@@ -222,6 +229,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Retos:** probar la lógica con un LED en lugar del motor; velocidad proporcional a la temperatura; aviso con zumbador sobre 35 °C.
 - **Rompe y arregla:** límite igual a la temperatura ambiente: sin histéresis el ventilador «tiembla».
 - **Evidencia:** video corto del ciclo encendido/apagado con la pantalla visible.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S12-ventilador-automatico.md` (versión con LED en el pin 5; el lazo medir, comparar y actuar, y la histéresis). Pendiente de comprobar con el kit: rieles divididos del protoboard (V16) y la histéresis frente al ruido real; el motor depende de V1.
 
 ### Sesión 13 · Campo y agua
 - **Objetivo:** calibrar un sensor con datos reales y convertirlo en un aviso útil.
@@ -232,6 +240,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
 - **Rompe y arregla:** sensor sin calibrar: los colores no corresponden a la realidad.
 - **Evidencia:** tabla de calibración y umbrales elegidos.
 - **Cuidado:** solo se moja la parte con pistas; la placa del sensor, los cables y el Arduino se mantienen secos; solo 5 V.
+- **Guía de práctica con diagramas:** `curso-arduino/guias/S13-campo-y-agua.md` (los sensores se conectan **directo a la placa** con tres cables macho-hembra, como en las lecciones 25 y 31 del kit; el semáforo de la sesión 2 es el Paso 0; actividad «medimos nuestra tierra»). Pendiente de comprobar con el kit: V7 y el orden de las patas de los módulos (AO·DO·GND·VCC y S·+·−).
 
 ### Sesiones 14 a 16 · Proyecto final
 - **Sesión 14, diseño y armado:** el equipo elige un reto, llena la hoja de diseño (¿qué problema resuelve?, ¿qué entradas, qué proceso, qué salidas?, lista de componentes, dibujo de conexiones) y arma la primera versión.
@@ -246,6 +255,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
   6. **Semáforo peatonal:** `X02` mejorado con sensor de luz que regule el brillo.
   7. **Reto libre**, con aprobación del instructor.
 - **Componentes de ampliación** para equipos adelantados (código en `kit-arduino/Code/`): alarma de gas MQ-2 (lección 30; **solo con el instructor**, el sensor se calienta), sensor de sonido (27), lector RFID (29), reloj RTC (26), matriz LED (22), joystick (12), control remoto IR (15, con el IRremote del zip del kit), motor a pasos (16 y 28).
+- **Guía de práctica:** `curso-arduino/guias/S14-16-proyecto-final.md` (reglas, plan de las tres sesiones, banco de siete retos con versión mínima y completa, mapa de reutilización y de pines, hojas imprimibles A a D y la plantilla `sketches/Proyecto_plantilla/`).
 
 ## 6. Cómo se organiza una sesión de 2 horas
 
@@ -284,11 +294,16 @@ Todo el curso usa los mismos pines para lo mismo, para que el equipo no tenga qu
 | Zumbador | 12 |
 | Sensor PIR | 7 |
 | Perilla o sensor analógico | A0 (segundo analógico: A1) |
-| Servo | 9 |
+| Servo | 9 (la biblioteca `Servo` le quita el PWM a los pines 9 y 10) |
 | HC-SR04 | TRIG 6 · ECHO 7 |
 | Motor (base del PN2222 con 330 Ω) | 5 |
 | DHT11 | A0 |
-| LCD1602 | RS 7 · E 8 · D4 9 · D5 10 · D6 11 · D7 12 |
+| LCD1602 | RS 12 · E 11 · D4 10 · D5 9 · D6 8 · D7 7 (reordenados el 17 nov para que los cables vayan paralelos; en el código: `LiquidCrystal lcd(12, 11, 10, 9, 8, 7);`) |
+| LED con PWM (sesiones 5 y 6) | 9 |
+| Perilla del límite (sesión 12) | A1, con el termistor en A0 |
+| Semáforo de las prácticas de la sesión 13 | 8 / 9 / 10; zumbador 12; sensor de suelo o de agua en A0 |
+
+**Con la pantalla** (sesiones 11 y 12 y los proyectos) la pantalla ocupa los pines **7 a 12**: lo demás se acomoda en 2 a 6, 13 y A0 a A5 (mapa completo en `S14-16-proyecto-final.md`). `tone()` quita el PWM de los pines 3 y 11, y el DHT11 de este curso solo funciona en A0 a A5.
 
 ## 10. Material por sesión y compras sugeridas
 
@@ -300,21 +315,23 @@ Todo sale del kit. Los componentes se cuentan al iniciar cada sesión.
 | 2 | 3 LED (rojo, amarillo, verde), 3 resistencias 220 Ω |
 | 3 | LED, 220 Ω, botón |
 | 4 | Zumbador activo y pasivo, PIR (3 cables M-F), botón, LED, 2 resistencias de 220 Ω (LED y zumbador pasivo) |
-| 5 | Potenciómetro, LED, 220 Ω |
+| 5 | Potenciómetro de 10 kΩ, LED, 220 Ω, **desarmador plano pequeño** (no viene en el kit) |
 | 6 | LDR, resistencia 10 kΩ, potenciómetro, LED, 220 Ω |
 | 7 | Servo SG90, potenciómetro |
 | 8 | HC-SR04 (4 cables M-F), servo, zumbador pasivo, LED, 2 resistencias de 220 Ω (LED y zumbador) |
 | 9 | Motor con aspa, PN2222, 1N4007, resistencia 330 Ω, módulo de fuente y adaptador de 9 V, botón, potenciómetro |
-| 10 | Termistor NTC, resistencia 10 kΩ, DHT11 (3 cables M-F) |
-| 11 | LCD1602, potenciómetro (contraste), DHT11 |
-| 12 | LCD1602, termistor, 10 kΩ, **2 potenciómetros (contraste y límite)**, motor, PN2222, 1N4007, 330 Ω, módulo de fuente |
+| 10 | Termistor NTC, resistencia 10 kΩ, DHT11 (3 cables M-F); **un termómetro de referencia** (no viene en el kit) |
+| 11 | LCD1602, potenciómetro (contraste) y **desarmador plano pequeño**, resistencia de **100 Ω** (luz de fondo; el kit trae 10), DHT11 (3 cables M-F) |
+| 12 | LCD1602, termistor, 10 kΩ, **2 potenciómetros (contraste y límite)**, LED y 220 Ω (el «ventilador» mientras el motor siga bloqueado; con el motor: PN2222, 1N4007, 330 Ω y módulo de fuente) |
 | 13 | Sensor de humedad de suelo, sensor de nivel de agua (cables M-F), 3 LED, 4 resistencias 220 Ω (3 LED y el zumbador pasivo), zumbador pasivo; **vasos con agua, tierra y una maceta** (no vienen en el kit) |
+| 14 a 16 | Todo lo anterior; las **hojas A a D** impresas (una por equipo); la plantilla `Proyecto_plantilla` copiada a cada computadora |
 
 **Compras que valen la pena (opcionales):**
 1. **Potenciómetros de 10 kΩ con perilla** (unos 12; dos por kit). Los del kit son trimmer (F8) y, además, la sesión 12 usa los dos del kit a la vez.
 2. **Un multímetro** para el instructor: medir la corriente real del motor (F10) y comprobar transistores antes del curso.
 3. **Respaldo:** una placa Arduino UNO y un cable USB de repuesto, porque el equipo reconecta mucho.
 4. **Solo si se confirma que el motor consume cerca de 1 A (V1):** motores pequeños para los 6 kits (por ejemplo de 130 con hélice, de menos consumo) o un transistor de potencia o MOSFET de nivel lógico con una fuente de más capacidad. No se compra nada hasta medir.
+5. **Un termómetro de referencia** (de cocina, clínico o de ambiente) para calibrar el termistor (sesión 10, V5) y **un desarmador plano pequeño** por kit (potenciómetros de las sesiones 5, 6, 11 y 12 y la perilla del módulo de suelo).
 
 ## 11. Tus prácticas previas (en el orden del curso)
 
@@ -330,13 +347,16 @@ La mejor preparación es vivir el curso como alumno: hacer P01 a P25 **en este o
 | V4 | Lecturas del DHT11 (adaptado del código del kit; compila, no se ha probado) | P20, P22 | Si lee y si coincide con el termistor |
 | V5 | Precisión del termistor frente a un termómetro | P19 | Diferencia, para `AJUSTE_C` |
 | V6 | Rango del LDR con 10 kΩ en el salón | P11 | Valores con luz, sombra y oscuridad |
-| V7 | Valores de los sensores de suelo y de agua | P24, P25 | Lecturas para `VALOR_SECO`, `VALOR_MOJADO`, `NIVEL_BAJO`, `NIVEL_ALTO` (los de los sketches son supuestos) |
+| V7 | Valores de los sensores de suelo y de agua | P24, P25 | Lecturas para `VALOR_SECO`, `VALOR_MOJADO`, `NIVEL_BAJO`, `NIVEL_ALTO` (los de los sketches son supuestos); si la sonda de suelo es de pistas al descubierto (la hoja dice «capacitancia» pero las fotos muestran pistas desnudas); la lectura máxima del sensor de nivel (860 según la hoja del kit, 1023 según otra); el orden real de las patas (AO·DO·GND·VCC y S·+·−) |
 | V8 | Tiempo de calentamiento, retardo, bloqueo y sensibilidad del PIR; orden de sus patas y sentido de sus perillas | P08a, P08 | Segundos reales hasta que se estabiliza; retardo en los dos topes y sentido de giro; segundos de bloqueo; metros de alcance; letras de las patas; posición del puente |
 | V9 | Servo desde el 5 V del Arduino por USB | P13, P16 | Si se reinicia o tiembla |
 | V10 | Luz de fondo y contraste del LCD | P21 | Si hay que cambiar algo respecto al diagrama de la lección 19 |
 | V11 | Tiempo real de cada práctica | todas | Para ajustar qué cabe en 2 horas |
 | V12 | Zumbador pasivo con 220 Ω en serie: volumen y corriente real con `tone()` (con multímetro en serie, si hay) | P07b, P08 | Si se oye bien en un salón; mA medidos. Si se oye muy bajito, valorar otra resistencia **solo con la corriente medida** (100 Ω daría hasta unos 43 mA como peor caso sin contar el pin: demasiado cerca de los 40 mA) |
 | V13 | Zumbadores del kit: cuál es el activo y cuál el pasivo, separación de sus patas, si entran en el protoboard y si la etiqueta del activo cambia el volumen | P07a, P07b | Agujeros entre patas; qué se oye con y sin etiqueta |
+| V14 | Potenciómetro del kit (B103): separación de sus patas, si el centro es la pata de en medio, si es lineal, hacia dónde sube la lectura, ruido con la perilla quieta, voltaje real del 5V del USB; cómo se ve el PWM a mano y qué hace `analogWrite` en un pin sin `~` | P09, P09a, P10a, P10 | Agujeros entre patas; lecturas en los topes y a mitad del giro (¿≈ 512?); números que «baila» la lectura; volts del pin 5V; `PERIODO_MS` en que deja de verse el parpadeo; qué hace el LED con el cable en el pin 8 |
+| V15 | Resistencias que abarcan solo **2 agujeros** del protoboard (el cuerpo mide más): si caben «paradas» o con las patas dobladas | P11, P12, P16, P17, P19, P20, P25 | Cuáles entran cómodas y cuáles hay que mover a 3 agujeros |
+| V16 | Rieles del protoboard **divididos a la mitad** (el montaje de la sesión 12 usa 46 columnas) | P23 | Si hay corte en la mitad de los rieles y si los puentes (pasos 14 y 15 de la guía) hacen falta |
 
 **Si el motor consume cerca de 1 A de forma sostenida** (a 5 V), el circuito con PN2222 y módulo de fuente no sirve: el PN2222 aguanta 600 mA, el módulo 700 mA y el regulador del módulo (de 9 V a 5 V) se sobrecalentaría. Opciones, de más simple a menos:
 

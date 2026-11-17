@@ -1322,10 +1322,536 @@ def alarma_estados():
     print("P08 estados listo")
 
 
+# ------------------------------------------------------------------ Sesión 5: perilla (P09) y brillo con PWM (P10)
+# El kit llega desarmado de la visita anterior: el Paso 0 arma un LED en el pin 9 (el de P02, con ~) y P09 agrega el potenciómetro.
+# El potenciómetro va a la derecha (columnas 26, 28 y 30): así los cables de 5 V y A0, que rodean la placa por la derecha, no cruzan a los demás.
+Y_A0_ABAJO, Y_5V_ABAJO = 0.9, 2.2        # cuánto por debajo del borde de la placa corren los cables de A0 y 5 V
+X_A0_DER, X_5V_DER = 35.3, 36.3          # por dónde suben (el de 5 V por fuera)
+ARRIBA_A0, ARRIBA_5V = 22.8, 21.6        # a qué altura (desde el borde superior del protoboard) giran hacia el potenciómetro
+
+
+def _led_pin9(circ, nuevo):
+    """LED rojo en el pin 9: los mismos agujeros de P02 (columnas 18 a 23), pero con el cable morado en el pin 9."""
+    s = (lambda n: n) if nuevo else (lambda n: None)
+    circ.led(anodo=(22, "g"), catodo=(23, "g"), color="rojo", step=s(1), nombre="LED9")
+    circ.resistor((18, "h"), (22, "h"), 220, step=s(2), nombre="R9")
+    circ.wire(("bb", 23, "j"), ("rail", "B", "-", 23), "negro", step=s(3))
+    circ.wire(("ard", "GND"), ("rail", "B", "-", 13), "negro", via=0.45, step=s(4))
+    circ.wire(("ard", "D9"), ("bb", 18, "j"), "morado", step=s(5), badge=(21.0, 29.6))
+
+
+def _pot_cables(circ, bb, ard, nuevo):
+    """Potenciómetro en las columnas 26 (extremo a GND), 28 (centro a A0) y 30 (extremo a 5 V). Numerado para armarlo: GND, A0 y al final 5 V."""
+    s = (lambda n: n) if nuevo else (lambda n: None)
+    circ.potenciometro(26, step=s(1))
+    circ.wire(("bb", 26, "j"), ("rail", "B", "-", 26), "negro", step=s(2))
+    x_a0, _ = ard.xy("A0")
+    x_5v, _ = ard.xy("5V")
+    borde = ard.y + ard.H
+    xj28 = bb.hole(28, "j")[0]
+    xj30 = bb.hole(30, "j")[0]
+    circ.wire(("ard", "A0"), ("bb", 28, "j"), "amarillo", step=s(3),
+              ruta=[(x_a0, borde + Y_A0_ABAJO), (X_A0_DER, borde + Y_A0_ABAJO), (X_A0_DER, bb.y + ARRIBA_A0), (xj28, bb.y + ARRIBA_A0)],
+              badge=(28.0, borde + Y_A0_ABAJO))
+    circ.wire(("ard", "5V"), ("bb", 30, "j"), "rojo", step=s(4),
+              ruta=[(x_5v, borde + Y_5V_ABAJO), (X_5V_DER, borde + Y_5V_ABAJO), (X_5V_DER, bb.y + ARRIBA_5V), (xj30, bb.y + ARRIBA_5V)],
+              badge=(32.0, borde + Y_5V_ABAJO))
+
+
+def _verificar_pot(circ):
+    a, w, b = circ.elems["POT"]
+    circ.exigir(("ard", "GND"), a, "el extremo izquierdo del potenciómetro debe llegar a GND")
+    circ.exigir(("ard", "A0"), w, "el centro del potenciómetro debe llegar a A0")
+    circ.exigir(("ard", "5V"), b, "el extremo derecho del potenciómetro debe llegar a 5 V")
+    circ.prohibir(w, ("ard", "5V"), "el centro no puede estar unido a 5 V")
+    circ.prohibir(w, ("ard", "GND"), "el centro no puede estar unido a GND")
+    circ.prohibir(a, b, "los dos extremos del potenciómetro no pueden estar unidos")
+    circ.prohibir(("ard", "A0"), ("ard", "5V"), "A0 y 5 V no pueden tocarse")
+    circ.prohibir(("ard", "A0"), ("ard", "GND"), "A0 y GND no pueden tocarse")
+    circ.prohibir(("ard", "5V"), ("ard", "GND"), "5 V y GND no pueden tocarse")
+
+
+def p09_paso0():
+    c = Canvas(38.5, 58.0)
+    c.header("Paso 0 · LED en el pin 9", "El circuito de P02, pero con el cable de señal en el pin 9, que lleva el símbolo ~ (vista desde arriba, parte izquierda)")
+    bb = Breadboard(3.0, 4.6, cols=30)
+    ard = Arduino(bb.x + 2.6, bb.y + bb.H + 6.2)
+    circ = Circuit(c, ard, bb)
+    _led_pin9(circ, nuevo=True)
+    _verificar_grupo(circ, 9, "D9")
+    circ.prohibir(("ard", "5V"), ("ard", "GND"), "5V y GND no pueden tocarse")
+    circ.draw()
+    ax, ay = bb.hole(22, "g")
+    kx, ky = bb.hole(23, "g")
+    cy_led = min(ay, ky) - 2.5
+    my = (cy_led + 1.55 + ay) / 2 + 0.1
+    c.callout(bb.x + 7.5, bb.y + 5.0, ["Pata larga (+)", "va hacia la resistencia"], target=(ax - 0.95 - 0.5, my), size=0.6)
+    c.callout(kx + 1.6, bb.y + 5.0, ["Pata corta (−)", "lado plano del LED"], target=(kx + 0.95 + 0.5, my), size=0.6)
+    rx, ry = bb.hole(22, "h")
+    c.callout(kx + 0.6, bb.row_y["h"] - 0.5, ["Resistencia 220 Ω", "rojo · rojo · café"], target=(rx - 1.4, ry), size=0.55)
+    _leyenda(c, ard.x + 0.5, ard.y + ard.H + 2.0, [(COL["negro"], "GND  (−, tierra)"), (COL["morado"], "Señal del pin 9 (con ~)")])
+    c.text(c.w_u - 1.2, c.h_u - 1.2, "Mismo montaje de P02, con el cable en el pin 9", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P09_paso0_led_pin9.png"))
+    print("Paso 0 listo")
+    for fila in sorted((f for f in circ.table if f[0]), key=lambda t: t[0]):
+        print("  ", fila)
+
+
+def p09():
+    c = Canvas(38.5, 66.5)
+    c.header("P09 · La perilla y los números", "Sobre el LED del pin 9 agrega el potenciómetro: GND, A0 y al final 5 V (vista desde arriba, parte izquierda)")
+    bb = Breadboard(3.0, 4.6, cols=30)
+    ard = Arduino(bb.x + 2.6, bb.y + bb.H + 6.2)
+    circ = Circuit(c, ard, bb)
+    _led_pin9(circ, nuevo=False)
+    _pot_cables(circ, bb, ard, nuevo=True)
+    _verificar_grupo(circ, 9, "D9")
+    _verificar_pot(circ)
+    circ.draw()
+    lx, ly = _led_cuerpo(bb, 22, 23)
+    c.callout(bb.x + 1.6, bb.y + 4.2, ["LED del pin 9:", "ya armado en el Paso 0"], target=(lx - 1.0, ly - 1.6), size=0.54)
+    xp = bb.hole(28, "f")[0]
+    c.callout(bb.x + 16.0, bb.y + 4.2, ["Cada pata en su columna.", "El CENTRO va a A0"], target=(xp - 1.4, bb.hole(28, "f")[1] - 3.6), size=0.54)
+    _leyenda(c, ard.x + 0.5, ard.y + ard.H + 5.0, [(COL["negro"], "GND  (−, tierra)"), (COL["morado"], "Señal del pin 9 (ya está)"),
+                                                  (COL["amarillo"], "Centro del potenciómetro a A0 (nuevo)"), (COL["rojo"], "+5 V al extremo del potenciómetro (nuevo)")])
+    c.text(c.w_u - 1.2, c.h_u - 1.2, "Los números del 1 al 4 son lo nuevo. El cable amarillo va al CENTRO; el rojo, a un extremo.", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P09_perilla_serie.png"))
+    print("P09 listo")
+    for fila in sorted((f for f in circ.table if f[0]), key=lambda t: t[0]):
+        print("  ", fila)
+
+
+def p10():
+    c = Canvas(38.5, 66.5)
+    c.header("P10 · Perilla y brillo", "El mismo montaje de P09, con el LED del pin 9: no hay nada nuevo que conectar (vista desde arriba)")
+    bb = Breadboard(3.0, 4.6, cols=30)
+    ard = Arduino(bb.x + 2.6, bb.y + bb.H + 6.2)
+    circ = Circuit(c, ard, bb)
+    _led_pin9(circ, nuevo=False)
+    _pot_cables(circ, bb, ard, nuevo=False)
+    _verificar_grupo(circ, 9, "D9")
+    _verificar_pot(circ)
+    circ.prohibir(("ard", "D9"), ("ard", "A0"), "el pin 9 y A0 no pueden tocarse")
+    circ.draw()
+    lx, ly = _led_cuerpo(bb, 22, 23)
+    c.callout(bb.x + 1.6, bb.y + 4.2, ["LED en el pin 9: este pin", "tiene el símbolo ~ (PWM)"], target=(lx - 1.0, ly - 1.6), size=0.54)
+    xp = bb.hole(28, "f")[0]
+    c.callout(bb.x + 16.0, bb.y + 4.2, ["Potenciómetro: gira el", "rotor con el desarmador"], target=(xp - 1.4, bb.hole(28, "f")[1] - 3.6), size=0.54)
+    _leyenda(c, ard.x + 0.5, ard.y + ard.H + 5.0, [(COL["negro"], "GND  (−, tierra)"), (COL["morado"], "Pin 9: salida PWM (el LED)"),
+                                                  (COL["amarillo"], "Centro del potenciómetro a A0 (entrada)"), (COL["rojo"], "+5 V al extremo del potenciómetro")])
+    c.text(c.w_u - 1.2, c.h_u - 1.2, "Lo que cambia hoy es el programa. Pin 9 = salida (LED); A0 = entrada (perilla).", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P10_perilla_brillo.png"))
+    print("P10 listo")
+
+
+def cableado_p09():
+    E = Esquema(36, 25.8)
+    E.titulo("P09 · La perilla y los números", "esquema de conexiones · el potenciómetro reparte los 5 V: lo que sale por el centro va a A0")
+    E.placa(1.5, 5.0, 7.5, 17.5, "Arduino\nUNO R3", [("5V", "5V", 8.5), ("A0", "A0", 14.5), ("GND", "GND", 20.5)])
+    E.potenciometro("P", 22.0, 8.5, 20.5)
+    E.cable("rojo", "5V", "P.a")
+    E.cable("amarillo", "A0", "P.w")
+    E.cable("negro", "GND", "P.b")
+    E.nota(9.5, 7.05, "5 V · cable rojo")
+    E.nota(9.5, 13.05, "A0 (entrada) · cable amarillo")
+    E.nota(9.5, 19.05, "cable negro")
+    E.etiqueta(27.5, 12.2, "Potenciómetro")
+    E.nota(27.5, 14.2, "10 kΩ (B103)", anchor="mm")
+    E.nota(23.4, 8.5, "extremo", anchor="lm")
+    E.nota(23.4, 20.5, "extremo", anchor="lm")
+    E.nota(14.4, 16.3, "centro (cursor)", anchor="mm")
+    E.nota(1.5, 24.6, "El centro SOLO va a A0. Corriente por el potenciómetro: 5 V ÷ 10 kΩ = 0,5 mA.", color="#8a8a8a")
+    E.exigir("5V", "P.a", "5 V debe llegar a un extremo del potenciómetro")
+    E.exigir("A0", "P.w", "A0 debe llegar al centro del potenciómetro")
+    E.exigir("GND", "P.b", "GND debe llegar al otro extremo del potenciómetro")
+    E.prohibir("5V", "GND", "5V y GND no pueden tocarse")
+    E.prohibir("A0", "5V", "A0 y 5V no pueden tocarse")
+    E.prohibir("A0", "GND", "A0 y GND no pueden tocarse")
+    E.dibujar(os.path.join(AQUI, "P09_perilla_serie_cableado.png"))
+    print("P09 cableado listo")
+
+
+def cableado_p10():
+    E = Esquema(38, 40.0)
+    E.titulo("P10 · Perilla y brillo", "esquema de conexiones · la perilla entra por A0 y el LED sale por el pin 9 (el que tiene ~)")
+    E.placa(1.5, 5.0, 7.5, 31.5, "Arduino\nUNO R3", [("D9", "D9", 8.5), ("5V", "5V", 16.5), ("A0", "A0", 23.5), ("GND", "GND", 30.5)])
+    _rama(E, 8.5, 9, "rojo", "LED rojo", "D9", 33.0, 30.5)
+    E.nota(27.0, 11.7, "brillo según la perilla", anchor="mm")
+    E.potenciometro("P", 22.0, 16.5, 30.5)
+    E.cable("rojo", "5V", "P.a")
+    E.cable("amarillo", "A0", "P.w")
+    E.cable("negro", "GND", "P.b")
+    E.cable("negro", "P.b", "TAP9")
+    E.nota(9.5, 15.05, "5 V · cable rojo")
+    E.nota(9.5, 22.05, "A0 (entrada) · cable amarillo")
+    E.nota(9.5, 29.05, "cable negro (riel GND)")
+    E.etiqueta(27.5, 21.0, "Potenciómetro")
+    E.nota(27.5, 23.0, "10 kΩ (B103)", anchor="mm")
+    E.nota(14.4, 24.3, "centro (cursor)", anchor="mm")
+    E.nota(33.6, 13.0, "cable negro", anchor="rm")
+    E.nota(27.0, 31.8, "riel GND: la tira azul (−)", anchor="lm")
+    E.nota(1.5, 38.6, "Entrada analógica (A0) y salida PWM (pin 9) comparten el GND y nada más.", color="#8a8a8a")
+    E.puntos.add("P.b")
+    E.exigir("D9", "R9.a", "el pin 9 debe llegar a la resistencia del LED")
+    E.exigir("R9.b", "LED9.a", "la resistencia debe llegar a la pata larga (+) del LED")
+    E.exigir("LED9.k", "GND", "la pata corta (−) del LED debe llegar a GND")
+    E.exigir("5V", "P.a", "5 V debe llegar a un extremo del potenciómetro")
+    E.exigir("A0", "P.w", "A0 debe llegar al centro del potenciómetro")
+    E.exigir("GND", "P.b", "GND debe llegar al otro extremo del potenciómetro")
+    E.prohibir("5V", "GND", "5V y GND no pueden tocarse")
+    E.prohibir("A0", "5V", "A0 y 5V no pueden tocarse")
+    E.prohibir("A0", "GND", "A0 y GND no pueden tocarse")
+    E.prohibir("D9", "A0", "el pin 9 y A0 no pueden tocarse")
+    E.prohibir("D9", "GND", "el pin 9 y GND no pueden tocarse")
+    E.dibujar(os.path.join(AQUI, "P10_perilla_brillo_cableado.png"))
+    print("P10 cableado listo")
+
+
+# ------------------------------------------------------------------ Sesión 5: diagramas de ideas
+def _cdiv(a, b):
+    """División entera como la hace Arduino (C): trunca hacia cero."""
+    q = abs(a) // abs(b)
+    return q if (a < 0) == (b < 0) else -q
+
+
+def _amap(x, a, b, c, d):
+    """map() de Arduino con su aritmética entera."""
+    return _cdiv((x - a) * (d - c), (b - a)) + c
+
+
+def _coma(x, dec=1):
+    """Número con coma decimal y sin ceros sobrantes: 7.5 -> '7,5', 5.0 -> '5'."""
+    s = f"{x:.{dec}f}".rstrip("0").rstrip(".")
+    return s.replace(".", ",")
+
+
+def perilla_conoce():
+    """El potenciómetro por fuera y por dentro: un divisor de voltaje."""
+    c = Canvas(73, 41.6)
+    c.header("P09 · Conoce tu potenciómetro", "Una resistencia de 10 kΩ con una tercera pata, el cursor, que se desliza por ella y reparte el voltaje")
+    # ---- por fuera (dibujo grande de la vista de arriba)
+    c.text(12.5, 5.5, "Por fuera", 0.85, TINTA, "Bold")
+    s = 2.0
+    cx, y0 = 12.5, 8.0
+    w, h = 5.9 * s, 5.5 * s
+    c.rect(cx - w / 2, y0, w, h, fill="#1f1f22", outline="#050505", width=0.1, r=2.4)
+    for sx in (-1, 1):
+        c.circle(cx + sx * (w / 2 - 1.1), y0 + h - 0.8, 0.5, fill="#3a3a3f")
+    ry = y0 + 3.0 * s
+    c.circle(cx, ry, 1.75 * s, fill="#2b2b30", outline="#4d4d55", width=0.1)
+    c.circle(cx, ry, 1.4 * s, outline="#3d3d44", width=0.07)
+    c.line([(cx - 1.25 * s, ry + 0.55 * s), (cx + 1.25 * s, ry - 0.55 * s)], "#8e8e96", 0.7, ends=False)
+    c.rect(cx - 1.3 * s, y0 + 0.45 * s, 2.6 * s, 0.95 * s, fill="#0f0f12", r=0.3)
+    c.text(cx, y0 + 0.93 * s, "B103", 0.95, "#d9d9d9", "Bold")
+    # flecha curva: el rotor gira (menos de una vuelta)
+    arco = [(cx + 4.7 * math.cos(math.radians(a)), ry + 4.7 * math.sin(math.radians(a))) for a in range(20, 161, 10)]
+    c.line(arco, VINO, 0.16, ends=False)
+    pa, pb = arco[-2], arco[-1]
+    ang = math.atan2(pb[1] - pa[1], pb[0] - pa[0])
+    c.poly([pb, (pb[0] - 0.7 * math.cos(ang - 0.45), pb[1] - 0.7 * math.sin(ang - 0.45)),
+            (pb[0] - 0.7 * math.cos(ang + 0.45), pb[1] - 0.7 * math.sin(ang + 0.45))], fill=VINO)
+    # patas
+    yp = y0 + h
+    for dx, nombre, sub in ((-4.0, "extremo", ""), (0.0, "centro", "(cursor)"), (4.0, "extremo", "")):
+        c.rect(cx + dx - 0.18, yp - 0.2, 0.36, 3.0, fill="#c9a227")
+        c.circle(cx + dx, yp + 2.8, 0.34, fill="#c9a227")
+        c.text(cx + dx, yp + 4.2, nombre, 0.5, TINTA, "SemiBold")
+        if sub:
+            c.text(cx + dx, yp + 5.1, sub, 0.5, VINO, "Bold")
+    c.text(cx, ry + 1.9, "ranura", 0.5, "#c9c9d0", "SemiBold")
+    _lista(c, 1.5, 28.0, ["Se gira con un desarmador plano pequeño:", "la punta entra en la ranura del rotor.",
+                          "B103: el 103 es 10 × 10³ = 10 000 Ω = 10 kΩ.", "Gira menos de una vuelta (240° a 280°, según",
+                          "las hojas de datos del kit).", "Va en el protoboard con cada pata en una", "columna distinta."], 0.5, 1.2, GRIS_T)
+    # ---- por dentro: cinco posiciones del cursor
+    c.text(48.0, 5.5, "Por dentro: un divisor de voltaje (cinco posiciones del cursor)", 0.85, TINTA, "Bold")
+    yt, yb = 11.2, 23.7
+    for i in range(5):
+        f = i / 4
+        x0 = 27.0 + i * 9.0
+        tx, tw = x0 + 3.4, 1.5
+        yw = yb - f * (yb - yt)
+        c.rect(tx, yt, tw, yw - yt + 0.001, fill="#f6d0d0")
+        if f > 0:
+            c.rect(tx, yw, tw, yb - yw, fill="#cfdcf3")
+        c.rect(tx, yt, tw, yb - yt, outline=TINTA, width=0.1)
+        c.line([(tx + tw / 2, yt - 1.5), (tx + tw / 2, yt)], "#c8202b", 0.14, ends=False)
+        c.text(tx + tw / 2, yt - 2.2, "5 V", 0.55, "#c8202b", "Bold")
+        c.line([(tx + tw / 2, yb), (tx + tw / 2, yb + 1.2)], "#1d5fd1", 0.14, ends=False)
+        c.text(tx + tw / 2, yb + 1.9, "GND", 0.55, "#1d5fd1", "Bold")
+        r_ar, r_ab = 10.0 * (1 - f), 10.0 * f
+        c.text(tx - 0.3, yt + max((yw - yt) / 2, 0.6), f"{_coma(r_ar)} kΩ", 0.5, "#a02020", "SemiBold", anchor="rm")
+        c.text(tx - 0.3, yb - max((yb - yw) / 2, 0.6), f"{_coma(r_ab)} kΩ", 0.5, "#1d4fa0", "SemiBold", anchor="rm")
+        c.poly([(tx + tw, yw), (tx + tw + 1.0, yw - 0.5), (tx + tw + 1.0, yw + 0.5)], fill=TINTA)
+        c.line([(tx + tw + 1.0, yw), (tx + tw + 2.2, yw)], TINTA, 0.14, ends=False)
+        c.text(tx + tw + 2.5, yw, "A0", 0.55, TINTA, "Bold", anchor="lm")
+        v = 5.0 * f
+        c.text(x0 + 4.5, 27.0, f"cursor al {int(f * 100)} %", 0.5, GRIS_T, "SemiBold")
+        c.text(x0 + 4.5, 28.3, f"{_coma(v, 2)} V", 0.8, VINO, "Bold")
+        c.text(x0 + 4.5, 29.6, f"lectura ≈ {round(v / 5 * 1023)}", 0.5, TINTA, "SemiBold")
+    c.text(27.0, 7.2, "Rojo = parte de la resistencia entre el cursor y 5 V (R arriba). Azul = entre el cursor y GND (R abajo).", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.rect(27.0, 32.2, 45.0, 4.6, fill="#ffffff", outline="#cfc9b8", width=0.08, r=0.4)
+    c.text(49.5, 33.7, "V del centro = 5 V × R abajo ÷ (R arriba + R abajo)", 0.72, VINO, "Bold")
+    c.text(49.5, 35.3, "analogRead ≈ V ÷ 5 V × 1023     (la suma R arriba + R abajo siempre da 10 kΩ)", 0.55, TINTA, "Medium")
+    _caja_aviso(c, 1.5, 36.9, 70.0, 3.9, "Antes de conectar",
+                ["Las patas de los extremos van una a 5 V y otra a GND. El CENTRO solo va a A0: si lo conectas a 5 V o a GND, al girar se haría un cortocircuito."], 0.55)
+    c.save(os.path.join(AQUI, "P09_perilla_conoce.png"))
+    print("P09 conoce listo")
+
+
+def lectura_adc():
+    """De volts a números: analogRead convierte 0 a 5 V en 0 a 1023."""
+    c = Lienzo(66, 40)
+    c.header("P09 · De volts a números", "analogRead convierte el voltaje de un pin analógico en un número entero de 0 a 1023")
+    # barra vertical de voltaje con su escala numérica
+    bx, by0, by1 = 17.0, 7.0, 31.0
+    c.text(bx - 5.0, 5.4, "Voltaje en A0", 0.7, TINTA, "Bold")
+    c.text(bx + 8.0, 5.4, "Número que devuelve", 0.7, TINTA, "Bold")
+    c.rect(bx, by0, 2.2, by1 - by0, fill="#e7e1d2", outline=TINTA, width=0.1)
+    for i in range(5):
+        f = i / 4
+        yy = by1 - f * (by1 - by0)
+        v = 5.0 * f
+        n = round(v / 5 * 1023)
+        c.line([(bx - 1.0, yy), (bx + 2.2 + 1.0, yy)], TINTA, 0.1, ends=False)
+        c.text(bx - 1.4, yy, f"{_coma(v, 2)} V", 0.7, VINO, "Bold", anchor="rm")
+        c.text(bx + 4.2, yy, f"{n}", 0.9, TINTA, "Bold", anchor="lm")
+    # escalones: un acercamiento
+    ex, ey = 36.0, 8.0
+    c.text(ex + 11.0, 5.4, "Un acercamiento: cada escalón", 0.7, TINTA, "Bold")
+    c.rect(ex, ey, 22.0, 12.0, fill="#fbf8f0", outline="#cfc9b8", width=0.08, r=0.3)
+    pts = [(ex + 1.0, ey + 11.0)]
+    for k in range(6):
+        xa = ex + 1.0 + k * 3.4
+        ya = ey + 11.0 - k * 1.5
+        pts += [(xa, ya), (xa, ya - 1.5)]
+        pts.append((xa + 3.4, ya - 1.5))
+    c.line(pts, VINO, 0.2, ends=False)
+    c.line([(ex + 1.0, ey + 11.0), (ex + 1.0 + 6 * 3.4, ey + 11.0 - 6 * 1.5)], "#b3ae9c", 0.1, ends=False)
+    c.text(ex + 11.0, ey + 13.2, "cada número cubre unos 4,9 mV de voltaje", 0.52, GRIS_T, "SemiBold")
+    c.text(ex + 11.0, ey + 14.3, "(5 V ÷ 1024 niveles)", 0.52, GRIS_T, "SemiBold")
+    # digitalRead frente a analogRead
+    yy = 25.2
+    c.text(ex + 11.0, yy, "digitalRead  frente a  analogRead", 0.7, TINTA, "Bold")
+    c.rect(ex, yy + 1.0, 10.5, 3.6, fill="#ffffff", outline=TINTA, width=0.08, r=0.4)
+    c.text(ex + 5.25, yy + 2.2, "digitalRead", 0.55, VINO, "Bold")
+    c.text(ex + 5.25, yy + 3.5, "2 valores: HIGH o LOW", 0.5, TINTA, "Medium")
+    c.rect(ex + 11.5, yy + 1.0, 10.5, 3.6, fill="#ffffff", outline=TINTA, width=0.08, r=0.4)
+    c.text(ex + 16.75, yy + 2.2, "analogRead", 0.55, VINO, "Bold")
+    c.text(ex + 16.75, yy + 3.5, "1024 valores: 0 a 1023", 0.5, TINTA, "Medium")
+    # código y regla de tres
+    c.rect(1.5, 33.4, 34.0, 5.2, fill="#1e1e24", r=0.5)
+    c.text(2.7, 35.0, "int lectura = analogRead(A0);", 0.62, "#f2f2f2", "MonoBold", anchor="lm")
+    c.text(2.7, 36.6, "float voltaje = lectura * 5.0 / 1023.0;", 0.62, "#f2f2f2", "MonoBold", anchor="lm")
+    c.text(37.5, 34.6, "Regla de tres, con lectura = 600:", 0.55, TINTA, "Bold", anchor="lm")
+    c.text(37.5, 36.0, "600 × 5 ÷ 1023 = 2,93 V", 0.7, VINO, "Bold", anchor="lm")
+    c.text(37.5, 37.4, "Un pin analógico (A0 a A5) tarda unos 100 µs en leerse.", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.text(c.w_u - 1.0, c.h_u - 0.7, "El programa supone 5,0 V. Si tu USB da 4,8 V, el voltaje calculado se desvía un poco.", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P09_lectura.png"))
+    print("P09 lectura listo")
+
+
+def plotter_ilustracion():
+    """Ilustración de la ventana del Serial Plotter con P09a (datos de ejemplo)."""
+    c = Canvas(64, 34.5)
+    c.header("P09a · La perilla como gráfica", "Ilustración con datos de ejemplo: tus colores, tu escala y tu gráfica se verán un poco distintos")
+    x0, y0, W, H = 2.0, 5.0, 60.0, 24.5
+    c.rect(x0, y0, W, H, fill="#f3f4f6", outline="#9aa0a6", width=0.1, r=0.6)
+    c.rect(x0, y0, W, 2.2, fill="#dfe3e8", outline="#9aa0a6", width=0.1, r=0.6)
+    c.text(x0 + 1.0, y0 + 1.15, "Serial Plotter", 0.6, TINTA, "Bold", anchor="lm")
+    c.text(x0 + W - 1.0, y0 + 1.15, "9600 baud", 0.5, GRIS_T, "SemiBold", anchor="rm")
+    # área de la gráfica
+    gx, gy, gw, gh = x0 + 5.5, y0 + 4.2, 42.0, 18.5
+    c.rect(gx, gy, gw, gh, fill="#ffffff", outline="#cfd2d6", width=0.08)
+    for v in (0, 250, 500, 750, 1000):
+        yy = gy + gh - v / 1100 * gh - 1.0
+        c.line([(gx, yy), (gx + gw, yy)], "#e6e8eb", 0.06, ends=False)
+        c.text(gx - 0.4, yy, str(v), 0.45, GRIS_T, "SemiBold", anchor="rm")
+
+    def yv(v):
+        return gy + gh - v / 1100 * gh - 1.0
+    c.line([(gx, yv(1023)), (gx + gw, yv(1023))], "#e08a00", 0.14, ends=False)
+    c.line([(gx, yv(0)), (gx + gw, yv(0))], "#3a9d5d", 0.14, ends=False)
+    pts = [(0, 3), (3, 3), (9, 260), (15, 610), (20, 1000), (24, 1022), (29, 1020), (33, 780), (38, 420), (42, 300), (60, 300)]
+    base = []
+    for (ta, va), (tb, vb) in zip(pts, pts[1:]):
+        for k in range(8):
+            u = k / 8
+            base.append((ta + (tb - ta) * u, va + (vb - va) * u))
+    base.append(pts[-1])
+    ruido = [0, 2, -1, 1, -2, 1, 0, -1, 2, -1, 1, 0, -2, 2]
+    curva = []
+    for i, (tt, vv) in enumerate(base):
+        curva.append((gx + 1.0 + tt / 60 * (gw - 2.0), yv(vv + ruido[i % len(ruido)] * 1.0)))
+    c.line(curva, "#2a6fdb", 0.2, ends=False)
+    # leyenda
+    lx = gx + gw + 1.5
+    for i, (nombre, col) in enumerate((("Min", "#3a9d5d"), ("Max", "#e08a00"), ("Lectura", "#2a6fdb"))):
+        c.rect(lx, gy + 1.0 + i * 1.8, 1.4, 0.45, fill=col)
+        c.text(lx + 2.0, gy + 1.22 + i * 1.8, nombre, 0.55, TINTA, "SemiBold", anchor="lm")
+    # anotaciones
+    c.callout(x0 + 8.5, y0 + 6.0, ["1 · Giras la perilla:", "la línea sube"], target=(gx + 1.0 + 15 / 60 * (gw - 2.0), yv(610)), size=0.5)
+    c.callout(x0 + 21.0, y0 + 16.8, ["2 · En el tope:", "se queda arriba, cerca de Max"], target=(gx + 1.0 + 27 / 60 * (gw - 2.0), yv(1021)), size=0.5)
+    c.callout(x0 + 33.0, y0 + 8.0, ["3 · Perilla quieta: la línea es", "casi plana (baila 1 o 2 números)"], target=(gx + 1.0 + 50 / 60 * (gw - 2.0), yv(300)), size=0.5)
+    c.text(lx, gy + 7.4, "Min y Max son líneas", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.text(lx, gy + 8.5, "fijas: sirven de marco", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.text(lx, gy + 9.6, "para que la escala", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.text(lx, gy + 10.7, "no cambie.", 0.5, GRIS_T, "Medium", anchor="lm")
+    c.text(c.w_u - 1.2, c.h_u - 0.8, "Se abre con Herramientas > Serial Plotter. Cierra antes el Monitor Serie: los dos usan el mismo puerto.", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P09_plotter.png"))
+    print("P09 plotter listo")
+
+
+def _pwm(c, x0, y_alto, y_bajo, periodo, duty, n, color=VINO, w=0.22):
+    """n ciclos de PWM de ancho 'periodo' (en unidades de dibujo); el pin está en HIGH la fracción 'duty' al inicio de cada ciclo."""
+    if duty <= 0:
+        c.line([(x0, y_bajo), (x0 + n * periodo, y_bajo)], color, w, ends=False)
+        return
+    if duty >= 1:
+        c.line([(x0, y_alto), (x0 + n * periodo, y_alto)], color, w, ends=False)
+        return
+    pts = []
+    for k in range(n):
+        xa = x0 + k * periodo
+        pts += [(xa, y_bajo), (xa, y_alto), (xa + duty * periodo, y_alto), (xa + duty * periodo, y_bajo), (xa + periodo, y_bajo)]
+    c.line(pts, color, w, ends=False)
+
+
+def _led_vista(c, x, y, brillo, r=1.3):
+    """LED visto de frente; 'brillo' de 0 a 1 se pinta como lo percibe el ojo (no es lineal)."""
+    b = brillo ** 0.5
+    base, luz = (58, 36, 36), (255, 84, 84)
+    col = "#%02x%02x%02x" % tuple(int(base[i] + (luz[i] - base[i]) * b) for i in range(3))
+    if brillo > 0.05:
+        c.circle(x, y, r + 0.55 * b, fill="#ffe3e3")
+    c.circle(x, y, r, fill=col, outline="#3a3a3a", width=0.08)
+
+
+def pwm_a_mano():
+    """El mismo reparto del ciclo (50 % encendido) con ciclos de distinta duración: lo que se ve."""
+    c = Canvas(62, 38)
+    c.header("P10a · PWM a mano: el mismo reparto, ciclos más y más cortos", "La perilla decide cuánto del ciclo está encendido; PERIODO_MS decide qué tan largo es el ciclo")
+    filas = [(5.8, "Ciclo de 1 000 ms (1 s)", "1 parpadeo por segundo", "Se ve prender y apagar: es el Blink de la Sesión 1", [1.0, 0.0, 1.0]),
+             (14.0, "Ciclo de 100 ms", "10 parpadeos por segundo", "Parpadeo rápido: se ve titilar, pero ya no se alcanza a contar", [0.55, 0.55, 0.55]),
+             (22.2, "Ciclo de 20 ms", "50 por segundo", "Se espera un brillo medio: el parpadeo casi no se nota", [0.5])]
+    x0, per, n = 3.0, 5.0, 3
+    for yt, titulo, sub, que, leds in filas:
+        c.text(1.5, yt + 0.3, titulo, 0.8, TINTA, "Bold", anchor="lm")
+        c.text(1.5, yt + 1.5, sub, 0.55, GRIS_T, "SemiBold", anchor="lm")
+        ya, yb = yt + 3.0, yt + 6.0
+        c.line([(x0, ya), (x0 + 26, ya)], "#e2ddd0", 0.06, ends=False)
+        c.line([(x0, yb), (x0 + 26, yb)], "#e2ddd0", 0.06, ends=False)
+        c.text(x0 - 0.3, ya, "HIGH", 0.4, GRIS_T, "SemiBold", anchor="rm")
+        c.text(x0 - 0.3, yb, "LOW", 0.4, GRIS_T, "SemiBold", anchor="rm")
+        _pwm(c, x0 + 1.0, ya, yb, per, 0.5, n)
+        xa, xb = x0 + 1.0, x0 + 1.0 + per
+        yy = yt + 2.1
+        c.line([(xa, yy), (xb, yy)], "#1d5fd1", 0.1, ends=False)
+        c.line([(xa, yy - 0.25), (xa, yy + 0.25)], "#1d5fd1", 0.1, ends=False)
+        c.line([(xb, yy - 0.25), (xb, yy + 0.25)], "#1d5fd1", 0.1, ends=False)
+        c.text(xb + 0.4, yy, "1 ciclo", 0.45, "#1d5fd1", "SemiBold", anchor="lm")
+        c.text(34.5, yt + 1.3, "Lo que se espera ver", 0.5, GRIS_T, "SemiBold", anchor="lm")
+        for i, b in enumerate(leds):
+            _led_vista(c, 36.5 + i * 4.0, yt + 4.4, b)
+        c.text(34.5, yt + 7.0, que, 0.52, TINTA, "Medium", anchor="lm")
+    c.rect(1.5, 31.0, 59.0, 5.6, fill="#fbf3e2", outline=GOLD_BORDE, width=0.1, r=0.5)
+    c.text(2.4, 32.4, "analogWrite hace lo mismo, pero con ciclos de unos 2 ms (490 por segundo)", 0.7, VINO, "Bold", anchor="lm")
+    c.text(2.4, 33.8, "y lo hace un circuito del chip por su cuenta: el programa queda libre para hacer otra cosa.", 0.55, TINTA, "Medium", anchor="lm")
+    c.text(2.4, 35.1, "En P10a el programa no puede hacer nada más: está ocupado con los delay().", 0.55, TINTA, "Medium", anchor="lm")
+    c.text(c.w_u - 1.0, c.h_u - 0.7, "Los LED dibujados son una ilustración de lo que se espera: anota lo que ves en el tuyo.", 0.5, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P10_pwm_a_mano.png"))
+    print("P10 pwm a mano listo")
+
+
+def pwm_ciclos():
+    """analogWrite: el valor 0 a 255 decide la fracción del ciclo en HIGH."""
+    c = Lienzo(64, 41.4)
+    c.header("P10 · PWM: lo que hace analogWrite", "El valor de 0 a 255 decide qué parte de cada ciclo (unos 2 ms) está el pin en HIGH")
+    c.text(1.5, 5.2, "Instrucción", 0.65, GRIS_T, "Bold", anchor="lm")
+    c.text(22.0, 5.2, "Tres ciclos del pin 9 (cada uno dura unos 2 ms)", 0.65, GRIS_T, "Bold", anchor="lm")
+    c.text(45.0, 5.2, "Voltaje promedio", 0.65, GRIS_T, "Bold", anchor="lm")
+    c.text(58.0, 5.2, "Se ve", 0.65, GRIS_T, "Bold", anchor="lm")
+    x0, per = 22.0, 6.0
+    for i, val in enumerate((0, 64, 128, 191, 255)):
+        yt = 7.0 + i * 5.6
+        duty = val / 255
+        c.rect(1.0, yt - 0.3, 62.0, 5.2, fill="#fbf8f0" if i % 2 == 0 else "#ffffff", outline=None)
+        c.text(1.5, yt + 1.2, f"analogWrite(9, {val})", 0.75, TINTA, "MonoBold", anchor="lm")
+        c.text(1.5, yt + 2.9, f"encendido el {round(duty * 100)} % del ciclo", 0.55, GRIS_T, "SemiBold", anchor="lm")
+        ya, yb = yt + 0.7, yt + 3.9
+        _pwm(c, x0, ya, yb, per, duty, 3)
+        c.text(45.0, yt + 2.2, f"{_coma(5 * duty, 2)} V", 0.85, VINO, "Bold", anchor="lm")
+        _led_vista(c, 60.0, yt + 2.2, duty, r=1.1)
+    c.text(22.0, 35.6, "HIGH = 5 V, LOW = 0 V. El LED recibe pulsos tan rápidos que el ojo solo percibe el promedio.", 0.5, GRIS_T, "Medium", anchor="lm")
+    _caja_aviso(c, 1.0, 36.6, 62.0, 3.9, "Lo que hay que saber",
+                ["Solo los pines con ~ hacen PWM en el UNO: 3, 5, 6, 9, 10 y 11. Los demás solo dan HIGH o LOW. Frecuencia: unos 490 Hz (pines 5 y 6: 980 Hz)."], 0.52)
+    c.text(c.w_u - 1.0, c.h_u - 0.4, "Los LED son ilustración: el ojo no responde en línea recta, a la mitad ya parece bastante brillante.", 0.46, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P10_pwm.png"))
+    print("P10 pwm listo")
+
+
+def map_diagrama():
+    """map(): cambiar un número de una escala a otra."""
+    c = Lienzo(64, 45.5)
+    c.header("P10 · map(): cambiar de escala", "El mismo punto de la perilla, escrito en dos escalas: la lectura (0 a 1023) y el brillo (0 a 255)")
+    x0, x1 = 6.0, 58.0
+    ya, yb = 11.0, 19.0
+    c.text(1.5, 7.4, "lectura  (analogRead): de 0 a 1023", 0.7, TINTA, "Bold", anchor="lm")
+    c.text(1.5, yb + 4.2, "brillo  (analogWrite): de 0 a 255", 0.7, TINTA, "Bold", anchor="lm")
+    c.rect(x0, ya - 0.5, x1 - x0, 1.0, fill="#e7e1d2", outline=TINTA, width=0.08)
+    c.rect(x0, yb - 0.5, x1 - x0, 1.0, fill="#e7e1d2", outline=TINTA, width=0.08)
+    for v in (0, 256, 512, 768, 1023):
+        xa = x0 + v / 1023 * (x1 - x0)
+        b = _amap(v, 0, 1023, 0, 255)
+        xb = x0 + b / 255 * (x1 - x0)
+        c.line([(xa, ya + 0.5), (xb, yb - 0.5)], VINO, 0.14, ends=False)
+        c.circle(xa, ya, 0.35, fill=VINO)
+        c.circle(xb, yb, 0.35, fill=VINO)
+        c.text(xa, ya - 1.3, str(v), 0.75, TINTA, "Bold")
+        c.text(xb, yb + 1.4, str(b), 0.75, TINTA, "Bold")
+    # la llamada y sus cinco partes
+    tam = 1.1
+    trozos = ["int brillo = map(", "lectura", ", ", "0", ", ", "1023", ", ", "0", ", ", "255", ");"]
+    cw = c.text_len("M", tam, "MonoBold")
+    total = sum(len(s) for s in trozos) * cw
+    xi = 32.0 - total / 2
+    c.rect(xi - 2.0, 25.0, total + 4.0, 3.6, fill="#1e1e24", r=0.5)
+    c.text(xi, 26.85, "".join(trozos), tam, "#f2f2f2", "MonoBold", anchor="lm")
+    pos, acum = [], 0
+    for s in trozos:
+        pos.append(xi + (acum + len(s) / 2) * cw)
+        acum += len(s)
+    centros = [pos[1], pos[3], pos[5], pos[7], pos[9]]
+    rotulos = [("el número", "que se convierte", 30.6), ("de: mínimo", "de la entrada", 33.6), ("de: máximo", "de la entrada", 30.6),
+               ("a: mínimo", "de la salida", 33.6), ("a: máximo", "de la salida", 30.6)]
+    for xp, (a, b, yy) in zip(centros, rotulos):
+        c.line([(xp, 28.6), (xp, yy - 0.6)], "#d9a83f", 0.12, ends=False)
+        c.text(xp, yy, a, 0.5, VINO, "Bold")
+        c.text(xp, yy + 0.95, b, 0.42, GRIS_T, "SemiBold")
+    # tabla de ejemplos
+    cols = [("lectura", 1.5, 7.5), ("map(lectura, 0, 1023, 0, 255)", 9.0, 17.0), ("map(…, 255, 0)  invertido", 26.0, 13.0),
+            ("map(…, 20, 200)", 39.0, 11.0), ("solo pasada la mitad", 50.0, 12.5)]
+    yh = 37.0
+    for (t, xx, w) in cols:
+        c.rect(xx, yh, w, 1.5, fill=VINO, outline="#ffffff", width=0.05)
+        c.text(xx + w / 2, yh + 0.78, t, 0.5, "#ffffff", "Bold")
+    for r, L in enumerate((0, 256, 512, 768, 1023)):
+        yy = yh + 1.5 + r * 1.1
+        vals = [str(L), str(_amap(L, 0, 1023, 0, 255)), str(_amap(L, 0, 1023, 255, 0)), str(_amap(L, 0, 1023, 20, 200)),
+                str(0 if L < 512 else _amap(L, 512, 1023, 0, 255))]
+        for (t, xx, w), v in zip(cols, vals):
+            c.rect(xx, yy, w, 1.1, fill="#ffffff", outline="#cfc9b8", width=0.05)
+            c.text(xx + w / 2, yy + 0.57, v, 0.5, TINTA, "SemiBold")
+    c.text(c.w_u - 1.0, c.h_u - 0.4, "map() usa números enteros: recorta los decimales, no redondea (por eso 512 da 127 y no 128).", 0.48, GRIS_T, "Medium", anchor="rm")
+    c.save(os.path.join(AQUI, "P10_map.png"))
+    print("P10 map listo")
+
+
 TODOS = {"P01": [p01], "P02": [p02, esquema_p02, cableado_p02], "P03": [p03, cableado_p03], "P04": [p04, cableado_p04],
          "P05": [p05, cableado_p05, esquema_pullup, boton_patas], "P06": [rebote_p06, estados_p06],
          "P07": [zumbadores, frecuencia, p07a, cableado_p07a, p07b, cableado_p07b, for_diagrama],
-         "P08": [pir_conoce, pir_senal, p08, cableado_p08, alarma_estados]}
+         "P08": [pir_conoce, pir_senal, p08, cableado_p08, alarma_estados],
+         "P09": [perilla_conoce, lectura_adc, p09_paso0, p09, cableado_p09, plotter_ilustracion],
+         "P10": [pwm_a_mano, pwm_ciclos, map_diagrama, p10, cableado_p10]}
 
 if __name__ == "__main__":
     pedidos = sys.argv[1:] or list(TODOS)

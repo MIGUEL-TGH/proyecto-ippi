@@ -510,6 +510,6 @@ Haz las prácticas como lo haría un alumno y llena esto. Sirve para ajustar la 
 
 ## Para recompilar o regenerar
 
-- Los sketches se verifican con `curso-arduino/compilar-sketches.ps1` (38 en total).
+- Los sketches se verifican con `curso-arduino/compilar-sketches.ps1` (66 en total).
 - Los diagramas se generan con `python curso-arduino/diagramas/generar_diagramas.py P07 P08`. El script **comprueba las conexiones** al dibujar (por ejemplo, que el pin 12 llega al zumbador solo a través de la resistencia, o que VCC y GND del sensor no se tocan) y se detiene si algo no coincide.
 - Valores que **no** están verificados y salen de las hojas de datos: la corriente real del zumbador pasivo con `tone()`, la distancia entre las patas de los zumbadores, el orden de las patas del sensor de tu módulo y el sentido de giro de sus perillas. Por eso están en la tabla de arriba.

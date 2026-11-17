@@ -3,23 +3,26 @@
   ------------------------------------------------------------------
   Qué hace: mide la distancia a un objeto y la muestra en centímetros en el Monitor Serie.
 
-  Conexiones del HC-SR04 (4 pines):
-    VCC  -> 5 V
+  Conexiones del HC-SR04 (4 pines; se enchufa en el protoboard con el sensor mirando hacia afuera):
+    VCC  -> 5 V  (riel rojo)
     TRIG -> pin 6
     ECHO -> pin 7
-    GND  -> GND
+    GND  -> GND  (riel azul)
+  Lee las letras impresas en TU sensor (VCC, Trig, Echo, GND) antes de conectar.
 
   Ideas clave:
     - El sensor manda un "chirrido" ultrasónico (TRIG) y mide cuánto tarda en volver (ECHO).
     - distancia = tiempo x velocidad del sonido / 2   (va y regresa, por eso se divide entre 2)
     - La velocidad del sonido es unos 343 m/s = 0.0343 cm por microsegundo.
     - Este código NO necesita instalar ninguna librería.
+    - Hoja de datos del kit: alimentación 5 V, 15 mA, alcance de 2 cm a 4 m, ángulo de medición
+      de unos 15 grados y pulso de disparo de 10 microsegundos como mínimo.
 
-  Alcance del sensor: de 2 cm a 4 m aproximadamente. Las telas y superficies inclinadas
-  devuelven mal el eco.
+  Las telas y las superficies inclinadas devuelven mal el eco.
 
   Retos:  - Compara la medida con una regla en 10, 20 y 50 cm.
           - Prueba con distintos materiales (libro, tela, mano). ¿Cuál se mide peor?
+          - Acerca el objeto a menos de 2 cm. ¿Qué mide el sensor?
 */
 
 const int PIN_TRIG = 6;
