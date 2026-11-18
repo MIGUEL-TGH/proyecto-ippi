@@ -1,7 +1,7 @@
 # Hallazgos y soluciones: Curso de Electrónica y Programación Básica
 
 **Destino:** alumnos de preparatoria, San Juan Atzingo, San Gabriel Chilac, Puebla
-**Fecha del análisis:** 2026-11-15 · **Actualizado:** 2026-11-16 (decisiones de Miguel y plan de curso) · **Estado:** borrador de trabajo (para resolver punto por punto)
+**Fecha del análisis:** 2026-11-15 · **Actualizado:** 2026-11-17 (decisiones de Miguel, plan de curso y revisión del 17 nov) · **Estado:** borrador de trabajo (para resolver punto por punto)
 
 ## 1. Qué se analizó
 
@@ -25,8 +25,9 @@
 | Migración del contenido | Sí. Se hace **sobre la secuencia nueva** del plan, no lámina por lámina del .pptm viejo (el orden y buena parte del contenido cambian). |
 | Equipo | **6 kits; cada kit lo usan 2–3 alumnos** (12 a 18 alumnos por curso). **6 computadoras confirmadas** (una por kit). Internet sin confirmar, pero el plan no lo necesita. |
 | Duración | **Se conserva el curso completo de 16 sesiones (32 h).** La primera visita son dos días de 4 horas (sesiones 1 a 4); el resto se imparte en otras fechas. Ver `plan-curso-arduino.md`, sección 3b. |
+| Tiempo por visita (17 nov) | Cada visita avanza **hasta donde alcance la hora** y después se programan más fechas para concluir el curso. Las guías conservan sus 120 min por sesión; lo que cambia es dónde se corta entre visitas, no el contenido. |
 | Retos del proyecto final | Aprobados por Miguel (16 nov). |
-| Software | Arduino IDE 2.x **ya instalado** en la PC de Miguel. Trae su propio `arduino-cli`, que se usa para compilar; no se instaló nada más. |
+| Software | Arduino IDE 2.x **ya instalado** en la PC de Miguel. Trae su propio `arduino-cli`, que se usa para compilar; no se instaló nada más. Las 6 computadoras del aula se preparan con `preparacion-computadoras.md`. |
 
 ## 2. Resumen
 
@@ -40,7 +41,7 @@
 | H6 | Hay pasos con solo imagen y sin instrucción, y láminas sin título | Media | Añadir instrucción, tabla de conexiones y resultado esperado | ☐ |
 | H7 | Las 8 portadas son imágenes aplanadas; la del Dado no coincide con el material | Media | Recrear con la plantilla; decidir el diseño del dado | ☐ |
 | H8 | Formato inconsistente (listas de materiales en letra diminuta, tamaños distintos) | Baja | Se corrige al pasar a la plantilla | ☐ |
-| H9 | El curso depende de Tinkercad (en línea) y de computadoras | Alta | Confirmar acceso a computadora e internet en Atzingo; plan sin conexión | ✔ hay 6 computadoras (una por kit) y el plan nuevo no usa Tinkercad, internet ni librerías externas |
+| H9 | El curso depende de Tinkercad (en línea) y de computadoras | Alta | Confirmar acceso a computadora e internet en Atzingo; plan sin conexión | ✔ hay 6 computadoras (una por kit) y el plan nuevo no usa Tinkercad, internet ni librerías externas. Cómo prepararlas: `preparacion-computadoras.md` (falta saber versión de Windows, permisos e internet de la escuela) |
 | H10 | Falta pasar el curso a la plantilla `ippi-cursos` | Tarea 1 | Ver sección 4 | ◐ etiqueta «CURSOS / IPPI» confirmada; se construye cuando se apruebe la secuencia del plan |
 | H11 | El Word usa TMP36 y una tabla de materiales que no es la del kit | Media | Adaptar capítulos 8–10 al termistor NTC y a la lista real | ☐ |
 | H12 | Derechos de las imágenes y diagramas del fabricante | Baja | Citar fuente o redibujar | ☐ |
@@ -76,7 +77,7 @@ Además, el código está en imagen: los alumnos no pueden copiarlo, y el del Da
 **Solución:**
 - Poner el código como **texto monoespaciado** en la lámina, no como captura.
 - Tomarlo de los `.ino` del kit (están en inglés y probados por el fabricante) o de sketches propios.
-- **Compilar cada sketch antes de publicarlo.** Esta PC no tiene Arduino IDE ni arduino-cli (ver `revision-kit-arduino.md`).
+- **Compilar cada sketch antes de publicarlo.** Se hace con `curso-arduino/compilar-sketches.ps1`, que usa el `arduino-cli` del Arduino IDE 2.x ya instalado (ver `revision-kit-arduino.md`). Estado el 17 nov: los 66 sketches compilan sin errores ni avisos.
 - Regla para el material: nunca capturar código desde Tinkercad en español.
 
 ### H3. Proyecto 7, «Ventilador», es incoherente
@@ -131,8 +132,8 @@ Las listas de materiales usan tamaños de letra distintos y muy pequeños (por e
 
 Tinkercad Circuits solo funciona en línea. El Word además usa Arduino IDE, que necesita una computadora por equipo y, la primera vez, descargar el IDE y las librerías.
 
-**Pendiente de confirmar:** ¿habrá computadoras e internet en el aula de Atzingo? ¿Cuántos alumnos y cuántos kits? (Referencia: en la base del IPPI de 76 municipios indígenas, la mediana es 14% de viviendas con internet y 8% con computadora; falta ver el dato específico de San Gabriel Chilac.)
-**Solución (según respuesta):** con computadoras sin internet, instalar IDE y librerías con anticipación desde la carpeta `kit-arduino`. Sin computadoras, usar solo la placa con los sketches ya cargados, o planear cargarlos por equipo desde una laptop del instructor.
+**Estado (17 nov):** hay **6 computadoras** (una por kit) y 6 kits con 2–3 alumnos cada uno. **El internet sigue sin confirmar**, pero el plan no lo necesita. (Referencia: en la base del IPPI de 76 municipios indígenas, la mediana es 14% de viviendas con internet y 8% con computadora; falta ver el dato específico de San Gabriel Chilac.) **Pendiente:** versión de Windows, permisos para instalar programas e internet de las computadoras de la escuela.
+**Solución:** `preparacion-computadoras.md` explica qué instalar en cada computadora (IDE 2.x, núcleo AVR 1.8.8, bibliotecas integradas Servo y LiquidCrystal, sketches), cómo hacerlo **con** internet y **sin** internet (copiando 336 MB desde la PC de Miguel; probado con `arduino-cli`), y la prueba de 10 minutos por equipo. Las bibliotecas del kit solo hacen falta para las ampliaciones.
 
 ### H10. Pasar el curso a la plantilla (Tarea 1)
 
@@ -141,7 +142,7 @@ El archivo `ippi-cursos.pptx` tiene el diseño institucional (Gobierno de Puebla
 **Solución:**
 1. Construir sobre una copia de la plantilla para conservar fuentes, logos y patrón.
 2. Crear layouts reales (portada, divisor de proyecto, contenido claro, contenido oscuro, cierre) para que los ajustes posteriores no requieran copiar formas.
-3. Sustituir el texto de la barra lateral «MESA TÉCNICA» (propuesta: **«CURSOS / IPPI»**).
+3. Sustituir el texto de la barra lateral «MESA TÉCNICA» (confirmado el 16 nov: **«CURSOS / IPPI»**).
 4. Guardar como `.pptx` nuevo. Los originales no se tocan.
 
 ### H11. El Word y el kit
@@ -159,6 +160,7 @@ Los PDF de lecciones traen diagramas y fotos de REXQualis. **Solución:** para c
 ## 4. Orden de trabajo sugerido
 
 - [ ] **Fase 0. Prácticas propias** con el kit, en el orden del curso (`plan-curso-arduino.md`, sección 11). El IDE ya está instalado; los sketches están en `curso-arduino/sketches/`.
+- [ ] **Fase 0b. Preparar las 6 computadoras del aula:** IDE, núcleo AVR, sketches y prueba de 10 minutos (`preparacion-computadoras.md`).
 - [ ] **Fase 1. Plantilla:** layouts + portada + secciones (H10).
 - [ ] **Fase 2. Contenido por kit:** elegir proyectos, tablas de pines, código en texto (H1, H2, H3, H5, H6).
 - [ ] **Fase 3. Limpieza:** capturas, derechos, Word (H4, H11, H12).
@@ -169,5 +171,5 @@ Los PDF de lecciones traen diagramas y fotos de REXQualis. **Solución:** para c
 1. ~~Texto de la barra lateral~~ → «CURSOS / IPPI» (16 nov).
 2. ~~Alcance de la migración~~ → sí, completa, sobre la secuencia nueva (16 nov).
 3. Nombre del archivo de salida (propuesta: `Curso Electronica y Programacion con Arduino - IPPI.pptx`; el nombre anterior ya no describe el contenido).
-4. ~~Número de alumnos, kits, computadoras y duración~~ → 6 kits, 2–3 alumnos por kit, 6 computadoras, 32 h en visitas (la primera, dos días de 4 horas). **Siguen pendientes:** fechas y duración de las visitas 2 a 4, dónde se guardan kits y computadoras entre visitas, y el consumo real del motor.
+4. ~~Número de alumnos, kits, computadoras y duración~~ → 6 kits, 2–3 alumnos por kit, 6 computadoras, 32 h en visitas (la primera, dos días de 4 horas). **Siguen pendientes:** fechas y duración de las visitas 2 a 4, dónde se guardan kits y computadoras entre visitas, el consumo real del motor, y la versión de Windows, los permisos y el internet de las computadoras de la escuela.
 5. Aprobar la secuencia y los retos del proyecto final (ver `plan-curso-arduino.md`, secciones 3 y 5).

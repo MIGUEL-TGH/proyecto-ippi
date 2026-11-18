@@ -1,7 +1,7 @@
 # Progreso de Miguel con el curso de Arduino
 
 **Para qué sirve:** llevar el registro de qué guías ya están generadas y hasta dónde ha llegado Miguel con su práctica. Miguel avisa cómo avanza («ya hice la Sesión 5», «en P10 pasó tal cosa») y se actualiza este archivo; los hallazgos se aplican después a las guías, los sketches y los diagramas.
-**Última actualización:** 2026-11-17 (archivo creado; **guías de las sesiones 5 a 16 listas**, plan y conteos al día; falta que Miguel practique las sesiones 5 a 16 y avise lo que encuentre)
+**Última actualización:** 2026-11-17 (archivo creado; **guías de las sesiones 5 a 16 listas**, plan y conteos al día; falta que Miguel practique las sesiones 5 a 16 y avise lo que encuentre). **Revisión del 17 nov:** tablas de pines por reto con pantalla en `S14-16-proyecto-final.md`, `compilar-sketches.ps1` arreglado y guía `preparacion-computadoras.md`
 
 ## Cómo avisar
 
@@ -26,7 +26,7 @@
 | 11 · Pantalla LCD | P21, P22 | 17 nov | Pendiente | V10 (contraste y luz de fondo con 100 Ω) |
 | 12 · Ventilador automático | P23 | 17 nov (versión con LED) | Pendiente | Rieles divididos del protoboard; histéresis frente al ruido real; el motor depende de V1 |
 | 13 · Campo y agua | P24, P25 | 17 nov | Pendiente | V7 (lecturas reales de suelo y agua; si la sonda es de pistas al descubierto; lectura máxima del sensor de nivel: 860 o 1023); orden real de las patas de los módulos (AO·DO·GND·VCC y S·+·−, tomado de las fotos del kit); resistencia de 220 Ω en 2 agujeros |
-| 14 a 16 · Proyecto final | reto elegido (plantilla `Proyecto_plantilla`) | 17 nov | Pendiente | Tiempos de armado con pantalla; si las combinaciones de sketches compilan sin choques de nombres; si los 7 retos interesan a los docentes de la prepa |
+| 14 a 16 · Proyecto final | reto elegido (plantilla `Proyecto_plantilla`) | 17 nov | Pendiente | Tiempos de armado con pantalla; que el PIR, el HC-SR04, el servo y el DHT11 funcionen en los pines nuevos de «Pines por reto» (las combinaciones de los retos 1 a 6 ya compilan sin choques de pines ni de nombres); si los 7 retos interesan a los docentes de la prepa |
 
 ## Plan de generación (una sesión a la vez)
 
@@ -73,7 +73,8 @@ El detalle de cada una está en `plan-curso-arduino.md`, sección 11. Aquí solo
 - Quién imparte, fechas y número de visitas, dónde se guardan kits y computadoras entre visitas.
 - Si habrá constancia o calificación y con qué requisitos.
 - Condiciones de la prueba del motor (voltaje y tipo de corriente) para decidir si se destraban P17, P18 y P23 con motor.
-- Política de commits de `kit-arduino/` (183 MB sin versionar).
+- Revisar si el repositorio de GitHub es público: `kit-arduino/` (PDF, hojas de datos y bibliotecas del fabricante; hallazgo H12) **ya está versionado y subido** (commit `ead1531`, 16 nov).
+- Versión de Windows, permisos para instalar e internet de las 6 computadoras de la escuela; y practicar `preparacion-computadoras.md` (incluye instalar las 7 bibliotecas del kit, que no están en esta PC).
 
 ## Registro de hallazgos de la práctica
 
@@ -82,3 +83,5 @@ El detalle de cada una está en `plan-curso-arduino.md`, sección 11. Aquí solo
 | Fecha | Sesión y práctica | Qué pasó | Qué se cambió |
 |---|---|---|---|
 | 2026-11-16 | S1 · P02 | Error del IDE `redefinition of 'int pinLed'` por tener dos `.ino` en la misma carpeta | Regla de un solo `.ino` por carpeta y «Guardar como…» en las guías |
+| 2026-11-17 | S14 a S16 · retos con pantalla | Revisión: la guía decía que en el reto 5 solo había que mover el ECHO, pero con la pantalla chocan **cuatro** pines (ECHO, servo, zumbador y LED); lo mismo, en menor grado, en los retos 1 a 3 | Sección «Pines por reto» con la tabla de cada reto, notas corregidas, Hoja A con pines 7 a 12 marcados y regla 9 (escribir en la pantalla solo al cambiar). Comprobado compilando la versión completa de los retos 1 a 6 |
+| 2026-11-17 | Herramienta · `compilar-sketches.ps1` | El script se detenía en el primer sketch con un `NativeCommandError` cuando el caché de compilación del núcleo estaba vacío (Windows PowerShell 5.1 convierte en error lo que `arduino-cli` escribe por stderr) | Corregido, y se agregó `-Filtro` para compilar solo algunos sketches. Probado con caché vacío y con la corrida completa (66/66) |

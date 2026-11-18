@@ -8,6 +8,7 @@
   `actividades MIR 2026/3.1 TEKITL/kit-arduino/Libraries/`
 - **La secuencia principal del curso (sesiones 1 a 13, `curso-arduino/sketches/`) no necesita ninguna.** Estas librerías solo hacen falta para las lecciones del kit que se usan como ampliación o en el proyecto final (código en `kit-arduino/Code/`).
 - Las 7 en total pesan **1.1 MB**: caben en una USB para llevarlas a otras computadoras.
+- **Estado en la PC de Miguel (17 nov):** ninguna de las 7 está instalada (en `Documentos\Arduino\libraries` solo hay bibliotecas de Adafruit y `DHT sensor library`). La instalación paso a paso, como práctica, está en `preparacion-computadoras.md` (sección 7).
 
 ## Las 7 librerías
 

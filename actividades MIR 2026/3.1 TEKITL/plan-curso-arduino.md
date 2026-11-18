@@ -1,9 +1,9 @@
 # Plan del curso: Electrónica y programación con Arduino
 
 **Destino:** alumnos de preparatoria, San Juan Atzingo, San Gabriel Chilac, Puebla
-**Versión:** 1 (propuesta para revisión) · **Fecha:** 2026-11-16
+**Versión:** 1.1 (propuesta para revisión) · **Fecha:** 2026-11-16 · **Actualizado:** 2026-11-17
 **Escrito para:** Miguel, como instructor responsable del curso. No es material para los alumnos: de aquí salen la presentación, las fichas y la bitácora.
-**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `curso-arduino/sketches/` (66 sketches compilados) · `progreso-practica-miguel.md`
+**Relacionado:** `hallazgos-ajuste-curso.md` · `revision-kit-arduino.md` · `preparacion-computadoras.md` · `curso-arduino/sketches/` (66 sketches compilados) · `progreso-practica-miguel.md`
 
 ## 1. Resumen
 
@@ -25,6 +25,7 @@
 | Materiales omitidos | Sensor TMP36 y ventilador de PC | Miguel, 16 nov |
 | Software | Arduino IDE 2.x. Nada de Tinkercad ni de internet durante el curso | Decisión de este plan |
 | Computadoras | Una por kit (6) | Miguel, 16 nov (confirmado) |
+| Estado de esas computadoras (versión de Windows, permisos para instalar, internet) | Sin confirmar. El plan no usa internet durante el curso | **Pendiente**; ver `preparacion-computadoras.md` |
 | Nivel de partida | Sin experiencia previa en electrónica ni programación | **Supuesto** |
 | Duración | **Curso completo: 32 h (16 sesiones de 2 h).** Primera visita: dos días de 4 horas; el resto, en otras fechas por definir. Un día de 4 h cabe con dos sesiones | Miguel, 16 nov |
 | Motor | Funciona a partir de 0.95 A (medido con una fuente de poder; condiciones por aclarar) | Miguel, 16 nov |
@@ -69,6 +70,10 @@ Decisión de Miguel (16 nov): **se conserva el curso completo de 16 sesiones (32
 
 Cuántas visitas habrá y cuándo es lo que **falta definir**. Si las visitas duran otra cosa, el corte se mueve, pero la regla es la misma: cerrar cada visita con una demostración.
 
+**Decisión del 17 nov (Miguel):** cada visita avanza **hasta donde alcance la hora** y después se programan más fechas para concluir el curso. Las guías conservan sus 120 minutos por sesión.
+
+**Criterio de corte sugerido (por confirmar):** en un día de 4 h con dos sesiones cada una queda en unos 95 minutos de trabajo, así que es probable que una sesión no se termine en la misma visita. Si pasa, conviene cortar **al final de una práctica** (cada práctica termina con algo que funciona) y dejar el resto para la siguiente fecha. La sesión 5 ya trae su lista de qué recortar si el tiempo se acorta; en las demás, las ampliaciones y los retos de «desafío» serían lo primero que se deje para después.
+
 **Un día de 4 horas con dos sesiones** (la apertura y el cierre se comparten, por eso cada sesión queda en unos 95 minutos de trabajo en lugar de los 120 de la sección 6):
 
 | Min | Actividad |
@@ -83,11 +88,11 @@ Cuántas visitas habrá y cuándo es lo que **falta definir**. Si las visitas du
 
 - **Repaso práctico al inicio de cada visita (15 min):** cada equipo reconstruye en 10 minutos un circuito de la visita anterior. Recupera la destreza y, de paso, se revisa que el kit esté completo.
 - **Dónde se guardan los kits y las computadoras entre visitas** (y quién cuenta las piezas al terminar). **Por definir con la escuela.** Cada kit lleva su hoja de inventario.
-- **Sketches y bitácoras:** los sketches de `curso-arduino/sketches/` se copian a cada computadora en la primera visita y se confirma en cada regreso que siguen ahí. La bitácora puede quedarse en una carpeta del equipo.
+- **Sketches y bitácoras:** los sketches de `curso-arduino/sketches/` se copian a cada computadora en la primera visita y se confirma en cada regreso que siguen ahí (cómo, y qué instalar en cada computadora, en `preparacion-computadoras.md`). La bitácora puede quedarse en una carpeta del equipo.
 - **Alumnos que faltan o se suman:** cada guía de sesión permite ponerse al corriente solo, y el repaso práctico nivela en parte.
 - **Entre visitas (opcional, sin computadora ni internet):** un reto en papel, por ejemplo dibujar el diagrama de tiempos o el esquema del circuito que se verá después.
 - **Motor:** la visita 3 empieza con el motor. Hay tiempo antes de esa fecha para resolver el consumo (V1, sección 11).
-- **Preparación:** ya están las guías de las **16 sesiones** (`curso-arduino/guias/S01-*.md` a `S13-*.md` y `S14-16-proyecto-final.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender). La sesión 3 agrega diagramas de pull-up, rebote y estados; la 4, de zumbadores, frecuencia, `for`, el módulo PIR, su señal en el tiempo y los estados de la alarma; la 5, del potenciómetro, de volts a números, del Serial Plotter, del PWM y de `map`; la 6, del divisor con la fotorresistencia, el umbral y la retroalimentación; la 7, de los pulsos del servo; la 8, del eco y los estados de la barrera; la 9 (versión con LED), del transistor y la zona muerta; la 10, del termistor y el DHT11; la 11, de la pantalla; la 12, del lazo de control y la histéresis; la 13, de la calibración y los niveles del tinaco. Las **14 a 16** son hojas imprimibles (diseño, pruebas, exhibición con rúbrica, entrega y cierre), un banco de siete retos con mapa de reutilización y de pines, y la plantilla `sketches/Proyecto_plantilla/`. Falta que Miguel las practique y dé retroalimentación (sesión por sesión; el avance está en `progreso-practica-miguel.md`).
+- **Preparación:** ya están las guías de las **16 sesiones** (`curso-arduino/guias/S01-*.md` a `S13-*.md` y `S14-16-proyecto-final.md`), con dos diagramas por circuito: protoboard (para armar) y cableado con colores de cable (para entender). La sesión 3 agrega diagramas de pull-up, rebote y estados; la 4, de zumbadores, frecuencia, `for`, el módulo PIR, su señal en el tiempo y los estados de la alarma; la 5, del potenciómetro, de volts a números, del Serial Plotter, del PWM y de `map`; la 6, del divisor con la fotorresistencia, el umbral y la retroalimentación; la 7, de los pulsos del servo; la 8, del eco y los estados de la barrera; la 9 (versión con LED), del transistor y la zona muerta; la 10, del termistor y el DHT11; la 11, de la pantalla; la 12, del lazo de control y la histéresis; la 13, de la calibración y los niveles del tinaco. Las **14 a 16** son hojas imprimibles (diseño, pruebas, exhibición con rúbrica, entrega y cierre), un banco de siete retos con mapa de reutilización, mapa de pines y tabla de pines por reto cuando hay pantalla, y la plantilla `sketches/Proyecto_plantilla/`. Falta que Miguel las practique y dé retroalimentación (sesión por sesión; el avance está en `progreso-practica-miguel.md`).
 
 ## 4. Escalera de conceptos
 
@@ -255,7 +260,7 @@ Cada ficha trae: objetivo, prácticas con su sketch, teoría breve (≈15 min), 
   6. **Semáforo peatonal:** `X02` mejorado con sensor de luz que regule el brillo.
   7. **Reto libre**, con aprobación del instructor.
 - **Componentes de ampliación** para equipos adelantados (código en `kit-arduino/Code/`): alarma de gas MQ-2 (lección 30; **solo con el instructor**, el sensor se calienta), sensor de sonido (27), lector RFID (29), reloj RTC (26), matriz LED (22), joystick (12), control remoto IR (15, con el IRremote del zip del kit), motor a pasos (16 y 28).
-- **Guía de práctica:** `curso-arduino/guias/S14-16-proyecto-final.md` (reglas, plan de las tres sesiones, banco de siete retos con versión mínima y completa, mapa de reutilización y de pines, hojas imprimibles A a D y la plantilla `sketches/Proyecto_plantilla/`).
+- **Guía de práctica:** `curso-arduino/guias/S14-16-proyecto-final.md` (reglas, plan de las tres sesiones, banco de siete retos con versión mínima y completa, mapa de reutilización y de pines, pines por reto con pantalla, hojas imprimibles A a D y la plantilla `sketches/Proyecto_plantilla/`).
 
 ## 6. Cómo se organiza una sesión de 2 horas
 
@@ -271,7 +276,7 @@ En un día de 4 horas con dos sesiones, la apertura y el cierre se comparten (se
 
 ## 7. Organización con 6 kits
 
-- **Una computadora por kit.** Los sketches de `curso-arduino/sketches/` se copian de antemano a cada computadora; los alumnos los abren, no los teclean (así el tiempo se va en entender, no en errores de escritura).
+- **Una computadora por kit.** Los sketches de `curso-arduino/sketches/` se copian de antemano a cada computadora; los alumnos los abren, no los teclean (así el tiempo se va en entender, no en errores de escritura). Qué instalar en cada una, cómo hacerlo con o sin internet y la prueba de 10 minutos: `preparacion-computadoras.md`.
 - **Roles que rotan cada sesión** (con 3 alumnos): armador, programador y verificador/bitácora. Con 2, armador y programador se alternan en cada práctica.
 - **Pedir ayuda sin interrumpir:** un vaso o tarjeta por equipo (verde = «vamos bien», rojo = «necesitamos ayuda»).
 - **Kit ordenado:** cada kit lleva su número y una hoja de inventario. Se cuenta al empezar y al terminar la sesión; las piezas pequeñas (LED, resistencias) se guardan por tipo.
@@ -303,7 +308,7 @@ Todo el curso usa los mismos pines para lo mismo, para que el equipo no tenga qu
 | Perilla del límite (sesión 12) | A1, con el termistor en A0 |
 | Semáforo de las prácticas de la sesión 13 | 8 / 9 / 10; zumbador 12; sensor de suelo o de agua en A0 |
 
-**Con la pantalla** (sesiones 11 y 12 y los proyectos) la pantalla ocupa los pines **7 a 12**: lo demás se acomoda en 2 a 6, 13 y A0 a A5 (mapa completo en `S14-16-proyecto-final.md`). `tone()` quita el PWM de los pines 3 y 11, y el DHT11 de este curso solo funciona en A0 a A5.
+**Con la pantalla** (sesiones 11 y 12 y los proyectos) la pantalla ocupa los pines **7 a 12**: lo demás se acomoda en 2 a 6, 13 y A0 a A5 (mapa completo y pines nuevos de cada reto, en `S14-16-proyecto-final.md`: secciones «Mapa de pines» y «Pines por reto»). `tone()` quita el PWM de los pines 3 y 11, y el DHT11 de este curso solo funciona en A0 a A5.
 
 ## 10. Material por sesión y compras sugeridas
 
@@ -390,7 +395,7 @@ Mientras no se resuelva: el actuador controlado con perilla es el **servo**, y e
 ## 13. Decisiones pendientes (de ti)
 
 1. ~~Sesiones y duración~~ → se conserva el curso completo de **16 sesiones (32 h)**; la primera visita son **dos días de 4 horas** y el resto se imparte en otras fechas (16 nov). **Falta:** cuántas visitas, qué fechas y cuánto dura cada una, y **dónde se guardan kits y computadoras entre visitas**.
-2. ~~Computadoras~~ → **sí, 6** (16 nov).
+2. ~~Computadoras~~ → **sí, 6** (16 nov). **Falta** la versión de Windows, los permisos para instalar y el internet de esas computadoras (`preparacion-computadoras.md`).
 3. **El motor** (V1): ¿a qué voltaje lo probaste, y los 0.95 A fueron el consumo o el límite de corriente de tu fuente? ¿Cuánto consume con el aspa girando libre a 5 V?
 4. **¿Quién imparte?** ¿Habrá un apoyo para circular entre 6 equipos?
 5. **Perfil de los alumnos:** grado, edad y si alguien ya programó. Si hay quien ya sabe, se les asignan retos «desafío» y el rol de apoyo.
@@ -400,7 +405,7 @@ Mientras no se resuelva: el actuador controlado con perilla es el **servo**, y e
 
 ## 14. Siguientes pasos
 
-1. **Sesión por sesión (acordado el 16 nov):** para cada sesión se entrega una guía de práctica con **diagramas de cada ejercicio** (`curso-arduino/guias/`). Tú la haces con el kit y me dices qué ajustar antes de pasar a la siguiente. La Sesión 1 ya está (`S01-hola-arduino.md`). Toma **una foto del circuito armado con tu kit** en cada práctica (vista desde arriba): servirán para las láminas y evitan depender de los diagramas del fabricante (H12).
+1. **Sesión por sesión (acordado el 16 nov):** cada sesión tiene una guía de práctica con **diagramas de cada ejercicio** (`curso-arduino/guias/`); las guías de las **16 sesiones ya están generadas**. Tú las haces con el kit, en orden, y me dices qué ajustar (el avance está en `progreso-practica-miguel.md`). Toma **una foto del circuito armado con tu kit** en cada práctica (vista desde arriba): servirán para las láminas y evitan depender de los diagramas del fabricante (H12).
 2. **Yo, con la secuencia aprobada:** construir la presentación en la plantilla `ippi-cursos` (barra lateral «CURSOS / IPPI»): portada, un divisor por etapa y, por práctica, objetivo y materiales, tabla de conexiones, código en texto, resultado esperado y retos. Calculo unas 130 a 160 láminas.
 3. **Después:** adaptar el Word (sección 12), preparar la bitácora y la hoja de diseño del proyecto para imprimir, y la hoja de inventario del kit.
-4. **Antes de ir a Atzingo:** prueba piloto con 1 o 2 estudiantes para medir los tiempos reales (V11).
+4. **Antes de ir a Atzingo:** prueba piloto con 1 o 2 estudiantes para medir los tiempos reales (V11), y preparar las 6 computadoras con la prueba de 10 minutos de `preparacion-computadoras.md`.

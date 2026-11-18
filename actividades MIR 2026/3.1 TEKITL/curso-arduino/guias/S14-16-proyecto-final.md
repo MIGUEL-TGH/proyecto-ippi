@@ -13,7 +13,7 @@
 |---|---|
 | **Reglas del proyecto** y **plan de las tres sesiones** | Qué se espera, cómo se reparte el tiempo y qué hace el instructor |
 | **Banco de retos** y **mapa de reutilización** | Los siete retos, sus versiones (mínima y completa) y de qué sketches parte cada uno |
-| **Mapa de pines** y **cómo juntar dos sketches** | Evitar los choques de pines y de nombres al combinar programas |
+| **Mapa de pines**, **Pines por reto** y **cómo juntar dos sketches** | Evitar los choques de pines y de nombres al combinar programas; qué pin cambia en cada reto cuando hay pantalla |
 | **Hoja A · Diseño** · **Hoja B · Pruebas** · **Hoja C · Exhibición y rúbrica** · **Hoja D · Entrega y cierre** | Hojas **para imprimir** (una por equipo); todas se llenan a mano |
 | **La plantilla** (`Proyecto_plantilla`) | Un esqueleto que ya funciona y que cada equipo cambia pieza por pieza |
 
@@ -89,14 +89,16 @@ Siete ideas. **Todas usan lo visto en el curso.** «Mínima» es la que se arma 
 | 6 | Semáforo con botón del peatón | + el sensor de luz regula el **brillo** de los LED (más luz, más brillo); + pitido durante el verde peatonal | `P06_semaforo_con_boton` · `P12_lampara_automatica` (la lectura de luz y `analogWrite`) |
 | 7 | Lo que acuerden con el instructor | | `Proyecto_plantilla` |
 
+**Antes de armar con pantalla:** la pantalla ocupa los pines 7 a 12 y casi todos los programas del curso usan alguno de ellos. Los pines nuevos de cada reto están en la sección **Pines por reto** (más abajo); hay que mirarla **antes de llenar la Hoja A**.
+
 **Qué más tiene cada reto**
 
-1. **Aviso de riego.** *Cuidado:* la pantalla y el semáforo juntos ocupan mucho protoboard; el instructor revisa. *La parte propia:* la planta (¿qué humedad le conviene?) y los umbrales.
-2. **Tinaco.** *Cuidado:* el **agua queda lejos** de la placa. Si se resuelve V1, la «bomba» puede pasar del LED al motor con el circuito de la Sesión 9 **sin cambiar el programa**. *La parte propia:* los dos niveles y qué hace la «bomba».
-3. **Alarma de casa.** *Cuidado:* el programa del curso espera **60 segundos** de calentamiento del PIR (Sesión 4; el tiempo real se comprueba en V8) y sus perillas se ponen al mínimo para las pruebas. *La parte propia:* el tiempo de salida, el código de desarme y los mensajes.
-4. **Termostato.** *Cuidado:* el DHT11 solo da **números enteros** (resolución de 1 °C y precisión de ± 2 °C, Sesión 10), así que una histéresis de 1 °C es **un solo escalón**: se usan **2 °C**. *La parte propia:* el límite (¿qué temperatura necesita un pollito o una lechuga?) y la histéresis.
-5. **Barrera con contador.** *Cuidado:* el HC-SR04 usa **dos pines**; con la pantalla hay que **mover el ECHO** (ver el mapa de pines). *La parte propia:* el cupo y la distancia a la que se abre.
-6. **Semáforo peatonal.** *Cuidado:* para cambiar el brillo hay que usar **pines con ~** (3, 5 y 6 si hay pantalla; 9, 10 y 11 si no la hay). *La parte propia:* los tiempos y el brillo.
+1. **Aviso de riego.** *Cuidado:* con la pantalla **cambian de pin los tres LED y el zumbador** (los cuatro chocan con la pantalla); además, la pantalla y el semáforo juntos ocupan mucho protoboard y el instructor revisa. *La parte propia:* la planta (¿qué humedad le conviene?) y los umbrales.
+2. **Tinaco.** *Cuidado:* el **agua queda lejos** de la placa. Con la pantalla **cambian de pin los LED, el zumbador y la «bomba»** (el 5 lo ocupa ahora el LED amarillo, así que la «bomba» pasa al 13). Si se resuelve V1, la «bomba» puede pasar del LED al motor con el circuito de la Sesión 9 **sin cambiar el programa**. *La parte propia:* los dos niveles y qué hace la «bomba».
+3. **Alarma de casa.** *Cuidado:* el programa del curso espera **60 segundos** de calentamiento del PIR (Sesión 4; el tiempo real se comprueba en V8) y sus perillas se ponen al mínimo para las pruebas. Con la pantalla **cambian de pin el PIR, el LED y el zumbador**; solo el botón se queda en el 2. En la versión completa, la pantalla se escribe **solo cuando cambia el estado** (regla 9 del mapa de pines). *La parte propia:* el tiempo de salida, el código de desarme y los mensajes.
+4. **Termostato.** *Cuidado:* el DHT11 solo da **números enteros** (resolución de 1 °C y precisión de ± 2 °C, Sesión 10), así que una histéresis de 1 °C es **un solo escalón**: se usan **2 °C**. Es el **único reto que no cambia ningún pin** al agregar la pantalla, pero usa **los dos potenciómetros del kit** (uno para el contraste y otro para el límite): no sobra ninguno. *La parte propia:* el límite (¿qué temperatura necesita un pollito o una lechuga?) y la histéresis.
+5. **Barrera con contador.** *Cuidado:* el HC-SR04 usa **dos pines** y el servo, el zumbador y el LED uno cada uno: con la pantalla **cambian cuatro de los cinco pines** del programa del curso (ECHO, servo, zumbador y LED; solo el TRIG, en el 6, se queda). La versión completa agrega un LED de «cupo lleno» y un botón de reinicio del contador. *La parte propia:* el cupo y la distancia a la que se abre.
+6. **Semáforo peatonal.** *Cuidado:* para cambiar el brillo hay que usar **pines con ~**. Los pines con ~ son 3, 5, 6, 9, 10 y 11, pero `tone()` (el zumbador) le quita el ~ al 3 y al 11: quedan **5, 6, 9 y 10**. El semáforo del curso usa el 8 para el rojo y **el 8 no tiene ~**: el rojo se mueve al 5. Este reto **no lleva pantalla**. Pon el LDR **lejos de los LED** (si los LED lo iluminan, se repite la retroalimentación de la Sesión 6). *La parte propia:* los tiempos y el brillo.
 7. **Reto libre.** Debe tener **al menos una entrada, una decisión que recuerde un estado y una salida**, y pasar la revisión de seguridad. Ejemplos: un semáforo con sonido para personas ciegas; un medidor de distancia con escala en LED; un reloj de aula con la pantalla (con `millis()`).
 
 ## Mapa de pines
@@ -112,11 +114,11 @@ Lo que **usó cada sesión** y lo que **queda libre cuando se usa la pantalla LC
 | 5 (~) | Carga: motor o «ventilador» o «bomba» (Sesiones 9, 12 y 13) | **Libre** | PWM |
 | 6 (~) | TRIG del HC-SR04 | **Libre** | PWM |
 | 7 | PIR; ECHO del HC-SR04 | **Pantalla (D7)** | El PIR y el ECHO se mueven a otro pin libre |
-| 8 | LED rojo | **Pantalla (D6)** | Los LED se mueven a 3, 4, 5 o 6 |
+| 8 | LED rojo | **Pantalla (D6)** | Los LED se mueven (por ejemplo, a 4, 5 y 6; ver **Pines por reto**) |
 | 9 (~) | LED amarillo / LED con PWM; servo | **Pantalla (D5)** | El servo se mueve a otro pin libre |
 | 10 (~) | LED verde | **Pantalla (D4)** | |
 | 11 (~) | — | **Pantalla (E)** | |
-| 12 | Zumbador | **Pantalla (RS)** | El zumbador se mueve a otro pin libre |
+| 12 | Zumbador | **Pantalla (RS)** | El zumbador se mueve (por ejemplo, al 3; `tone()` funciona en cualquier pin) |
 | 13 | LED integrado «L» (Sesión 1) | **Libre** | El LED «L» parpadea al subir un programa |
 | A0 | Sensor principal (perilla, LDR, termistor, DHT11, suelo, agua) | **Libre** | |
 | A1 | Segunda perilla (Sesiones 6 y 12) | **Libre** | |
@@ -125,19 +127,106 @@ Lo que **usó cada sesión** y lo que **queda libre cuando se usa la pantalla LC
 **Reglas para combinar** (las hojas de datos y las pruebas de las sesiones anteriores)
 
 1. **Un pin, una función.** Antes de armar, llena la tabla de pines de la Hoja A y **busca los repetidos**.
-2. **La pantalla ocupa 7 a 12.** Se declara `LiquidCrystal lcd(12, 11, 10, 9, 8, 7);` (la de la Sesión 11). Todo lo demás se acomoda en 2 a 6, 13 y A0 a A5.
+2. **La pantalla ocupa 7 a 12.** Se declara `LiquidCrystal lcd(12, 11, 10, 9, 8, 7);` (la de la Sesión 11). Todo lo demás se acomoda en 2 a 6, 13 y A0 a A5. **Solo se mueve lo que choca:** un pin del curso que queda libre con la pantalla se deja donde estaba. Los pines nuevos de cada reto están en **Pines por reto**.
 3. **El servo y los pines 9 y 10.** La biblioteca `Servo` le quita el PWM a los pines **9 y 10**. Si se usa servo, el PWM va en 3, 5 o 6. El servo puede ir en **cualquier pin**.
-4. **`tone()` y los pines 3 y 11.** `tone()` interfiere con el PWM de esos dos pines, y **solo suena un tono a la vez**. Si hay zumbador y LED con brillo, el brillo va en el 5 o el 6.
+4. **`tone()` y los pines 3 y 11.** `tone()` interfiere con el PWM de esos dos pines, y **solo suena un tono a la vez**. Si hay zumbador y LED con brillo, el brillo va en un pin con ~ que `tone()` no toque: **5, 6, 9 o 10** sin pantalla, y solo **5 o 6** con pantalla (el 9, el 10 y el 11 son de la pantalla).
 5. **El DHT11 de este curso solo funciona en A0 a A5.** Su código usa el puerto C: se cambia `#define DHT11_PIN 0` (A0) por 1 (A1), 2 (A2)… No funciona en los pines digitales 2 a 13.
 6. **`delay()` largo bloquea todo.** Mientras dura, el programa no lee ni el botón ni el sensor. Se usan esperas cortas (medio segundo como máximo) o `millis()` (Sesión 11 y `P08_alarma_completa`).
 7. **El 5 V y el GND son comunes.** Todo el proyecto comparte los rieles. Si la **pantalla parpadea** o **la placa se reinicia** cuando se mueve el servo, falta corriente del USB (V9): se prueba sin el servo o con otro cable USB.
 8. **El motor sigue bloqueado** (V1): la carga es un **LED con 220 Ω**.
+9. **Escribe en la pantalla solo cuando algo cambió.** `lcd.clear()` en cada vuelta hace que la pantalla **parpadee**. Se escribe en una posición fija (`lcd.setCursor`) y se sobrescribe con espacios, como en `P22_estacion_clima`, o solo cuando cambia el estado (por ejemplo, de ARMADA a ALARMA). Cada `lcd.print` tarda un poco: en un programa con vuelta de 10 ms, como `P08_alarma_completa`, escribir en cada vuelta la alarga.
+
+## Pines por reto
+
+Cuando un proyecto lleva **pantalla** (que ocupa los pines 7 a 12), los programas del curso que se juntan con ella tienen pines que chocan. **Solo se mueve lo que choca.** En cada tabla, «Pin en el curso» es el del sketch original y «Pin en el proyecto» es el que se usa al juntarlo con `P21_lcd_hola`. En el código se cambia **un solo número**, el de la constante de arriba (por ejemplo, `const int LED_ROJO = 4;`): el resto del programa usa el nombre y no hay que tocarlo.
+
+**Cómo se comprobaron.** Se armó en código la **versión completa** de cada reto con estos pines. Los seis compilan para Arduino UNO sin errores ni avisos, y un verificador revisó que no haya pines repetidos, que no se use el 0 ni el 1, que todo `analogWrite` esté en un pin con ~ y que `tone()` y `Servo` no le quiten el PWM. **No se probaron con cables ni en la placa** (V8, V9 y V13 siguen pendientes). Son combinaciones del instructor: no están en `sketches/`, para que cada equipo arme la suya.
+
+**Reto 1 · Aviso de riego** (`P24_zumbador_seco` + `P21_lcd_hola`)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| Sensor de suelo (S) | A0 | A0 (igual) |
+| LED rojo | 8 | **4** |
+| LED amarillo | 9 | **5** |
+| LED verde | 10 | **6** |
+| Zumbador pasivo (con 220 Ω) | 12 | **3** |
+| Botón «silenciar» (versión completa) | 2 | 2 (igual) |
+| Pantalla LCD1602 | no lleva | 12, 11, 10, 9, 8, 7 |
+
+*Quedan libres:* 13 y A1 a A5.
+
+**Reto 2 · Tinaco con alarma y bomba simulada** (`P25_nivel_agua` + `P25_bomba_simulada` + `P21_lcd_hola`)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| Sensor de nivel (S) | A0 | A0 (igual) |
+| LED rojo / amarillo / verde | 8 / 9 / 10 | **4 / 5 / 6** (el mismo semáforo del reto 1) |
+| Zumbador pasivo (con 220 Ω) | 12 | **3** |
+| «Bomba» (LED con 220 Ω; con el motor, la base del PN2222 con 330 Ω) | 5 | **13** |
+| Pantalla LCD1602 | no lleva | 12, 11, 10, 9, 8, 7 |
+
+*Nota:* el 5 lo ocupa ahora el LED amarillo, por eso la «bomba» pasa al 13. El LED integrado «L» de la placa se enciende junto con la «bomba» (es el mismo pin). *Quedan libres:* 2 y A1 a A5.
+
+**Reto 3 · Alarma de casa** (`P08_alarma_pir` o `P08_alarma_completa` + `P21_lcd_hola`)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| Sensor PIR (OUT) | 7 | **5** |
+| Botón (arma y desarma) | 2 | 2 (igual) |
+| LED «armada» | 8 | **4** |
+| Zumbador pasivo (con 220 Ω) | 12 | **3** |
+| Pantalla LCD1602 | no lleva | 12, 11, 10, 9, 8, 7 |
+
+*Quedan libres:* 6, 13 y A0 a A5.
+
+**Reto 4 · Termostato de invernadero o gallinero** (`P22_estacion_clima` + `P23_ventilador_automatico` + `P21_lcd_hola`)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| DHT11 (S) | A0 | A0 (igual; el DHT11 solo funciona en A0 a A5) |
+| Perilla del límite | A1 | A1 (igual) |
+| «Ventilador» (LED con 220 Ω; con el motor, la base del PN2222 con 330 Ω) | 5 | 5 (igual) |
+| Pantalla LCD1602 | 12, 11, 10, 9, 8, 7 | 12, 11, 10, 9, 8, 7 (igual) |
+
+**Ningún pin cambia.** Aquí el DHT11 reemplaza al termistor de `P23`: la temperatura llega como número entero (`byte`) y se compara igual con el límite. *Usa los dos potenciómetros del kit* (contraste y límite). *Quedan libres:* 2, 3, 4, 6, 13 y A2 a A5.
+
+**Reto 5 · Barrera de estacionamiento con contador** (`P16_barrera_automatica` + `P16_contador_vehiculos` + `P21_lcd_hola`)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| HC-SR04 · TRIG | 6 | 6 (igual) |
+| HC-SR04 · ECHO | 7 | **5** |
+| Servo (señal) | 9 | **4** |
+| Zumbador pasivo (con 220 Ω) | 12 | **3** |
+| LED verde «barrera abierta» | 8 | **2** |
+| LED rojo «cupo lleno» (versión completa) | no lleva | **13** |
+| Botón de reinicio del contador (versión completa) | no lleva | **A1** (`pinMode(A1, INPUT_PULLUP);`) |
+| Pantalla LCD1602 | no lleva | 12, 11, 10, 9, 8, 7 |
+
+*Cambian cuatro de los cinco pines del programa del curso.* Los pines A1 a A5 también sirven como pines digitales. *Quedan libres:* A0, A2 a A5.
+
+**Reto 6 · Semáforo peatonal** (`P06_semaforo_con_boton` + `P12_lampara_automatica`; **sin pantalla**)
+
+| Pieza | Pin en el curso | Pin en el proyecto |
+|---|---|---|
+| LED rojo | 8 (no tiene ~) | **5** (con ~) |
+| LED amarillo | 9 | 9 (igual, con ~) |
+| LED verde | 10 | 10 (igual, con ~) |
+| Botón del peatón | 2 | 2 (igual) |
+| Sensor de luz (LDR + 10 kΩ) | A0 | A0 (igual) |
+| Zumbador (pitido peatonal) | 12 | 12 (igual) |
+| Perilla (brillo mínimo o máximo, opcional) | A1 | A1 (igual) |
+
+*Solo cambia el rojo*, porque necesita ~ para regular el brillo y el 8 no lo tiene. Los tres LED quedan en 5, 9 y 10, que conservan el PWM aunque suene el zumbador. Con el reto 6 **sin** pantalla sobran 3, 4, 6, 7, 8, 11 y 13.
+
+**Reto 7 · Reto libre.** Se parte de `Proyecto_plantilla` (entrada en A0, salida en el 5). Si lleva pantalla, esos dos pines ya están libres; los demás se acomodan con las reglas del mapa de pines.
 
 ## Cómo juntar dos sketches
 
 1. **Abre los dos** y **uno nuevo** (guárdalo con el nombre del proyecto, en una carpeta propia: un solo `.ino` por carpeta).
 2. **Copia** primero lo que es de **uno** y **pruébalo**. Después agrega el otro **poco a poco**, y prueba cada vez.
-3. **Los pines van arriba.** Copia las líneas `const int PIN_…` y **cambia los que choquen** con el mapa de pines.
+3. **Los pines van arriba.** Copia las líneas `const int PIN_…` y **cambia los que choquen** (tabla de **Pines por reto**). El número se cambia **solo en esa línea**: el resto del programa usa el nombre.
 4. **Los `#include` y los objetos** (`Servo`, `LiquidCrystal`) se copian una sola vez, arriba.
 5. **El `setup()` se junta**: todas las líneas de los dos `setup()`, en **un** solo `setup()`.
 6. **El `loop()` es el que se piensa**: es la receta **medir → decidir → actuar → mostrar** (ver la plantilla). No se pegan dos `loop()` uno tras otro: se **mezclan los pasos** de los dos.
@@ -208,18 +297,23 @@ Un equipo atorado **no necesita la solución, necesita una pregunta**. Las que m
 | HC-SR04 | | PIR | |
 | Cables macho-macho | | Cables macho-hembra | |
 
-**4. Tabla de pines** *(un pin, una función; revisa el mapa de pines de la guía)*
+**4. Tabla de pines** *(un pin, una función; revisa el mapa de pines y **Pines por reto** de la guía)*
+
+**¿El proyecto lleva pantalla?** ☐ Sí → escribe «pantalla» en los pines 7 a 12 (7 = D7, 8 = D6, 9 = D5, 10 = D4, 11 = E, 12 = RS) ☐ No
 
 | Pin | Qué se conecta | Pin | Qué se conecta |
 |---|---|---|---|
-| 2 | | 13 | |
-| 3 | | A0 | |
-| 4 | | A1 | |
-| 5 | | A2 | |
-| 6 | | A3 | |
-| 7 | | A4 | |
-| 8 | | A5 | |
-| 9 – 12 | | | |
+| 2 | | 8 | |
+| 3 | | 9 | |
+| 4 | | 10 | |
+| 5 | | 11 | |
+| 6 | | 12 | |
+| 7 | | 13 | |
+| A0 | | A3 | |
+| A1 | | A4 | |
+| A2 | | A5 | |
+
+Pines con **~** (para brillo con `analogWrite`): 3, 5, 6, 9, 10 y 11. El servo le quita el ~ al 9 y al 10; `tone()` (el zumbador), al 3 y al 11.
 
 ¿Se repite algún pin? ☐ No ☐ Sí → ¿cómo se resolvió? ________________________________
 
@@ -239,7 +333,8 @@ Un equipo atorado **no necesita la solución, necesita una pregunta**. Las que m
 
 **Revisión previa del instructor** *(antes de conectar la corriente)*
 
-- ☐ Sin pines repetidos y sin pines 0 y 1.
+- ☐ Sin pines repetidos y sin pines 0 y 1. Con pantalla, **nada más usa los pines 7 a 12**.
+- ☐ Todo lo que lleva brillo (`analogWrite`) está en un pin con ~ que ni el servo ni `tone()` le quiten.
 - ☐ Todo el equipo está en el kit (nada de piezas que no hay).
 - ☐ Cada LED tiene su resistencia de 220 Ω; el zumbador pasivo, la suya.
 - ☐ Solo 5 V; agua (si hay) lejos de la placa y de los cables.
@@ -352,6 +447,7 @@ Haz **un reto completo** como lo haría un equipo (por ejemplo, el 1 o el 3) y l
 | Reto que hiciste y versión (mínima o completa) | |
 | Tiempo real de la **hoja de diseño** y del **armado** | |
 | ¿Hubo pines repetidos al juntar sketches? ¿Cuáles? | |
+| ¿La tabla de **Pines por reto** del reto que hiciste coincide con lo que armaste? ¿Algún componente no funcionó en el pin nuevo? | |
 | ¿La **pantalla** más los demás componentes **caben** en el protoboard sin estorbarse? ¿En cuántas columnas? | |
 | ¿La pantalla parpadea o la placa se reinicia con el servo y la pantalla juntos (V9)? | |
 | ¿Se pudo juntar los sketches sin errores de nombres repetidos? ¿Cuántas veces compiló mal antes de funcionar? | |
@@ -365,6 +461,7 @@ Haz **un reto completo** como lo haría un equipo (por ejemplo, el 1 o el 3) y l
 
 ## Para recompilar o regenerar
 
-- El sketch `Proyecto_plantilla` se verifica con `curso-arduino/compilar-sketches.ps1`, igual que los demás. Los sketches que se juntan en cada reto son los de las sesiones anteriores, **con sus pines tal como están**: al combinarlos, **los equipos cambian los pines que choquen** (mapa de pines).
+- El sketch `Proyecto_plantilla` se verifica con `curso-arduino/compilar-sketches.ps1`, igual que los demás. Los sketches que se juntan en cada reto son los de las sesiones anteriores, **con sus pines tal como están**: al combinarlos, **los equipos cambian los pines que choquen** (tabla de **Pines por reto**).
 - Estas Sesiones **no tienen diagrama propio**: cada equipo hace el suyo en la Hoja A. Los diagramas de cada pieza están en las guías de las Sesiones 1 a 13.
-- Cosas que **no** están verificadas: que seis proyectos con pantalla quepan en la visita (tiempo de armado), que `P08_alarma_pir` con el PIR en otro pin funcione igual (solo cambia la constante), que las combinaciones de sketches compilen sin conflictos de nombres (no se han juntado todas), que la histéresis de 2 °C con el DHT11 baste frente al ruido real, y que los **siete retos** sean los que interesan a los docentes de la prepa. Ninguno de los sketches se ha probado en la placa.
+- **Verificado el 17 nov:** las tablas de **Pines por reto** se comprobaron armando en código la versión completa de los retos 1 a 6 con esos pines: compilan sin errores ni avisos para Arduino UNO (incluidas las que juntan `Servo` y `LiquidCrystal` o el DHT11 y la pantalla), sin pines repetidos y sin choques de PWM con `tone()` ni `Servo`. Con los pines originales del curso, la barrera del reto 5 chocaba en **cuatro** pines con la pantalla (7, 8, 9 y 12). Esas combinaciones son del instructor y no están en `sketches/`.
+- Cosas que **no** están verificadas: que seis proyectos con pantalla quepan en la visita (tiempo de armado), que el PIR, el HC-SR04, el servo y el DHT11 funcionen igual en los pines nuevos (solo cambia la constante, pero no se probó con cables), que la histéresis de 2 °C con el DHT11 baste frente al ruido real, y que los **siete retos** sean los que interesan a los docentes de la prepa. Ninguno de los sketches se ha probado en la placa.

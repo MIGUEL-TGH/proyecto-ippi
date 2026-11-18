@@ -5,13 +5,15 @@
 **Relacionado:** `hallazgos-ajuste-curso.md` · `plan-curso-arduino.md` (secuencia del curso, 16 nov)
 
 > **Actualización 16 nov 2026:** el orden de prácticas del curso ya no es el de la sección 6 sino el de `plan-curso-arduino.md`. Esta revisión sigue valiendo como inventario, como lista de problemas del fabricante (sección 4) y como guía de las lecciones del kit que no entran en la secuencia principal (ampliaciones y proyecto final).
+>
+> **Actualización 17 nov 2026:** cómo dejar listas las computadoras del aula (IDE, núcleo AVR, bibliotecas, sketches y prueba) está en `preparacion-computadoras.md`.
 
 ## 1. Conclusiones principales
 
 1. **El kit alcanza para el curso actual**, con dos excepciones: no trae TMP36 ni ventilador de PC (sí trae termistor NTC, DHT11 y motor 3–6 V con aspa).
 2. **Trae mucho más de lo que usa el curso:** 31 lecciones con código. Hay sensores con valor para una comunidad rural (humedad de suelo, nivel de agua, temperatura y humedad, movimiento, gas) que hoy no aparecen en ninguno de los materiales.
 3. **Usa el código `.ino` y el tutorial en inglés, no el tutorial en español.** El español es traducción automática y corrompe el código impreso (sección 4).
-4. **Los 33 sketches del kit compilan sin errores** (verificado el 16 nov con el `arduino-cli` 1.6.0 que trae Arduino IDE 2.x, placa Arduino UNO, núcleo `arduino:avr` 1.8.8, y las 7 librerías del kit). Compilar no prueba el circuito: falta probarlos con la placa conectada. El IDE ya está instalado en la PC de Miguel.
+4. **Los 33 sketches del kit compilan sin errores** (verificado el 16 nov con el `arduino-cli` 1.6.0 que trae Arduino IDE 2.x, placa Arduino UNO, núcleo `arduino:avr` 1.8.8, y las 7 librerías del kit instaladas en una carpeta aislada de prueba; **en la PC de Miguel esas 7 no quedaron instaladas**, ver `curso-arduino/librerias-kit.md`). Compilar no prueba el circuito: falta probarlos con la placa conectada. El IDE ya está instalado en la PC de Miguel.
 5. **Para varios alumnos se necesita un kit por equipo:** trae una sola placa y un solo módulo de cada sensor. Hay 6 kits; cada uno lo usarán 2–3 alumnos.
 
 ## 2. Qué contiene la carpeta `kit-arduino/`
@@ -173,8 +175,8 @@ Para A8, A9, A10, A12 y A13 no existe código en el kit. **Ya están escritos y 
 ## 8. Pendientes
 
 - [x] ~~Instalar Arduino IDE (o arduino-cli) para compilar los sketches~~ → hecho; se usa el `arduino-cli` incluido en el IDE.
-- [x] ~~Compilar los sketches del kit y los nuevos~~ → 33/33 del kit y 44/44 nuevos (30 de la secuencia y 14 soluciones de retos) sin errores.
+- [x] ~~Compilar los sketches del kit y los nuevos~~ → 33/33 del kit y **66/66** nuevos (30 de la secuencia, 35 soluciones de retos y la plantilla del proyecto final) sin errores ni avisos (17 nov).
 - [ ] Probar con la placa y anotar tiempos y dudas (ahora en el orden del curso: `plan-curso-arduino.md`, sección 11).
 - [x] ~~Decidir qué práctica de los bloques B y C entran al curso~~ → decidido en el plan (humedad de suelo, nivel de agua, DHT11, LCD y PIR entran; el resto queda como ampliación).
-- [ ] Confirmar si habrá computadoras e internet (H9 en `hallazgos-ajuste-curso.md`). Ya se sabe que son 6 kits con 2–3 alumnos cada uno.
+- [x] ~~Confirmar si habrá computadoras~~ → hay **6 computadoras** (una por kit; 16 nov) y 6 kits con 2–3 alumnos cada uno (H9 en `hallazgos-ajuste-curso.md`). **El internet sigue sin confirmar** y el plan no lo necesita. Falta la versión de Windows y los permisos de esas computadoras: `preparacion-computadoras.md`.
 - [ ] Decidir si se compran potenciómetros con perilla (F8); el plan los recomienda (sección 10).
