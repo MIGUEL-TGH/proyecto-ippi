@@ -3,6 +3,8 @@
 **Para qué sirve:** llevar el registro de qué guías ya están generadas y hasta dónde ha llegado Miguel con su práctica. Miguel avisa cómo avanza («ya hice la Sesión 5», «en P10 pasó tal cosa») y se actualiza este archivo; los hallazgos se aplican después a las guías, los sketches y los diagramas.
 **Última actualización:** 2026-11-17 (archivo creado; **guías de las sesiones 5 a 16 listas**, plan y conteos al día; falta que Miguel practique las sesiones 5 a 16 y avise lo que encuentre). **Revisión del 17 nov:** tablas de pines por reto con pantalla en `S14-16-proyecto-final.md`, `compilar-sketches.ps1` arreglado y guía `preparacion-computadoras.md`
 
+**Presentación (24 nov):** `curso-arduino/presentacion/Curso-Arduino-presentacion.pptx` (573 láminas en 19 secciones, sobre la plantilla `cursos-arduino.pptx`; sale de las guías con `construye.py`). **Cuando una guía cambie por tu práctica, se regenera la presentación** (ver `curso-arduino/presentacion/LEEME.md`). Conviene que la revises completa y la pruebes proyectada.
+
 ## Cómo avisar
 
 - **«Ya hice la Sesión N»** sin más: se anota como hecha, sin hallazgos.
